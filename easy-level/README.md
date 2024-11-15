@@ -1,4 +1,4 @@
-The list of solved problems for easy level:
+### The list of solved problems for easy level:
 
 1. //
 2. //
