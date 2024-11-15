@@ -1,7 +1,8 @@
 ### The list of solved problems for easy level:
 
-| #  | Problem Name     | Description                                     | Solution File                                               | Tests File                                                          |
-|----|------------------|-------------------------------------------------|-------------------------------------------------------------|---------------------------------------------------------------------|
-| 1  | Two Sum          | https://leetcode.com/problems/two-sum/          | [TwoSum.java](src/main/java/com/sinuke/TwoSum.java)         | [TwoSumTest.java](src/test/java/com/sinuke/TwoSumTest.java)         |
-| 13 | Roman to Integer | https://leetcode.com/problems/roman-to-integer/ | [RomanToInt.java](src/main/java/com/sinuke/RomanToInt.java) | [RomanToIntTest.java](src/test/java/com/sinuke/RomanToIntTest.java) |
-| 66 | Plus One         | https://leetcode.com/problems/plus-one/         | [PlusOne.java](src/main/java/com/sinuke/PlusOne.java)       | [PlusOneTest.java](src/test/java/com/sinuke/PlusOneTest.java)       |
+| #  | Problem Name      | Description                                      | Solution File                                                           | Tests File                                                                      |
+|----|-------------------|--------------------------------------------------|-------------------------------------------------------------------------|---------------------------------------------------------------------------------|
+| 1  | Two Sum           | https://leetcode.com/problems/two-sum/           | [TwoSum.java](src/main/java/com/sinuke/TwoSum.java)                     | [TwoSumTest.java](src/test/java/com/sinuke/TwoSumTest.java)                     |
+| 9  | Palindrome Number | https://leetcode.com/problems/palindrome-number/ | [PalindromeNumber.java](src/main/java/com/sinuke/PalindromeNumber.java) | [PalindromeNumberTest.java](src/test/java/com/sinuke/PalindromeNumberTest.java) |
+| 13 | Roman to Integer  | https://leetcode.com/problems/roman-to-integer/  | [RomanToInt.java](src/main/java/com/sinuke/RomanToInt.java)             | [RomanToIntTest.java](src/test/java/com/sinuke/RomanToIntTest.java)             |
+| 66 | Plus One          | https://leetcode.com/problems/plus-one/          | [PlusOne.java](src/main/java/com/sinuke/PlusOne.java)                   | [PlusOneTest.java](src/test/java/com/sinuke/PlusOneTest.java)                   |
