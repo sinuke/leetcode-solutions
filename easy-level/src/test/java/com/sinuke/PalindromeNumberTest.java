@@ -1,19 +1,28 @@
 package com.sinuke;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import java.util.stream.Stream;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class PalindromeNumberTest {
 
-    @Test
-    void isPalindrome() {
+    @ParameterizedTest
+    @MethodSource("testData")
+    void isPalindrome(int input, boolean expected) {
         var palindrome = new PalindromeNumber();
+        assertEquals(expected, palindrome.isPalindrome(input));
+    }
 
-        assertTrue(palindrome.isPalindrome(121));
-        assertFalse(palindrome.isPalindrome(-121));
-        assertFalse(palindrome.isPalindrome(10));
+    private static Stream<Arguments> testData() {
+        return Stream.of(
+                Arguments.of(121, true),
+                Arguments.of(-121, false),
+                Arguments.of(10, false)
+        );
     }
 
 }

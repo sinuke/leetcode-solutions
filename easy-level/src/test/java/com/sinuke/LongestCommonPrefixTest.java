@@ -1,17 +1,27 @@
 package com.sinuke;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class LongestCommonPrefixTest {
 
-    @Test
-    void longestCommonPrefix() {
+    @ParameterizedTest
+    @MethodSource("testData")
+    void longestCommonPrefix(String[] input, String expected) {
         var longestCommonPrefix = new LongestCommonPrefix();
+        assertEquals(expected, longestCommonPrefix.longestCommonPrefix(input));
+    }
 
-        assertEquals("fl", longestCommonPrefix.longestCommonPrefix(new String[]{"flower","flow","flight"}));
-        assertEquals("", longestCommonPrefix.longestCommonPrefix(new String[]{"dog","racecar","car"}));
+    private static Stream<Arguments> testData() {
+        return Stream.of(
+                Arguments.of(new String[] {"flower","flow","flight"}, "fl"),
+                Arguments.of(new String[] {"dog","racecar","car"}, "")
+        );
     }
 
 }

@@ -14,7 +14,6 @@ class LengthOfLastWordTest {
     @MethodSource("testData")
     void lengthOfLastWord(String input, int expected) {
         var lengthOfLastWord = new LengthOfLastWord();
-
         assertEquals(expected, lengthOfLastWord.lengthOfLastWord(input));
     }
 
