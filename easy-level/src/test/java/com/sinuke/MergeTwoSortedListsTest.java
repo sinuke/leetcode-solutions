@@ -26,12 +26,13 @@ class MergeTwoSortedListsTest {
         return Stream.of(
                 Arguments.of(createList(1, 2, 4), createList(1, 3, 4), createList(1, 1, 2, 3, 4, 4)),
                 Arguments.of(createList(), createList(), createList()),
-                Arguments.of(createList(), createList(0), createList(0))
+                Arguments.of(createList(), createList(0), createList(0)),
+                Arguments.of(createList(1, 4, 5, 7), createList(3, 6, 10, 11), createList(1, 3, 4, 5, 6, 7, 10, 11))
         );
     }
 
     private static MergeTwoSortedLists.ListNode createList(int... values) {
-        if (values.length == 0) return new MergeTwoSortedLists.ListNode();
+        if (values.length == 0) return null;
 
         var head = new MergeTwoSortedLists.ListNode(values[0]);
         var previous = head;
