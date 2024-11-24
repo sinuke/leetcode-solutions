@@ -1,0 +1,35 @@
+plugins {
+    id 'com.adarshr.test-logger' version '4.0.0'
+}
+
+allprojects {
+
+    apply plugin: 'java'
+    apply plugin: 'com.adarshr.test-logger'
+
+    java {
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
+    }
+
+    group = 'com.sinuke.leetcode'
+    version = '1.0'
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        testImplementation platform('org.junit:junit-bom:5.10.0')
+        testImplementation 'org.junit.jupiter:junit-jupiter'
+        testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    }
+
+    test {
+        useJUnitPlatform()
+        testlogger {
+            theme 'mocha'
+        }
+    }
+
+}
