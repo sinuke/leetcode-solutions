@@ -17,6 +17,9 @@ dependencies {
 
 test {
     useJUnitPlatform()
+    testlogger {
+        theme 'mocha'
+    }
 }
 
 tasks.register("prepareKotlinBuildScriptModel"){}
