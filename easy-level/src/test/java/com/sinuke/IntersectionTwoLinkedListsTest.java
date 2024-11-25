@@ -28,6 +28,25 @@ class IntersectionTwoLinkedListsTest {
         // then
         assertArrayEquals(intersectionArray, resultArray);
     }
+
+    @ParameterizedTest
+    @MethodSource("testData")
+    void getIntersectionNodeTwoPointers(IntersectionTwoLinkedLists.ListNode headA, IntersectionTwoLinkedLists.ListNode headB, IntersectionTwoLinkedLists.ListNode intersection) {
+        // given
+        var intersectionTwoLinkedLists = new IntersectionTwoLinkedLists();
+        if (intersection != null) {
+            addIntersection(headA, intersection);
+            addIntersection(headB, intersection);
+        }
+
+        // when
+        var result = intersectionTwoLinkedLists.getIntersectionNodeTwoPointers(headA, headB);
+        int[] intersectionArray = extractValues(intersection);
+        int[] resultArray = extractValues(result);
+
+        // then
+        assertArrayEquals(intersectionArray, resultArray);
+    }
     
     private static Stream<Arguments> testData() {
         return Stream.of(
