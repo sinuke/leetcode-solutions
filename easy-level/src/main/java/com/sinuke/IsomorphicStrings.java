@@ -1,32 +1,24 @@
 package com.sinuke;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class IsomorphicStrings {
 
     public boolean isIsomorphic(String s, String t) {
-        Map<Character, Character> map1 = new HashMap<>();
-        Map<Character, Character> map2 = new HashMap<>();
-        var result = true;
-        var i = 0;
-        
-        while (i < s.length() && result) {
-            var sChar = s.charAt(i);
-            var tChar = t.charAt(i);
-            
-            if (!map1.containsKey(sChar) && !map2.containsKey(tChar)) {
-                map1.put(sChar, tChar);
-                map2.put(tChar, sChar);
-            } else if (map1.containsKey(sChar) && !map2.containsKey(tChar)) result = false;
-            else if (!map1.containsKey(sChar) && map2.containsKey(tChar)) result = false;
-            else if (map1.containsKey(sChar) && map1.get(sChar) != tChar) result = false;
-            else if (map2.containsKey(tChar) && map2.get(tChar) != sChar) result = false;
-            
-            i++;
+        int[] sChars = new int[96];
+        int[] tChars = new int[96];
+        int sChar;
+        int tChar;
+
+        for (int i = 0; i < s.length(); i++) {
+            sChar = s.charAt(i) - 32;
+            tChar = t.charAt(i) - 32;
+
+            if (sChars[sChar] != tChars[tChar]) return false;
+
+            sChars[sChar] = i + 1;
+            tChars[tChar] = i + 1;
         }
-        
-        return result;
+
+        return true;
     }
     
 }

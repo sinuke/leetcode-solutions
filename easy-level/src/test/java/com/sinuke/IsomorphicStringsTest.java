@@ -24,7 +24,8 @@ class IsomorphicStringsTest {
                 Arguments.of("foo", "bar", false),
                 Arguments.of("paper", "title", true),
                 Arguments.of("badc", "baba", false),
-                Arguments.of("bbbaaaba", "aaabbbba", false)
+                Arguments.of("bbbaaaba", "aaabbbba", false),
+                Arguments.of("aa", "ab", false)
         );
     }
     
