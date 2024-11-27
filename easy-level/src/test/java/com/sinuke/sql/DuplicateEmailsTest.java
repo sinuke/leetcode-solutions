@@ -1,15 +1,17 @@
 package com.sinuke.sql;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.provider.Arguments;
 
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.sql.Statement;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Stream;
 
 public class DuplicateEmailsTest extends SqlTestBase {
+    
+    private final Map<String, List<String>> expected = Map.of(
+            "Email", List.of("a@b.com")
+    );
 
     @Override
     public void setup(Statement statement)  throws Exception {
@@ -17,13 +19,11 @@ public class DuplicateEmailsTest extends SqlTestBase {
         statement.execute("RUNSCRIPT FROM 'classpath:/DuplicateEmails/data.sql'");
     }
 
-    @Test
-    void duplicateEmailsTest() throws Exception {
-        var sql =  Files.readString(Path.of("src/main/sql/DuplicateEmails.sql"));;
-        try (var statement = connection.createStatement(); var resultSet = statement.executeQuery(sql)) {
-            assertTrue(resultSet.next());
-            assertEquals("a@b.com", resultSet.getString("Email"));
-        }
+    @Override
+    protected Stream<Arguments> testData() {
+        return Stream.of(
+                Arguments.of("src/main/sql/DuplicateEmails.sql", expected, 1)
+        );
     }
-    
+
 }
