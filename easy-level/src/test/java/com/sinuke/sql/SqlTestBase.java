@@ -43,15 +43,25 @@ public abstract class SqlTestBase {
     
     @ParameterizedTest
     @MethodSource("testData")
-    void sqlQueryTest(String sqlPath, Map<String, List<String>> expected, int size) throws Exception {
+    void sqlQueryTest(String sqlPath, Map<String, List<Object>> expected, int size) throws Exception {
         var sql = Files.readString(Path.of(sqlPath));
-        try (var statement = connection.createStatement(); var resultSet = statement.executeQuery(sql)) {
-            for (int i = 0; i < size; i++) {
-                assertTrue(resultSet.next());
+        try (var statement = connection.createStatement()) {
+            var hasResultSet = statement.execute(sql);
+            while (hasResultSet) {
+                try (var resultSet = statement.getResultSet()) {
+                    for (int i = 0; i < size; i++) {
+                        assertTrue(resultSet.next());
 
-                for (var entry : expected.entrySet()) {
-                    assertEquals(entry.getValue().get(i), resultSet.getString(entry.getKey()));
+                        for (var entry : expected.entrySet()) {
+                            Object value = null;
+                            if (entry.getValue().get(i) instanceof String)  value = resultSet.getString(entry.getKey());
+                            else if (entry.getValue().get(i) instanceof Integer) value = resultSet.getInt(entry.getKey());
+
+                            assertEquals(entry.getValue().get(i), value);
+                        }
+                    }       
                 }
+                hasResultSet = statement.getMoreResults();
             }
         }
     }
