@@ -57,6 +57,7 @@ public abstract class SqlTestBase {
                             if (entry.getValue().get(i) instanceof String)  value = resultSet.getString(entry.getKey());
                             else if (entry.getValue().get(i) instanceof Integer) value = resultSet.getInt(entry.getKey());
                             else if (entry.getValue().get(i) instanceof Long) value = resultSet.getLong(entry.getKey());
+                            else if (entry.getValue().get(i) instanceof Boolean) value = resultSet.getBoolean(entry.getKey());
 
                             assertEquals(entry.getValue().get(i), value);
                         }
