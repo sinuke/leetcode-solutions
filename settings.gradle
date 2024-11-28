@@ -1,2 +1,4 @@
 rootProject.name = 'leetcode-solutions'
 include 'easy-level'
+include 'medium-level'
+
