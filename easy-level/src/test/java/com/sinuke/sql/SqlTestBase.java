@@ -27,7 +27,7 @@ public abstract class SqlTestBase {
     @BeforeAll
     protected final void basicSetup() throws Exception {
         var ds = new JdbcDataSource();
-        ds.setURL("jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;MODE=MYSQL");
+        ds.setURL("jdbc:h2:mem:test;DB_CLOSE_DELAY=-1");
         connection = ds.getConnection();
         try (var stmt = connection.createStatement()) {
             setup(stmt);
