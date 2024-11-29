@@ -5,6 +5,7 @@ LeetCode profile link: https://leetcode.com/u/sinuke/
 
 Solutions:
 * [easy level](easy-level/README.md)
+* [medium level](medium-level/README.md)
 
 Used:
 * Java 21
