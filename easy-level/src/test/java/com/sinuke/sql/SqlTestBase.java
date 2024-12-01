@@ -53,13 +53,17 @@ public abstract class SqlTestBase {
                         assertTrue(resultSet.next());
 
                         for (var entry : expected.entrySet()) {
-                            Object value = null;
-                            if (entry.getValue().get(i) instanceof String)  value = resultSet.getString(entry.getKey());
-                            else if (entry.getValue().get(i) instanceof Integer) value = resultSet.getInt(entry.getKey());
-                            else if (entry.getValue().get(i) instanceof Long) value = resultSet.getLong(entry.getKey());
-                            else if (entry.getValue().get(i) instanceof Boolean) value = resultSet.getBoolean(entry.getKey());
-                            else if (entry.getValue().get(i) instanceof Float) value = resultSet.getFloat(entry.getKey());
-                            else if (entry.getValue().get(i) instanceof Character) value = resultSet.getString(entry.getKey()).charAt(0);
+                            Object value;
+
+                            switch (entry.getValue().get(i)) {
+                                case Integer ignored -> value = resultSet.getInt(entry.getKey());
+                                case Long ignored -> value = resultSet.getLong(entry.getKey());
+                                case Float ignored -> value = resultSet.getFloat(entry.getKey());
+                                case Double ignored -> value = resultSet.getDouble(entry.getKey());
+                                case Boolean ignored -> value = resultSet.getBoolean(entry.getKey());
+                                case Character ignored -> value = resultSet.getString(entry.getKey()).charAt(0);
+                                case null, default -> value = resultSet.getString(entry.getKey());
+                            }
 
                             assertEquals(entry.getValue().get(i), value);
                         }
