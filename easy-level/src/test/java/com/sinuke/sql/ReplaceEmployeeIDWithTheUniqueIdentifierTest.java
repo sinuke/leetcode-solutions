@@ -11,8 +11,8 @@ import java.util.stream.Stream;
 public class ReplaceEmployeeIDWithTheUniqueIdentifierTest extends SqlTestBase {
 
     private final Map<String, List<Object>> expected = Map.of(
-            "unique_id", Arrays.asList(null, null, 2, 3, 1),
-            "name", List.of("Alice", "Bob", "Meir", "Winston", "Jonathan")
+            "unique_id", Arrays.asList(null, null, 1, 2, 3),
+            "name", List.of("Alice", "Bob", "Jonathan", "Meir", "Winston")
     );
 
     @Override
