@@ -1,0 +1,5 @@
+dependencies {
+    implementation platform('org.junit:junit-bom:5.10.0')
+    implementation 'org.junit.jupiter:junit-jupiter'
+    implementation 'com.h2database:h2:2.3.232'
+}
