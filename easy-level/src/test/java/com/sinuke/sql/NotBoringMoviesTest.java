@@ -13,7 +13,7 @@ public class NotBoringMoviesTest extends SqlTestBase {
             "id", List.of(5, 1),
             "movie", List.of("House card", "War"),
             "description", List.of("Interesting", "great 3D"),
-            "rating", List.of(9.1f, 8.9f)
+            "rating", List.of(9.1d, 8.9d)
     );
 
     @Override

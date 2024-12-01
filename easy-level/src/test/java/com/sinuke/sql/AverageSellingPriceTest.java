@@ -7,23 +7,23 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Stream;
 
-public class ProjectEmployeesITest extends SqlTestBase {
+public class AverageSellingPriceTest extends SqlTestBase {
 
     private final Map<String, List<Object>> expected = Map.of(
-            "project_id", List.of(1, 2),
-            "average_years", List.of(2.00d, 2.50d)
+            "product_id", List.of(1, 2),
+            "average_price", List.of(6.96d, 16.96d)
     );
 
     @Override
     public void setup(Statement statement) throws Exception {
-        statement.execute("RUNSCRIPT FROM 'classpath:/ProjectEmployeesI/schema.sql'");
-        statement.execute("RUNSCRIPT FROM 'classpath:/ProjectEmployeesI/data.sql'");
+        statement.execute("RUNSCRIPT FROM 'classpath:/AverageSellingPrice/schema.sql'");
+        statement.execute("RUNSCRIPT FROM 'classpath:/AverageSellingPrice/data.sql'");
     }
 
     @Override
     protected Stream<Arguments> testData() {
         return Stream.of(
-                Arguments.of("src/main/sql/ProjectEmployeesI.sql", expected, 2)
+                Arguments.of("src/main/sql/AverageSellingPrice.sql", expected, 2)
         );
     }
 
