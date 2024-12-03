@@ -23,7 +23,7 @@ public class CustomerWhoVisitedButDidNotMakeAnyTransactionsTest extends SqlTestB
     @Override
     protected Stream<Arguments> testData() {
         return Stream.of(
-                Arguments.of("src/main/sql/CustomerWhoVisitedButDidNotMakeAnyTransactions.sql", expected, 2)
+                Arguments.of("sql/CustomerWhoVisitedButDidNotMakeAnyTransactions.sql", expected, 2)
         );
     }
 

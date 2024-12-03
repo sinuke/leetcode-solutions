@@ -22,7 +22,7 @@ public class CustomerPlacingTheLargestNumberOfOrdersTest extends SqlTestBase {
     @Override
     protected Stream<Arguments> testData() {
         return Stream.of(
-                Arguments.of("src/main/sql/CustomerPlacingTheLargestNumberOfOrders.sql", expected, 1)
+                Arguments.of("sql/CustomerPlacingTheLargestNumberOfOrders.sql", expected, 1)
         );
     }
     

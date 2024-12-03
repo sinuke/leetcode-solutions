@@ -23,7 +23,7 @@ public class TopTravellersTest extends SqlTestBase {
     @Override
     protected Stream<Arguments> testData() {
         return Stream.of(
-                Arguments.of("src/main/sql/TopTravellers.sql", expected, 6)
+                Arguments.of("sql/TopTravellers.sql", expected, 6)
         );
     }
 

@@ -22,7 +22,7 @@ public class CustomersWhoNeverOrderTest extends SqlTestBase {
     @Override
     protected Stream<Arguments> testData() {
         return Stream.of(
-                Arguments.of("src/main/sql/CustomersWhoNeverOrder.sql", expected, 1)
+                Arguments.of("sql/CustomersWhoNeverOrder.sql", expected, 1)
         );
     }
 

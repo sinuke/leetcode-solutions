@@ -23,7 +23,7 @@ public class PercentageOfUsersAttendedContestTest extends SqlTestBase {
     @Override
     protected Stream<Arguments> testData() {
         return Stream.of(
-                Arguments.of("src/main/sql/PercentageOfUsersAttendedContest.sql", expected, 5)
+                Arguments.of("sql/PercentageOfUsersAttendedContest.sql", expected, 5)
         );
     }
 

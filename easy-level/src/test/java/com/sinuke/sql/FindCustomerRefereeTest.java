@@ -22,7 +22,7 @@ public class FindCustomerRefereeTest extends SqlTestBase {
     @Override
     protected Stream<Arguments> testData() {
         return Stream.of(
-                Arguments.of("src/main/sql/FindCustomerReferee.sql", expected, 4)
+                Arguments.of("sql/FindCustomerReferee.sql", expected, 4)
         );
     }
     

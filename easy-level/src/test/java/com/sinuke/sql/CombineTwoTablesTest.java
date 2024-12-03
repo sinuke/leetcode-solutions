@@ -26,7 +26,7 @@ public class CombineTwoTablesTest extends SqlTestBase {
     @Override
     protected Stream<Arguments> testData() {
         return Stream.of(
-                Arguments.of("src/main/sql/CombineTwoTables.sql", expected, 2)
+                Arguments.of("sql/CombineTwoTables.sql", expected, 2)
         );
     }
 

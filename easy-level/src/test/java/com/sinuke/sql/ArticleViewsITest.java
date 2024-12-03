@@ -22,7 +22,7 @@ public class ArticleViewsITest extends SqlTestBase {
     @Override
     protected Stream<Arguments> testData() {
         return Stream.of(
-                Arguments.of("src/main/sql/ArticleViewsI.sql", expected, 2)
+                Arguments.of("sql/ArticleViewsI.sql", expected, 2)
         );
     }
 

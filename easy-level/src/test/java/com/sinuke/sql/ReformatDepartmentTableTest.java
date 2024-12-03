@@ -35,7 +35,7 @@ public class ReformatDepartmentTableTest extends SqlTestBase {
     @Override
     protected Stream<Arguments> testData() {
         return Stream.of(
-                Arguments.of("src/main/sql/ReformatDepartmentTable.sql", expected, 3)
+                Arguments.of("sql/ReformatDepartmentTable.sql", expected, 3)
         );
     }
 

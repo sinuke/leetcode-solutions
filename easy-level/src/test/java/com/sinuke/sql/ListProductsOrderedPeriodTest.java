@@ -23,7 +23,7 @@ public class ListProductsOrderedPeriodTest extends SqlTestBase {
     @Override
     protected Stream<Arguments> testData() {
         return Stream.of(
-                Arguments.of("src/main/sql/ListProductsOrderedPeriod.sql", expected, 2)
+                Arguments.of("sql/ListProductsOrderedPeriod.sql", expected, 2)
         );
     }
 

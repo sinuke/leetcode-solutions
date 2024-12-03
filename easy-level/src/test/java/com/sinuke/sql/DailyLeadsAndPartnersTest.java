@@ -25,7 +25,7 @@ public class DailyLeadsAndPartnersTest extends SqlTestBase {
     @Override
     protected Stream<Arguments> testData() {
         return Stream.of(
-                Arguments.of("src/main/sql/DailyLeadsAndPartners.sql", expected, 4)
+                Arguments.of("sql/DailyLeadsAndPartners.sql", expected, 4)
         );
     }
 

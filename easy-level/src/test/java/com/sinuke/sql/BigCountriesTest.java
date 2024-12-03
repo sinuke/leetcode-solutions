@@ -24,7 +24,7 @@ public class BigCountriesTest extends SqlTestBase {
     @Override
     protected Stream<Arguments> testData() {
         return Stream.of(
-                Arguments.of("src/main/sql/BigCountries.sql", expected, 2)
+                Arguments.of("sql/BigCountries.sql", expected, 2)
         );
     }
     

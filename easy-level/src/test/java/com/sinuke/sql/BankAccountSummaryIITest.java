@@ -23,7 +23,7 @@ public class BankAccountSummaryIITest extends SqlTestBase {
     @Override
     protected Stream<Arguments> testData() {
         return Stream.of(
-                Arguments.of("src/main/sql/BankAccountSummaryII.sql", expected, 1)
+                Arguments.of("sql/BankAccountSummaryII.sql", expected, 1)
         );
     }
 

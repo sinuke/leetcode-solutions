@@ -24,7 +24,7 @@ public class ReplaceEmployeeIDWithTheUniqueIdentifierTest extends SqlTestBase {
     @Override
     protected Stream<Arguments> testData() {
         return Stream.of(
-                Arguments.of("src/main/sql/ReplaceEmployeeIDWithTheUniqueIdentifier.sql", expected, 5)
+                Arguments.of("sql/ReplaceEmployeeIDWithTheUniqueIdentifier.sql", expected, 5)
         );
     }
 

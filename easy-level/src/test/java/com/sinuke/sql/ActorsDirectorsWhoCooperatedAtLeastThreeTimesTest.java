@@ -23,7 +23,7 @@ public class ActorsDirectorsWhoCooperatedAtLeastThreeTimesTest extends SqlTestBa
     @Override
     protected Stream<Arguments> testData() {
         return Stream.of(
-                Arguments.of("src/main/sql/ActorsDirectorsWhoCooperatedAtLeastThreeTimes.sql", expected, 1)
+                Arguments.of("sql/ActorsDirectorsWhoCooperatedAtLeastThreeTimes.sql", expected, 1)
         );
     }
 

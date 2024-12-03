@@ -23,7 +23,7 @@ public class DeleteDuplicateEmailsTest extends SqlTestBase {
     @Override
     protected Stream<Arguments> testData() {
         return Stream.of(
-                Arguments.of("src/main/sql/DeleteDuplicateEmails.sql", expected, 2)
+                Arguments.of("sql/DeleteDuplicateEmails.sql", expected, 2)
         );
     }
     

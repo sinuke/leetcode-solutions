@@ -23,7 +23,7 @@ public class SalesAnalysisIIITest extends SqlTestBase {
     @Override
     protected Stream<Arguments> testData() {
         return Stream.of(
-                Arguments.of("src/main/sql/SalesAnalysisIII.sql", expected, 1)
+                Arguments.of("sql/SalesAnalysisIII.sql", expected, 1)
         );
     }
 

@@ -23,7 +23,7 @@ public class UserActivityPast30DaysITest extends SqlTestBase {
     @Override
     protected Stream<Arguments> testData() {
         return Stream.of(
-                Arguments.of("src/main/sql/UserActivityPast30DaysI.sql", expected, 2)
+                Arguments.of("sql/UserActivityPast30DaysI.sql", expected, 2)
         );
     }
 

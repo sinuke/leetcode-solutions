@@ -24,7 +24,7 @@ public class FindUsersWithValidEMailsTest extends SqlTestBase {
     @Override
     protected Stream<Arguments> testData() {
         return Stream.of(
-                Arguments.of("src/main/sql/FindUsersWithValidEMails.sql", expected, 3)
+                Arguments.of("sql/FindUsersWithValidEMails.sql", expected, 3)
         );
     }
 

@@ -24,7 +24,7 @@ public class GroupSoldProductsByTheDateTest extends SqlTestBase {
     @Override
     protected Stream<Arguments> testData() {
         return Stream.of(
-                Arguments.of("src/main/sql/GroupSoldProductsByTheDate.sql", expected, 3)
+                Arguments.of("sql/GroupSoldProductsByTheDate.sql", expected, 3)
         );
     }
 

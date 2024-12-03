@@ -23,7 +23,7 @@ public class FixNamesInTableTest extends SqlTestBase {
     @Override
     protected Stream<Arguments> testData() {
         return Stream.of(
-                Arguments.of("src/main/sql/FixNamesInTable.sql", expected, 2)
+                Arguments.of("sql/FixNamesInTable.sql", expected, 2)
         );
     }
 

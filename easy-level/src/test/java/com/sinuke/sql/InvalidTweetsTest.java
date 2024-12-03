@@ -22,7 +22,7 @@ public class InvalidTweetsTest extends SqlTestBase {
     @Override
     protected Stream<Arguments> testData() {
         return Stream.of(
-                Arguments.of("src/main/sql/InvalidTweets.sql", expected, 1)
+                Arguments.of("sql/InvalidTweets.sql", expected, 1)
         );
     }
 

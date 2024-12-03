@@ -23,7 +23,7 @@ public class AverageTimeOfProcessPerMachineTest extends SqlTestBase {
     @Override
     protected Stream<Arguments> testData() {
         return Stream.of(
-                Arguments.of("src/main/sql/AverageTimeOfProcessPerMachine.sql", expected, 3)
+                Arguments.of("sql/AverageTimeOfProcessPerMachine.sql", expected, 3)
         );
     }
 

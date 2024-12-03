@@ -22,7 +22,7 @@ public class SecondHighestSalaryTest extends SqlTestBase {
     @Override
     protected Stream<Arguments> testData() {
         return Stream.of(
-                Arguments.of("src/main/sql/SecondHighestSalary.sql", expected, 1)
+                Arguments.of("sql/SecondHighestSalary.sql", expected, 1)
         );
     }
 

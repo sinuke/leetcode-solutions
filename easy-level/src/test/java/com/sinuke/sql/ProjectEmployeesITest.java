@@ -23,7 +23,7 @@ public class ProjectEmployeesITest extends SqlTestBase {
     @Override
     protected Stream<Arguments> testData() {
         return Stream.of(
-                Arguments.of("src/main/sql/ProjectEmployeesI.sql", expected, 2)
+                Arguments.of("sql/ProjectEmployeesI.sql", expected, 2)
         );
     }
 
