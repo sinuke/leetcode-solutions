@@ -28,4 +28,5 @@ public class TheNumberOfEmployeesWhichReportEachEmployeeTest extends SqlTestBase
                 Arguments.of("sql/TheNumberOfEmployeesWhichReportEachEmployee.sql", expected, 1)
         );
     }
+    
 }
