@@ -1,0 +1,11 @@
+{
+  "title" : "Game Play Analysis I",
+  "number" : 511,
+  "schema" : "schema.sql",
+  "input-data" : "data.sql",
+  "results-size" : 3,
+  "results-map" : {
+    "player_id" : [ 1, 2, 3 ],
+    "first_login" : [ "2016-03-01", "2017-06-25", "2016-03-02" ]
+  }
+}

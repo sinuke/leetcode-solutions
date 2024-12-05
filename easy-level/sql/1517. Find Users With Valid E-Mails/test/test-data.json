@@ -1,0 +1,12 @@
+{
+  "title" : "Find Users With Valid E-Mails",
+  "number" : 1517,
+  "schema" : "schema.sql",
+  "input-data" : "data.sql",
+  "results-size" : 3,
+  "results-map" : {
+    "user_id" : [ 1, 3, 4 ],
+    "mail" : [ "winston@leetcode.com", "bella-@leetcode.com", "sally.come@leetcode.com" ],
+    "name" : [ "Winston", "Annabelle", "Sally" ]
+  }
+}
