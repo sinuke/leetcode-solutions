@@ -25,6 +25,7 @@ import java.nio.file.attribute.BasicFileAttributes;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -55,7 +56,7 @@ public abstract class SQLSolutionsTest {
         if (connection != null) connection.close();
     }
 
-    @ParameterizedTest(name = "Test {index}: {0}, SQL: {1}")
+    @ParameterizedTest(name = "{index}: {0}")
     @MethodSource("testData")
     @SneakyThrows
     void sqlSolutionTest(TestData testData, String sqlFile) {
@@ -110,7 +111,7 @@ public abstract class SQLSolutionsTest {
     private static Stream<Arguments> testData() {
         return sqlFilesWithTests.entrySet()
                 .stream()
-                .sorted(Map.Entry.comparingByKey())
+                .sorted(Map.Entry.comparingByValue(Comparator.comparing(TestData::getNumber)))
                 .map(entry -> Arguments.of(entry.getValue(), entry.getKey()));
     }
 
@@ -148,6 +149,7 @@ public abstract class SQLSolutionsTest {
 
         private boolean enabled = true;
         private String title;
+        private int number;
         private String schema = "schema.sql";
         @JsonProperty("input-data")
         private String data = "data.sql";

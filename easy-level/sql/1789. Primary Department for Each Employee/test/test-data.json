@@ -1,5 +1,6 @@
 {
   "title" : "Primary Department for Each Employee",
+  "number": 1789,
   "schema" : "schema.sql",
   "input-data" : "data.sql",
   "results-size" : 4,

@@ -1,0 +1,12 @@
+{
+  "title" : "Big Countries",
+  "number": 595,
+  "schema" : "schema.sql",
+  "input-data" : "data.sql",
+  "results-size" : 2,
+  "results-map" : {
+    "population" : [ 25500100, 37100000 ],
+    "area" : [ 652230, 2381741 ],
+    "name" : [ "Afghanistan", "Algeria" ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "title" : "Average Time of Process per Machine",
+  "number": 1661,
+  "schema" : "schema.sql",
+  "input-data" : "data.sql",
+  "results-size" : 3,
+  "results-map" : {
+    "machine_id" : [ 0, 1, 2 ],
+    "processing_time" : [ 0.894, 0.995, 1.456 ]
+  }
+}
