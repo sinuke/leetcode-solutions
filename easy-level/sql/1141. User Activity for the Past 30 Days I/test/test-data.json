@@ -1,0 +1,11 @@
+{
+  "title" : "User Activity for the Past 30 Days I",
+  "number" : 1141,
+  "schema" : "schema.sql",
+  "input-data" : "data.sql",
+  "results-size" : 2,
+  "results-map" : {
+    "active_users" : [ 2, 2 ],
+    "day" : [ "2019-07-20", "2019-07-21" ]
+  }
+}

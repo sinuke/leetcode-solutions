@@ -1,0 +1,13 @@
+{
+  "title" : "Students and Examinations",
+  "number" : 1280,
+  "schema" : "schema.sql",
+  "input-data" : "data.sql",
+  "results-size" : 12,
+  "results-map" : {
+    "subject_name" : [ "Math", "Physics", "Programming", "Math", "Physics", "Programming", "Math", "Physics", "Programming", "Math", "Physics", "Programming" ],
+    "student_id" : [ 1, 1, 1, 2, 2, 2, 6, 6, 6, 13, 13, 13 ],
+    "student_name" : [ "Alice", "Alice", "Alice", "Bob", "Bob", "Bob", "Alex", "Alex", "Alex", "John", "John", "John" ],
+    "attended_exams" : [ 3, 2, 1, 1, 0, 1, 0, 0, 0, 1, 1, 1 ]
+  }
+}

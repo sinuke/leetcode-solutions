@@ -1,0 +1,13 @@
+{
+  "title" : "Triangle Judgement",
+  "number" : 610,
+  "schema" : "schema.sql",
+  "input-data" : "data.sql",
+  "results-size" : 2,
+  "results-map" : {
+    "x" : [ 13, 10 ],
+    "y" : [ 15, 20 ],
+    "z" : [ 30, 15 ],
+    "triangle" : [ "No", "Yes" ]
+  }
+}
