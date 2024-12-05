@@ -1,0 +1,11 @@
+{
+  "title" : "Calculate Special Bonus",
+  "number" : 1873,
+  "schema" : "schema.sql",
+  "input-data" : "data.sql",
+  "results-size" : 5,
+  "results-map" : {
+    "employee_id" : [ 2, 3, 7, 8, 9 ],
+    "bonus" : [ 0, 0, 7400, 0, 7700 ]
+  }
+}
