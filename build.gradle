@@ -1,11 +1,14 @@
 plugins {
     id 'com.adarshr.test-logger' version '4.0.0'
+    id 'io.freefair.lombok' version '8.11'
 }
 
 allprojects {
 
     apply plugin: 'java'
     apply plugin: 'com.adarshr.test-logger'
+    apply plugin: 'io.freefair.lombok'
+
 
     java {
         sourceCompatibility = JavaVersion.VERSION_21
@@ -20,6 +23,8 @@ allprojects {
     }
 
     dependencies {
+        implementation 'com.fasterxml.jackson.core:jackson-databind:2.18.2'
+
         testImplementation platform('org.junit:junit-bom:5.10.0')
         testImplementation 'org.junit.jupiter:junit-jupiter'
         testImplementation 'com.h2database:h2:2.3.232'

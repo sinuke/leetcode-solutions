@@ -1,0 +1,11 @@
+{
+  "title" : "Project Employees I",
+  "number" : 1075,
+  "schema" : "schema.sql",
+  "input-data" : "data.sql",
+  "results-size" : 2,
+  "results-map" : {
+    "average_years" : [ 2.0, 2.5 ],
+    "project_id" : [ 1, 2 ]
+  }
+}

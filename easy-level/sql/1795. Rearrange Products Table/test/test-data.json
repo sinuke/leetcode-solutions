@@ -1,0 +1,12 @@
+{
+  "title" : "Rearrange Products Table",
+  "number" : 1795,
+  "schema" : "schema.sql",
+  "input-data" : "data.sql",
+  "results-size" : 5,
+  "results-map" : {
+    "price" : [ 95, 100, 105, 70, 80 ],
+    "store" : [ "store1", "store2", "store3", "store1", "store3" ],
+    "product_id" : [ 0, 0, 0, 1, 1 ]
+  }
+}

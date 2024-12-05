@@ -1,0 +1,11 @@
+{
+  "title" : "Replace Employee ID With The Unique Identifier",
+  "number" : 1378,
+  "schema" : "schema.sql",
+  "input-data" : "data.sql",
+  "results-size" : 5,
+  "results-map" : {
+    "name" : [ "Alice", "Bob", "Jonathan", "Meir", "Winston" ],
+    "unique_id" : [ null, null, 1, 2, 3 ]
+  }
+}

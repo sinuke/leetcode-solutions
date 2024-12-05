@@ -1,0 +1,10 @@
+{
+  "title" : "Article Views I",
+  "number": 1148,
+  "schema" : "schema.sql",
+  "input-data" : "data.sql",
+  "results-size" : 2,
+  "results-map" : {
+    "id" : [ 4, 7 ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "title" : "Top Travellers",
+  "number" : 1407,
+  "schema" : "schema.sql",
+  "input-data" : "data.sql",
+  "results-size" : 6,
+  "results-map" : {
+    "name" : [ "Elvis", "Lee", "Bob", "Jonathan", "Alex", "Alice" ],
+    "travelled_distance" : [ 450, 450, 317, 312, 222, 120 ]
+  }
+}

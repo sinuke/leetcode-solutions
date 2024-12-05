@@ -1,0 +1,11 @@
+{
+  "title" : "Customer Who Visited but Did Not Make Any Transactions",
+  "number" : 1581,
+  "schema" : "schema.sql",
+  "input-data" : "data.sql",
+  "results-size" : 2,
+  "results-map" : {
+    "customer_id" : [ 30, 96, 54 ],
+    "count_no_trans" : [ 1, 1, 2 ]
+  }
+}

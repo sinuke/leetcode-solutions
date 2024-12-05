@@ -1,0 +1,13 @@
+{
+  "title" : "The Number of Employees Which Report to Each Employee",
+  "number" : 1731,
+  "schema" : "schema.sql",
+  "input-data" : "data.sql",
+  "results-size" : 1,
+  "results-map" : {
+    "average_age" : [ 39 ],
+    "reports_count" : [ 2 ],
+    "name" : [ "Hercy" ],
+    "employee_id" : [ 9 ]
+  }
+}

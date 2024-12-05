@@ -1,0 +1,11 @@
+{
+  "title" : "Fix Names in a Table",
+  "number" : 1667,
+  "schema" : "schema.sql",
+  "input-data" : "data.sql",
+  "results-size" : 2,
+  "results-map" : {
+    "user_id" : [ 1, 2 ],
+    "name" : [ "Alice", "Bob" ]
+  }
+}

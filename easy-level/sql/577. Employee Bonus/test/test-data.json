@@ -1,0 +1,11 @@
+{
+  "title" : "Employee Bonus",
+  "number" : 577,
+  "schema" : "schema.sql",
+  "input-data" : "data.sql",
+  "results-size" : 3,
+  "results-map" : {
+    "name" : [ "Brad", "John", "Dan" ],
+    "bonus" : [ null, null, 500 ]
+  }
+}
