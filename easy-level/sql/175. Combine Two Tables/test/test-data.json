@@ -1,0 +1,12 @@
+{
+  "title" : "Combine Two Tables",
+  "schema" : "schema.sql",
+  "input-data" : "data.sql",
+  "results-size" : 2,
+  "results-map" : {
+    "lastName" : [ "Wang", "Alice" ],
+    "state" : [ null, "New York" ],
+    "firstName" : [ "Allen", "Bob" ],
+    "city" : [ null, "New York City" ]
+  }
+}

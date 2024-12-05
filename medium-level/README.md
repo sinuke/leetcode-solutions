@@ -2,7 +2,7 @@
 
 ### The list of solved problems for medium level:
 
-| #    | Problem Name              | Description                                              | Solution File                                                                   | Tests File                                                                              |
-|------|---------------------------|----------------------------------------------------------|---------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
-| 176  | Second Highest Salary     | https://leetcode.com/problems/second-highest-salary/     | [SecondHighestSalary.sql](sql/SecondHighestSalary/SecondHighestSalary.sql)      | [test-data.json](sql/SecondHighestSalary/test/test-data.json)                           |
-| 2109 | Adding Spaces to a String | https://leetcode.com/problems/adding-spaces-to-a-string/ | [AddingSpacesToString.java](src/main/java/com/sinuke/AddingSpacesToString.java) | [AddingSpacesToStringTest.java](src/test/java/com/sinuke/AddingSpacesToStringTest.java) |
+| #    | Problem Name              | Description                                              | Solution File                                                                                   | Tests File                                                                              |
+|------|---------------------------|----------------------------------------------------------|-------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
+| 176  | Second Highest Salary     | https://leetcode.com/problems/second-highest-salary/     | [Second Highest Salary.sql](sql/176.%20Second%20Highest%20Salary/Second%20Highest%20Salary.sql) | [test-data.json](sql/176.%20Second%20Highest%20Salary/test/test-data.json)              |
+| 2109 | Adding Spaces to a String | https://leetcode.com/problems/adding-spaces-to-a-string/ | [AddingSpacesToString.java](src/main/java/com/sinuke/AddingSpacesToString.java)                 | [AddingSpacesToStringTest.java](src/test/java/com/sinuke/AddingSpacesToStringTest.java) |
