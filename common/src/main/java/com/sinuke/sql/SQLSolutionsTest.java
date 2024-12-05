@@ -1,71 +1,82 @@
 package com.sinuke.sql;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.SneakyThrows;
 import org.h2.jdbcx.JdbcDataSource;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.io.File;
+import java.nio.file.FileVisitResult;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.SimpleFileVisitor;
+import java.nio.file.attribute.BasicFileAttributes;
 import java.sql.Connection;
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public abstract class SQLSolutionsTest {
 
-    protected static final List<String> sqlFilesList = new ArrayList<>();
+    protected static Map<String, TestData> sqlFilesWithTests;
     protected static Connection connection;
-
-
-    public abstract String getLevelTitle();
-
-    protected abstract Stream<Arguments> testData();
 
     @BeforeAll
     protected final void basicSetup() throws Exception {
         var ds = new JdbcDataSource();
         ds.setURL("jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;MODE=MySQL");
         connection = ds.getConnection();
-    }
 
-    @BeforeEach
-    void init() throws Exception {
-        try (var stmt = connection.createStatement()) {
-            // run init scripts (schema.sql, data.sql)
-        }
+        sqlFilesWithTests = scanDirectory(Paths.get("sql/"));
     }
 
     @AfterAll
     protected void teardown() throws Exception {
         if (connection != null) connection.close();
     }
-    
-    @ParameterizedTest
+
+    @ParameterizedTest(name = "Test {index}: {0}, Solution: {1}")
     @MethodSource("testData")
-    void sqlQueryTest(String sqlPath, Map<String, List<Object>> expected, int size) throws Exception {
-        var sql = Files.readString(Path.of(sqlPath));
+    @SneakyThrows
+    void sqlSolutionTest(TestData testData, String sqlFile) {
+        assertNotNull(testData);
+        var sqlFilePath = Paths.get(sqlFile);
+
+        var sql = Files.readString(sqlFilePath);
         try (var statement = connection.createStatement()) {
+            // given
+            var schemaPath = sqlFilePath.getParent().resolve("test/" + testData.getSchema()).toString();
+            statement.execute(String.format("RUNSCRIPT FROM '%s'", schemaPath));
+            var dataPath = sqlFilePath.getParent().resolve("test/" + testData.getData()).toString();
+            statement.execute(String.format("RUNSCRIPT FROM '%s'", dataPath));
+
+            // when
             var hasResultSet = statement.execute(sql);
+
+            // then
             while (hasResultSet) {
                 try (var resultSet = statement.getResultSet()) {
-                    for (int i = 0; i < size; i++) {
+                    for (int i = 0; i < testData.getSize(); i++) {
                         assertTrue(resultSet.next());
 
-                        for (var entry : expected.entrySet()) {
+                        for (var entry : testData.getExpected().entrySet()) {
                             Object value;
 
                             switch (entry.getValue().get(i)) {
@@ -80,18 +91,52 @@ public abstract class SQLSolutionsTest {
 
                             assertEquals(entry.getValue().get(i), value);
                         }
-                    }       
+                    }
                 }
                 hasResultSet = statement.getMoreResults();
             }
         }
     }
 
+    private static Stream<Arguments> testData() {
+        return sqlFilesWithTests.entrySet()
+                .stream()
+                .map(entry -> Arguments.of(entry.getValue(), entry.getKey()));
+    }
+
+    @SneakyThrows
+    private static Map<String, TestData> scanDirectory(Path rootDir) {
+        var objectMapper = new ObjectMapper();
+        Map<String, TestData> fileMap = new HashMap<>();
+
+        Files.walkFileTree(rootDir, new SimpleFileVisitor<>() {
+            @Override
+            public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) {
+                if (!file.getParent().equals(rootDir) && file.toString().endsWith(".sql") && !file.toString().contains("test")) {
+                    Path testJsonFile = file.getParent().resolve("test/test-data.json");
+                    if (Files.exists(testJsonFile)) {
+                        fileMap.put(file.toString(), parseTestDataFromFile(objectMapper, testJsonFile.toFile()));
+                    } else fileMap.put(file.toString(), null);
+                }
+                return FileVisitResult.CONTINUE;
+            }
+        });
+
+        return fileMap;
+    }
+
+    @SneakyThrows
+    private static TestData parseTestDataFromFile(ObjectMapper mapper, File testDataFile) {
+        return mapper.readValue(testDataFile, TestData.class);
+    }
+
     @Data
     @NoArgsConstructor
     @AllArgsConstructor
-    private static class TestResult {
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    public static class TestData {
 
+        private boolean enabled = true;
         private String title;
         private String schema = "schema.sql";
         @JsonProperty("input-data")
@@ -100,6 +145,11 @@ public abstract class SQLSolutionsTest {
         private int size;
         @JsonProperty("results-map")
         private Map<String, List<Object>> expected;
+
+        @Override
+        public String toString() {
+            return title;
+        }
 
     }
     
