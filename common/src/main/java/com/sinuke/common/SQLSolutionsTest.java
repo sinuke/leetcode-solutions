@@ -16,12 +16,9 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.io.File;
-import java.nio.file.FileVisitResult;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.SimpleFileVisitor;
-import java.nio.file.attribute.BasicFileAttributes;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -117,23 +114,22 @@ public abstract class SQLSolutionsTest {
 
     @SneakyThrows
     private static Map<String, TestData> scanDirectory(Path rootDir) {
-        var objectMapper = new ObjectMapper();
-        Map<String, TestData> fileMap = new HashMap<>();
+        Map<String, TestData> result = new HashMap<>();
+        var mapper = new ObjectMapper();
 
-        Files.walkFileTree(rootDir, new SimpleFileVisitor<>() {
-            @Override
-            public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) {
-                if (!file.getParent().equals(rootDir) && file.toString().endsWith(".sql") && !file.toString().contains("test")) {
-                    Path testJsonFile = file.getParent().resolve("test/test-data.json");
-                    if (Files.exists(testJsonFile)) {
-                        fileMap.put(file.toString(), parseTestDataFromFile(objectMapper, testJsonFile.toFile()));
-                    } else fileMap.put(file.toString(), null);
-                }
-                return FileVisitResult.CONTINUE;
-            }
-        });
+        try (Stream<Path> walk = Files.walk(rootDir)) {
+            walk
+                    .filter(Files::isRegularFile)
+                    .filter(p -> p.toString().endsWith(".sql"))
+                    .filter(p -> !p.getParent().endsWith("test"))
+                    .forEach(p -> {
+                        var testDataFile = p.getParent().resolve("test/test-data.json");
+                        if (Files.exists(testDataFile)) result.put(p.toString(), parseTestDataFromFile(mapper, testDataFile.toFile()));
+                        else result.put(p.toString(), null);
+                    });
+        }
 
-        return fileMap;
+        return result;
     }
 
     @SneakyThrows
