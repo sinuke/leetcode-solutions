@@ -1,0 +1,11 @@
+{
+  "title" : "Number of Unique Subjects Taught by Each Teacher",
+  "number" : 2356,
+  "schema" : "schema.sql",
+  "input-data" : "data.sql",
+  "results-size" : 2,
+  "results-map" : {
+    "teacher_id": [ 1, 2 ],
+    "cnt": [ 2, 4 ]
+  }
+}
