@@ -78,8 +78,8 @@ public abstract class SQLSolutionsTest {
     @ParameterizedTest(name = "{index}: {0}")
     @MethodSource("testData")
     void sqlSolutionTest(TestData testData, String sqlFile) throws Exception {
-        assertNotNull(testData);
-        assumeTrue(testData.isEnabled());
+        assertNotNull(testData, "Checks if test data is available");
+        assumeTrue(testData.isEnabled(), "Checks if test is enabled");
 
         var sqlFilePath = Paths.get(sqlFile);
 
@@ -89,13 +89,21 @@ public abstract class SQLSolutionsTest {
             executeSQLContent(statement, schema);
             var data = Files.readString(sqlFilePath.getParent().resolve("test/" + testData.getData()), StandardCharsets.UTF_8);
             executeSQLContent(statement, data);
-
-            var sql = Files.readString(sqlFilePath);
+            var requltsQueryPath = testData.getResultsQuery() == null ? null : sqlFilePath.getParent().resolve("test/" + testData.getResultsQuery());
+            var solutionContent = Files.readString(sqlFilePath);
 
             // when
-            var hasResultSet = executeSQLContent(statement, sql);
+            var hasResultSet = false;
+            if (requltsQueryPath == null) hasResultSet = executeSQLContent(statement, solutionContent);
+            else {
+                executeSQLContent(statement, solutionContent);
+                var resultsQueryContent = Files.readString(requltsQueryPath, StandardCharsets.UTF_8);
+                hasResultSet = executeSQLContent(statement, resultsQueryContent);
+            }
 
             // then
+            assertTrue(hasResultSet, "Check if solution produced results");
+
             while (hasResultSet) {
                 try (var resultSet = statement.getResultSet()) {
                     for (int i = 0; i < testData.getSize(); i++) {
@@ -124,7 +132,7 @@ public abstract class SQLSolutionsTest {
             case null, default -> value = resultSet.getString(entry.getKey());
         }
 
-        assertEquals(entry.getValue().get(i), value);
+        assertEquals(entry.getValue().get(i), value, "Checks if result equals to expected one");
     }
 
     private Stream<Arguments> testData() {
@@ -155,12 +163,13 @@ public abstract class SQLSolutionsTest {
 
     private boolean executeSQLContent(Statement statement, String content) throws Exception {
         boolean result = true;
+
         for (var query : content.split(";")) {
             if (!query.trim().isEmpty()) {
-                var tmpResult = statement.execute(query);
-                if (!tmpResult) result = false;
+                result = statement.execute(query);
             }
         }
+
         return result;
     }
 
@@ -181,6 +190,8 @@ public abstract class SQLSolutionsTest {
         private String schema = "schema.sql";
         @JsonProperty("input-data")
         private String data = "data.sql";
+        @JsonProperty("results-query")
+        private String resultsQuery;
         @JsonProperty("results-size")
         private int size;
         @JsonProperty("results-map")

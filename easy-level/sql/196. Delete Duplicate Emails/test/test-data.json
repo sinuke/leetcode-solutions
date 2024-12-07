@@ -3,6 +3,7 @@
   "number" : 196,
   "schema" : "schema.sql",
   "input-data" : "data.sql",
+  "results-query" : "results-query.sql",
   "results-size" : 2,
   "results-map" : {
     "id" : [ 1, 2 ],
