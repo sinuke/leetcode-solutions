@@ -1,5 +1,4 @@
 {
-	"enabled": true,
 	"title": "Nth Highest Salary",
 	"number": 177,
 	"schema": "schema.sql",
