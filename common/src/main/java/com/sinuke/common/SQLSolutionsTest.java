@@ -57,7 +57,8 @@ public abstract class SQLSolutionsTest {
         mysqlContainer = new MySQLContainer<>(MYSQL_CONTAINER_WITH_VERSION)
                 .withDatabaseName(TEST_DB_NAME)
                 .withUsername(TEST_USER)
-                .withPassword(TEST_PASSWORD);
+                .withPassword(TEST_PASSWORD)
+                .withCommand("--log-bin-trust-function-creators=1");
         mysqlContainer.start();
 
         var properties = new Properties();
@@ -93,12 +94,10 @@ public abstract class SQLSolutionsTest {
             var solutionContent = Files.readString(sqlFilePath);
 
             // when
-            var hasResultSet = false;
-            if (requltsQueryPath == null) hasResultSet = executeSQLContent(statement, solutionContent);
-            else {
-                executeSQLContent(statement, solutionContent);
+            var hasResultSet = statement.execute(solutionContent);
+            if (requltsQueryPath != null) {
                 var resultsQueryContent = Files.readString(requltsQueryPath, StandardCharsets.UTF_8);
-                hasResultSet = executeSQLContent(statement, resultsQueryContent);
+                hasResultSet = statement.execute(resultsQueryContent);
             }
 
             // then
@@ -161,16 +160,12 @@ public abstract class SQLSolutionsTest {
         return result;
     }
 
-    private boolean executeSQLContent(Statement statement, String content) throws Exception {
-        boolean result = true;
-
+    private void executeSQLContent(Statement statement, String content) throws Exception {
         for (var query : content.split(";")) {
             if (!query.trim().isEmpty()) {
-                result = statement.execute(query);
+                statement.execute(query);
             }
         }
-
-        return result;
     }
 
     @SneakyThrows
