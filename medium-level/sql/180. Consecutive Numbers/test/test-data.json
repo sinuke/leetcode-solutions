@@ -1,0 +1,10 @@
+{
+	"title": "Consecutive Numbers",
+	"number": 180,
+	"schema": "schema.sql",
+	"input-data": "data.sql",
+	"results-size": 1,
+	"results-map": {
+		"ConsecutiveNums": [ 1 ]
+	}
+}
