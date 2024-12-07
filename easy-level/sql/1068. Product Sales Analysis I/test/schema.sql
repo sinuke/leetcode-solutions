@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS Sales;
 CREATE TABLE Sales (
     sale_id INT,
     product_id int,
-    "year" INT,
+    year INT,
     quantity INT,
     price INT
 );

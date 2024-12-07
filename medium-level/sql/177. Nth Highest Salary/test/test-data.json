@@ -1,9 +1,10 @@
 {
-	"enabled": false,
+	"enabled": true,
 	"title": "Nth Highest Salary",
 	"number": 177,
 	"schema": "schema.sql",
 	"input-data": "data.sql",
+	"results-query" : "results-query.sql",
 	"results-size": 1,
 	"results-map": {
 		"getNthHighestSalary(2)": [ 200 ]

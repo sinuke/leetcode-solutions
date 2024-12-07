@@ -7,25 +7,30 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.SneakyThrows;
-import org.h2.jdbcx.JdbcDataSource;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.testcontainers.containers.MySQLContainer;
+import org.testcontainers.junit.jupiter.Testcontainers;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -33,47 +38,71 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
+@Testcontainers
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public abstract class SQLSolutionsTest {
 
-    protected static Map<String, TestData> sqlFilesWithTests;
-    protected static Connection connection;
+    private static final String MYSQL_CONTAINER_WITH_VERSION = "mysql:9.1.0";
+    private static final String TEST_DB_NAME = "test_db";
+    private static final String TEST_USER = "test_user";
+    private static final String TEST_PASSWORD = "test_password";
+
+    private MySQLContainer<?> mysqlContainer;
+    private Connection connection;
+
+    protected Map<String, TestData> sqlFilesWithTests;
 
     @BeforeAll
-    protected final void basicSetup() throws Exception {
-        var ds = new JdbcDataSource();
-        ds.setURL("jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;MODE=MySQL");
-        connection = ds.getConnection();
+    protected final void setUp() throws Exception {
+        mysqlContainer = new MySQLContainer<>(MYSQL_CONTAINER_WITH_VERSION)
+                .withDatabaseName(TEST_DB_NAME)
+                .withUsername(TEST_USER)
+                .withPassword(TEST_PASSWORD)
+                .withCommand("--log-bin-trust-function-creators=1");
+        mysqlContainer.start();
+
+        var properties = new Properties();
+        properties.setProperty("user", TEST_USER);
+        properties.setProperty("password", TEST_PASSWORD);
+
+        connection = mysqlContainer.getJdbcDriverInstance().connect(mysqlContainer.getJdbcUrl(), properties);
 
         sqlFilesWithTests = scanDirectory(Paths.get("sql/"));
     }
 
     @AfterAll
-    protected void teardown() throws Exception {
+    protected final void tearDown() throws Exception {
         if (connection != null) connection.close();
+        if (mysqlContainer != null) mysqlContainer.close();
     }
 
     @ParameterizedTest(name = "{index}: {0}")
     @MethodSource("testData")
-    @SneakyThrows
-    void sqlSolutionTest(TestData testData, String sqlFile) {
-        assertNotNull(testData);
-        assumeTrue(testData.isEnabled());
+    void sqlSolutionTest(TestData testData, String sqlFile) throws Exception {
+        assertNotNull(testData, "Checks if test data is available");
+        assumeTrue(testData.isEnabled(), "Checks if test is enabled");
 
         var sqlFilePath = Paths.get(sqlFile);
 
-        var sql = Files.readString(sqlFilePath);
         try (var statement = connection.createStatement()) {
             // given
-            var schemaPath = sqlFilePath.getParent().resolve("test/" + testData.getSchema()).toString();
-            statement.execute(String.format("RUNSCRIPT FROM '%s'", schemaPath));
-            var dataPath = sqlFilePath.getParent().resolve("test/" + testData.getData()).toString();
-            statement.execute(String.format("RUNSCRIPT FROM '%s'", dataPath));
+            var schema = Files.readString(sqlFilePath.getParent().resolve("test/" + testData.getSchema()), StandardCharsets.UTF_8);
+            executeSQLContent(statement, schema);
+            var data = Files.readString(sqlFilePath.getParent().resolve("test/" + testData.getData()), StandardCharsets.UTF_8);
+            executeSQLContent(statement, data);
+            var requltsQueryPath = testData.getResultsQuery() == null ? null : sqlFilePath.getParent().resolve("test/" + testData.getResultsQuery());
+            var solutionContent = Files.readString(sqlFilePath);
 
             // when
-            var hasResultSet = statement.execute(sql);
+            var hasResultSet = statement.execute(solutionContent);
+            if (requltsQueryPath != null) {
+                var resultsQueryContent = Files.readString(requltsQueryPath, StandardCharsets.UTF_8);
+                hasResultSet = statement.execute(resultsQueryContent);
+            }
 
             // then
+            assertTrue(hasResultSet, "Check if solution produced results");
+
             while (hasResultSet) {
                 try (var resultSet = statement.getResultSet()) {
                     for (int i = 0; i < testData.getSize(); i++) {
@@ -89,7 +118,7 @@ public abstract class SQLSolutionsTest {
         }
     }
 
-    private static void assertValue(ResultSet resultSet, int i, Map.Entry<String, List<Object>> entry) throws SQLException {
+    private void assertValue(ResultSet resultSet, int i, Map.Entry<String, List<Object>> entry) throws SQLException {
         Object value;
 
         switch (entry.getValue().get(i)) {
@@ -102,18 +131,17 @@ public abstract class SQLSolutionsTest {
             case null, default -> value = resultSet.getString(entry.getKey());
         }
 
-        assertEquals(entry.getValue().get(i), value);
+        assertEquals(entry.getValue().get(i), value, "Checks if result equals to expected one");
     }
 
-    private static Stream<Arguments> testData() {
+    private Stream<Arguments> testData() {
         return sqlFilesWithTests.entrySet()
                 .stream()
                 .sorted(Map.Entry.comparingByValue(Comparator.comparing(TestData::getNumber)))
                 .map(entry -> Arguments.of(entry.getValue(), entry.getKey()));
     }
 
-    @SneakyThrows
-    private static Map<String, TestData> scanDirectory(Path rootDir) {
+    private Map<String, TestData> scanDirectory(Path rootDir) throws IOException {
         Map<String, TestData> result = new HashMap<>();
         var mapper = new ObjectMapper();
 
@@ -132,8 +160,16 @@ public abstract class SQLSolutionsTest {
         return result;
     }
 
+    private void executeSQLContent(Statement statement, String content) throws Exception {
+        for (var query : content.split(";")) {
+            if (!query.trim().isEmpty()) {
+                statement.execute(query);
+            }
+        }
+    }
+
     @SneakyThrows
-    private static TestData parseTestDataFromFile(ObjectMapper mapper, File testDataFile) {
+    private TestData parseTestDataFromFile(ObjectMapper mapper, File testDataFile) {
         return mapper.readValue(testDataFile, TestData.class);
     }
 
@@ -149,6 +185,8 @@ public abstract class SQLSolutionsTest {
         private String schema = "schema.sql";
         @JsonProperty("input-data")
         private String data = "data.sql";
+        @JsonProperty("results-query")
+        private String resultsQuery;
         @JsonProperty("results-size")
         private int size;
         @JsonProperty("results-map")

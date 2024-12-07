@@ -1,4 +1,4 @@
-DROP TABLE Employee IF EXISTS;
+DROP TABLE IF EXISTS Employee;
 CREATE TABLE Employee (
     id INT PRIMARY KEY,
     name VARCHAR(255),

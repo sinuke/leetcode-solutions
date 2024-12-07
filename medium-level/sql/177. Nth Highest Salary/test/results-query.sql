@@ -1,0 +1,1 @@
+SELECT getNthHighestSalary(2);

@@ -6,6 +6,3 @@ WHERE id NOT IN (
     GROUP BY Person.email
   ) p
 );
-
--- The following query is not a part of solution. Just needed to verify the result in tests.
-SELECT * FROM Person;

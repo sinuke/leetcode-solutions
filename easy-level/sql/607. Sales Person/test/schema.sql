@@ -4,7 +4,7 @@ CREATE TABLE SalesPerson (
     name VARCHAR(255),
     salary INT,
     commission_rate INT,
-    hire_date date
+    hire_date DATE
 );
 
 DROP TABLE IF EXISTS Company;
@@ -17,7 +17,7 @@ CREATE TABLE Company (
 DROP TABLE IF EXISTS Orders;
 CREATE TABLE Orders (
     order_id INT,
-    order_date date,
+    order_date DATE,
     com_id INT,
     sales_id INT,
     amount INT
