@@ -42,7 +42,7 @@ import static org.junit.jupiter.api.Assumptions.assumeTrue;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public abstract class SQLSolutionsTest {
 
-    private static final String MYSQL_CONTAINER_WITH_VERSION = "mysql:8.0.26";
+    private static final String MYSQL_CONTAINER_WITH_VERSION = "mysql:9.1.0";
     private static final String TEST_DB_NAME = "test_db";
     private static final String TEST_USER = "test_user";
     private static final String TEST_PASSWORD = "test_password";
@@ -83,7 +83,6 @@ public abstract class SQLSolutionsTest {
 
         var sqlFilePath = Paths.get(sqlFile);
 
-        var sql = Files.readString(sqlFilePath);
         try (var statement = connection.createStatement()) {
             // given
             var schema = Files.readString(sqlFilePath.getParent().resolve("test/" + testData.getSchema()), StandardCharsets.UTF_8);
@@ -91,8 +90,10 @@ public abstract class SQLSolutionsTest {
             var data = Files.readString(sqlFilePath.getParent().resolve("test/" + testData.getData()), StandardCharsets.UTF_8);
             executeSQLContent(statement, data);
 
+            var sql = Files.readString(sqlFilePath);
+
             // when
-            var hasResultSet = statement.execute(sql);
+            var hasResultSet = executeSQLContent(statement, sql);
 
             // then
             while (hasResultSet) {
@@ -152,10 +153,15 @@ public abstract class SQLSolutionsTest {
         return result;
     }
 
-    private void executeSQLContent(Statement statement, String content) throws Exception {
+    private boolean executeSQLContent(Statement statement, String content) throws Exception {
+        boolean result = true;
         for (var query : content.split(";")) {
-            if (!query.trim().isEmpty()) statement.execute(query);
+            if (!query.trim().isEmpty()) {
+                var tmpResult = statement.execute(query);
+                if (!tmpResult) result = false;
+            }
         }
+        return result;
     }
 
     @SneakyThrows
