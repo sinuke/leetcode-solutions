@@ -1,0 +1,12 @@
+{
+	"title": "Department Highest Salary",
+	"number": 184,
+	"schema": "schema.sql",
+	"input-data": "data.sql",
+	"results-size": 3,
+	"results-map": {
+		"Department": [ "IT", "IT", "Sales" ],
+		"Employee": [ "Jim", "Max", "Henry" ],
+		"Salary" : [ 90000, 90000, 80000 ]
+	}
+}
