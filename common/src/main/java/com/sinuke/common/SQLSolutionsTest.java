@@ -3,8 +3,9 @@ package com.sinuke.common;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.sinuke.common.model.BaseTestData;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.AfterAll;
@@ -49,8 +50,7 @@ public abstract class SQLSolutionsTest {
 
     private MySQLContainer<?> mysqlContainer;
     private Connection connection;
-
-    protected Map<String, TestData> sqlFilesWithTests;
+    private Map<String, SqlTestData> testDataMap;
 
     @BeforeAll
     protected final void setUp() throws Exception {
@@ -67,7 +67,7 @@ public abstract class SQLSolutionsTest {
 
         connection = mysqlContainer.getJdbcDriverInstance().connect(mysqlContainer.getJdbcUrl(), properties);
 
-        sqlFilesWithTests = scanDirectory(Paths.get("sql/"));
+        testDataMap = scanDirectory(Paths.get("sql/"));
     }
 
     @AfterAll
@@ -78,19 +78,19 @@ public abstract class SQLSolutionsTest {
 
     @ParameterizedTest(name = "{index}: {0}")
     @MethodSource("testData")
-    void sqlSolutionTest(TestData testData, String sqlFile) throws Exception {
-        assertNotNull(testData, "Checks if test data is available");
-        assumeTrue(testData.isEnabled(), "Checks if test is enabled");
+    void sqlSolutionTest(SqlTestData sqlTestData, String sqlFile) throws Exception {
+        assertNotNull(sqlTestData, "Checks if test data is available");
+        assumeTrue(sqlTestData.isEnabled(), "Checks if test is enabled");
 
         var sqlFilePath = Paths.get(sqlFile);
 
         try (var statement = connection.createStatement()) {
             // given
-            var schema = Files.readString(sqlFilePath.getParent().resolve("test/" + testData.getSchema()), StandardCharsets.UTF_8);
+            var schema = Files.readString(sqlFilePath.getParent().resolve("test/" + sqlTestData.getSchema()), StandardCharsets.UTF_8);
             executeSQLContent(statement, schema);
-            var data = Files.readString(sqlFilePath.getParent().resolve("test/" + testData.getData()), StandardCharsets.UTF_8);
+            var data = Files.readString(sqlFilePath.getParent().resolve("test/" + sqlTestData.getData()), StandardCharsets.UTF_8);
             executeSQLContent(statement, data);
-            var requltsQueryPath = testData.getResultsQuery() == null ? null : sqlFilePath.getParent().resolve("test/" + testData.getResultsQuery());
+            var requltsQueryPath = sqlTestData.getResultsQuery() == null ? null : sqlFilePath.getParent().resolve("test/" + sqlTestData.getResultsQuery());
             var solutionContent = Files.readString(sqlFilePath);
 
             // when
@@ -105,10 +105,10 @@ public abstract class SQLSolutionsTest {
 
             while (hasResultSet) {
                 try (var resultSet = statement.getResultSet()) {
-                    for (int i = 0; i < testData.getSize(); i++) {
+                    for (int i = 0; i < sqlTestData.getSize(); i++) {
                         assertTrue(resultSet.next());
 
-                        for (var entry : testData.getExpected().entrySet()) {
+                        for (var entry : sqlTestData.getExpected().entrySet()) {
                             assertValue(resultSet, i, entry);
                         }
                     }
@@ -135,14 +135,14 @@ public abstract class SQLSolutionsTest {
     }
 
     private Stream<Arguments> testData() {
-        return sqlFilesWithTests.entrySet()
+        return testDataMap.entrySet()
                 .stream()
-                .sorted(Map.Entry.comparingByValue(Comparator.comparing(TestData::getNumber)))
+                .sorted(Map.Entry.comparingByValue(Comparator.comparing(BaseTestData::getNumber)))
                 .map(entry -> Arguments.of(entry.getValue(), entry.getKey()));
     }
 
-    private Map<String, TestData> scanDirectory(Path rootDir) throws IOException {
-        Map<String, TestData> result = new HashMap<>();
+    private Map<String, SqlTestData> scanDirectory(Path rootDir) throws IOException {
+        Map<String, SqlTestData> result = new HashMap<>();
         var mapper = new ObjectMapper();
 
         try (Stream<Path> walk = Files.walk(rootDir)) {
@@ -169,22 +169,19 @@ public abstract class SQLSolutionsTest {
     }
 
     @SneakyThrows
-    private TestData parseTestDataFromFile(ObjectMapper mapper, File testDataFile) {
-        return mapper.readValue(testDataFile, TestData.class);
+    private SqlTestData parseTestDataFromFile(ObjectMapper mapper, File testDataFile) {
+        return mapper.readValue(testDataFile, SqlTestData.class);
     }
 
-    @Data
+    @Getter
     @NoArgsConstructor
     @AllArgsConstructor
     @JsonIgnoreProperties(ignoreUnknown = true)
-    public static class TestData {
+    public static class SqlTestData extends BaseTestData {
 
-        private boolean enabled = true;
-        private String title;
-        private int number;
-        private String schema = "schema.sql";
+        private String schema;
         @JsonProperty("input-data")
-        private String data = "data.sql";
+        private String data;
         @JsonProperty("results-query")
         private String resultsQuery;
         @JsonProperty("results-size")
@@ -192,11 +189,5 @@ public abstract class SQLSolutionsTest {
         @JsonProperty("results-map")
         private Map<String, List<Object>> expected;
 
-        @Override
-        public String toString() {
-            return title;
-        }
-
     }
-
 }
