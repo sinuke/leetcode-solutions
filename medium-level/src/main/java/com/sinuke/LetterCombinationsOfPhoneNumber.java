@@ -3,33 +3,29 @@ package com.sinuke;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 
 public class LetterCombinationsOfPhoneNumber {
 
-    private final Map<Character, char[]> keyboard = Map.of(
-            '2', new char[] { 'a', 'b', 'c' },
-            '3', new char[] { 'd', 'e', 'f' },
-            '4', new char[] { 'g', 'h', 'i' },
-            '5', new char[] { 'j', 'k', 'l' },
-            '6', new char[] { 'm', 'n', 'o' },
-            '7', new char[] { 'p', 'q', 'r', 's' },
-            '8', new char[] { 't', 'u', 'v' },
-            '9', new char[] { 'w', 'x', 'y', 'z' }
-    );
+    private final String[] keyboard = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
 
     public List<String> letterCombinations(String digits) {
         if (digits == null || digits.isEmpty()) return Collections.emptyList();
-        var results = new ArrayList<>(List.of(""));
-
-        for (var digit : digits.toCharArray()) {
-            var tmp = new StringBuilder();
-            for (var combination : results) {
-                for (var letter : keyboard.get(digit)) tmp.append(combination).append(letter);
-            }
-            results.add(tmp.toString());
-        }
+        var results = new ArrayList<String>();
+        createCombinations(digits, 0, new StringBuilder(), results);
         return results;
+    }
+
+    private void createCombinations(String digits, int i, StringBuilder sb, List<String> results) {
+        if (i == digits.length()) {
+            results.add(sb.toString());
+            return;
+        }
+
+        for (char c : keyboard[digits.charAt(i) - '0'].toCharArray()) {
+            sb.append(c);
+            createCombinations(digits, i + 1, sb, results);
+            sb.deleteCharAt(sb.length() - 1);
+        }
     }
 
 }
