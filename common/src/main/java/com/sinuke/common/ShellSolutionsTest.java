@@ -35,7 +35,7 @@ public abstract class ShellSolutionsTest extends AbstractTestCase<ShellSolutions
     }
 
     @Override
-    public void afterAll() {
+    public void afterAll() throws Exception {
         if (container != null) container.stop();
     }
 

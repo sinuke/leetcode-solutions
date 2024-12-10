@@ -30,7 +30,7 @@ public abstract class AbstractTestCase<T extends BaseTestData> {
 
     public abstract String getTitle();
     public abstract void beforeAll() throws Exception;
-    public abstract void afterAll();
+    public abstract void afterAll() throws Exception;
     public abstract void beforeEach();
     public abstract void assertTestCase(T testData, String solutionFile) throws Exception;
     public abstract Map<String, T> getTestData();
@@ -41,7 +41,7 @@ public abstract class AbstractTestCase<T extends BaseTestData> {
     }
 
     @AfterAll
-    protected final void tearDown() {
+    protected final void tearDown() throws Exception {
         afterAll();
     }
 
