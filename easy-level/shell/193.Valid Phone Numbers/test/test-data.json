@@ -1,0 +1,7 @@
+{
+  "title" : "Employees Earning More Than Their Managers",
+  "number": 181,
+  "input-data": "file.txt",
+  "working-dir": "/home/user",
+  "results-file": "expected.txt"
+}
