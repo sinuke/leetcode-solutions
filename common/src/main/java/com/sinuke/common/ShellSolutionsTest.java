@@ -30,6 +30,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Stream;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
@@ -71,13 +72,18 @@ public abstract class ShellSolutionsTest {
                 );
         container.start();
 
-        //container.execInContainer("cd", shellTestData.workingDir);
         container.execInContainer("chmod", "+x", "solution.sh");
         var results = container.execInContainer("sh", "-c", "./solution.sh");
 
-        System.out.println("STDOUT: " + results.getStdout());
-        System.err.println("STDERR: " + results.getStderr());
-        // assert results
+        assertNotNull(results.getStdout(), "Checks if solution produced results");
+
+        var expected = Files.readString(
+                shellFilePath.getParent().resolve("test/" + shellTestData.resultsFile),
+                StandardCharsets.UTF_8
+        ).trim();
+        var actual = results.getStdout().trim();
+
+        assertEquals(expected, actual, "Checks if result equals to expected one");
     }
 
     private Stream<Arguments> testData() {
