@@ -41,7 +41,7 @@ public abstract class ShellSolutionsTest extends AbstractTestCase<ShellSolutions
 
     @Override
     public void beforeEach() {
-        
+        // nothing to do
     }
 
     @Override
@@ -69,7 +69,7 @@ public abstract class ShellSolutionsTest extends AbstractTestCase<ShellSolutions
         container.execInContainer("chmod", "+x", "solution.sh");
         var results = container.execInContainer("sh", "-c", "./solution.sh");
 
-        assertNotNull(results.getStdout(), "Checks if solution produced results");
+        assertNotNull(results.getStdout(), "Check that solution produced results");
 
         var expected = Files.readString(
                 solutionFilePath.getParent().resolve("test/" + testData.resultsFile),
@@ -77,7 +77,7 @@ public abstract class ShellSolutionsTest extends AbstractTestCase<ShellSolutions
         ).trim();
         var actual = results.getStdout().trim();
 
-        assertEquals(expected, actual, "Checks if result equals to expected one");    
+        assertEquals(expected, actual, "Check that result equals to expected one");
     }
 
     @Getter

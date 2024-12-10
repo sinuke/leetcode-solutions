@@ -50,11 +50,11 @@ public abstract class AbstractTestCase<T extends BaseTestData> {
         beforeEach();
     }
 
-    @ParameterizedTest(name = "{0} - {index}: {1}")
+    @ParameterizedTest(name = "{0} - {1}: {2}")
     @MethodSource("testData")
-    void solutionTest(String title, T testData, String solutionFile) throws Exception {
-        assertNotNull(testData, "Checks if test data is available");
-        assumeTrue(testData.isEnabled(), "Checks if test is enabled");
+    void solutionTest(String title, int number, T testData, String solutionFile) throws Exception {
+        assertNotNull(testData, "Checks that test data is available");
+        assumeTrue(testData.isEnabled(), "Check that test is enabled");
 
         assertTestCase(testData, solutionFile);
     }
@@ -69,7 +69,7 @@ public abstract class AbstractTestCase<T extends BaseTestData> {
                     .filter(filter)
                     .forEach(p -> {
                         var testDataFile = p.getParent().resolve("test/test-data.json");
-                        if (Files.exists(testDataFile)) map.put(p.toString(), parseTestDate(mapper, testDataFile.toFile(), type));
+                        if (Files.exists(testDataFile)) map.put(p.toString(), parseTestData(mapper, testDataFile.toFile(), type));
                         else map.put(p.toString(), null);
                     });
         }
@@ -78,7 +78,7 @@ public abstract class AbstractTestCase<T extends BaseTestData> {
     }
 
     @SneakyThrows
-    private T parseTestDate(ObjectMapper mapper, File file, Class<T> type) {
+    private T parseTestData(ObjectMapper mapper, File file, Class<T> type) {
         return mapper.readValue(file, type);
     }
 
@@ -86,7 +86,7 @@ public abstract class AbstractTestCase<T extends BaseTestData> {
         return getTestData().entrySet()
                 .stream()
                 .sorted(Map.Entry.comparingByValue(Comparator.comparing(BaseTestData::getNumber)))
-                .map(entry -> Arguments.of(getTitle(), entry.getValue(), entry.getKey()));
+                .map(entry -> Arguments.of(getTitle(), entry.getValue().getNumber(), entry.getValue(), entry.getKey()));
     }
 
 }

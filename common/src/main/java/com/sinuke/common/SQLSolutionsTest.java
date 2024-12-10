@@ -94,7 +94,7 @@ public abstract class SQLSolutionsTest extends AbstractTestCase<SQLSolutionsTest
             }
 
             // then
-            assertTrue(hasResultSet, "Check if solution produced results");
+            assertTrue(hasResultSet, "Check that solution produced results");
 
             while (hasResultSet) {
                 try (var resultSet = statement.getResultSet()) {
@@ -124,7 +124,7 @@ public abstract class SQLSolutionsTest extends AbstractTestCase<SQLSolutionsTest
             case null, default -> value = resultSet.getString(entry.getKey());
         }
 
-        assertEquals(entry.getValue().get(i), value, "Checks if result equals to expected one");
+        assertEquals(entry.getValue().get(i), value, "Check that result equals to expected one");
     }
 
     private void executeSQLContent(Statement statement, String content) throws Exception {
