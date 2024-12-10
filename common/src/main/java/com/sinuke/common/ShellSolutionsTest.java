@@ -2,73 +2,67 @@ package com.sinuke.common;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sinuke.common.model.BaseTestData;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.SneakyThrows;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.TestInstance;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.MethodSource;
 import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.images.builder.Transferable;
 import org.testcontainers.junit.jupiter.Testcontainers;
 import org.testcontainers.utility.MountableFile;
 
-import java.io.File;
-import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Comparator;
-import java.util.HashMap;
 import java.util.Map;
-import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 @Testcontainers
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public abstract class ShellSolutionsTest {
+public abstract class ShellSolutionsTest extends AbstractTestCase<ShellSolutionsTest.ShellTestData> {
 
     private GenericContainer<?> container;
     private Map<String, ShellTestData> testDataMap;
 
-    @BeforeAll
-    protected final void setUp() throws Exception {
-        testDataMap = scanDirectory(Paths.get("shell/"));
+    @Override
+    public void beforeAll() throws Exception {
+        testDataMap = findTestData(
+                "shell/", 
+                p -> p.toString().endsWith(".sh"),
+                ShellTestData.class
+        );    
     }
 
-    @AfterEach
-    protected final void tearDown() {
+    @Override
+    public void afterAll() {
         if (container != null) container.stop();
     }
 
-    @ParameterizedTest(name = "{index}: {0}")
-    @MethodSource("testData")
-    void testShell(ShellTestData shellTestData, String shellFile) throws Exception {
-        assertNotNull(shellTestData, "Checks if test data is available");
-        assumeTrue(shellTestData.isEnabled(), "Checks if test is enabled");
+    @Override
+    public void beforeEach() {
+        
+    }
 
-        var shellFilePath = Paths.get(shellFile);
+    @Override
+    public Map<String, ShellTestData> getTestData() {
+        return testDataMap;
+    }
+
+    @Override
+    public void assertTestCase(ShellTestData testData, String solutionFile) throws Exception {
+        var solutionFilePath = Paths.get(solutionFile);
 
         container = new GenericContainer<>("alpine:latest")
                 .withCommand("sh", "-c", "while :; do sleep 1; done")
-                .withWorkingDirectory(shellTestData.workingDir)
+                .withWorkingDirectory(testData.workingDir)
                 .withCopyToContainer(
-                        MountableFile.forHostPath(shellFilePath.getParent().resolve("test/" + shellTestData.getInput())),
-                        shellTestData.workingDir + "/" + shellTestData.getInput()
+                        MountableFile.forHostPath(solutionFilePath.getParent().resolve("test/" + testData.getInput())),
+                        testData.workingDir + "/" + testData.getInput()
                 )
                 .withCopyToContainer(
-                        Transferable.of(Files.readString(shellFilePath, StandardCharsets.UTF_8)),
-                        shellTestData.workingDir + "/solution.sh"
+                        Transferable.of(Files.readString(solutionFilePath, StandardCharsets.UTF_8)),
+                        testData.workingDir + "/solution.sh"
                 );
         container.start();
 
@@ -78,42 +72,12 @@ public abstract class ShellSolutionsTest {
         assertNotNull(results.getStdout(), "Checks if solution produced results");
 
         var expected = Files.readString(
-                shellFilePath.getParent().resolve("test/" + shellTestData.resultsFile),
+                solutionFilePath.getParent().resolve("test/" + testData.resultsFile),
                 StandardCharsets.UTF_8
         ).trim();
         var actual = results.getStdout().trim();
 
-        assertEquals(expected, actual, "Checks if result equals to expected one");
-    }
-
-    private Stream<Arguments> testData() {
-        return testDataMap.entrySet()
-                .stream()
-                .sorted(Map.Entry.comparingByValue(Comparator.comparing(BaseTestData::getNumber)))
-                .map(entry -> Arguments.of(entry.getValue(), entry.getKey()));
-    }
-
-    private Map<String, ShellTestData> scanDirectory(Path rootDir) throws IOException {
-        Map<String, ShellTestData> map = new HashMap<>();
-        var mapper = new ObjectMapper();
-
-        try (Stream<Path> walk = Files.walk(rootDir)) {
-            walk
-                    .filter(Files::isRegularFile)
-                    .filter(p -> p.toString().endsWith(".sh"))
-                    .forEach(p -> {
-                        var testDataFile = p.getParent().resolve("test/test-data.json");
-                        if (Files.exists(testDataFile)) map.put(p.toString(), parseTestDataFromFile(mapper, testDataFile.toFile()));
-                        else map.put(p.toString(), null);
-                    });
-        }
-
-        return map;
-    }
-
-    @SneakyThrows
-    private ShellTestData parseTestDataFromFile(ObjectMapper mapper, File file) {
-        return mapper.readValue(file, ShellTestData.class);
+        assertEquals(expected, actual, "Checks if result equals to expected one");    
     }
 
     @Getter

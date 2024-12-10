@@ -52,6 +52,8 @@ public abstract class SQLSolutionsTest {
     private Connection connection;
     private Map<String, SqlTestData> testDataMap;
 
+    public abstract String getLevelTitle();
+
     @BeforeAll
     protected final void setUp() throws Exception {
         mysqlContainer = new MySQLContainer<>(MYSQL_CONTAINER_WITH_VERSION)
@@ -76,9 +78,9 @@ public abstract class SQLSolutionsTest {
         if (mysqlContainer != null) mysqlContainer.close();
     }
 
-    @ParameterizedTest(name = "{index}: {0}")
+    @ParameterizedTest(name = "{0} - {index}: {1}")
     @MethodSource("testData")
-    void sqlSolutionTest(SqlTestData sqlTestData, String sqlFile) throws Exception {
+    void sqlSolutionTest(String level, SqlTestData sqlTestData, String sqlFile) throws Exception {
         assertNotNull(sqlTestData, "Checks if test data is available");
         assumeTrue(sqlTestData.isEnabled(), "Checks if test is enabled");
 
@@ -138,7 +140,7 @@ public abstract class SQLSolutionsTest {
         return testDataMap.entrySet()
                 .stream()
                 .sorted(Map.Entry.comparingByValue(Comparator.comparing(BaseTestData::getNumber)))
-                .map(entry -> Arguments.of(entry.getValue(), entry.getKey()));
+                .map(entry -> Arguments.of(getLevelTitle(), entry.getValue(), entry.getKey()));
     }
 
     private Map<String, SqlTestData> scanDirectory(Path rootDir) throws IOException {
