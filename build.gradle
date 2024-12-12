@@ -1,11 +1,13 @@
 plugins {
     id 'com.adarshr.test-logger' version '4.0.0'
     id 'io.freefair.lombok' version '8.11'
+    id 'jacoco'
 }
 
 allprojects {
 
     apply plugin: 'java'
+    apply plugin: 'jacoco'
     apply plugin: 'com.adarshr.test-logger'
     apply plugin: 'io.freefair.lombok'
 
