@@ -1,7 +1,8 @@
 DROP TABLE IF EXISTS Salary;
 CREATE TABLE Salary (
-    id INT PRIMARY KEY,
+    id INT,
     name VARCHAR(255),
     sex CHAR(1),
-    salary INT
+    salary INT,
+    PRIMARY KEY (id)
 );

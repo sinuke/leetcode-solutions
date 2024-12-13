@@ -1,5 +1,6 @@
 DROP TABLE IF EXISTS Person;
 CREATE TABLE Person (
-  id INT PRIMARY KEY,
-  email VARCHAR(255)
+  id INT,
+  email VARCHAR(255),
+  PRIMARY KEY (id)
 );

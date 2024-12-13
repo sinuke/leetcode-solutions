@@ -6,7 +6,8 @@ CREATE TABLE Project (
 
 DROP TABLE IF EXISTS Employee;
 CREATE TABLE Employee (
-    employee_id INT PRIMARY KEY,
+    employee_id INT,
     name VARCHAR(255),
-    experience_years INT
+    experience_years INT,
+    PRIMARY KEY (employee_id)
 );

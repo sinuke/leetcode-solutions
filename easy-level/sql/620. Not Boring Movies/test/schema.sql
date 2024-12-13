@@ -1,7 +1,8 @@
 DROP TABLE IF EXISTS Cinema;
 CREATE TABLE Cinema (
-    id INT PRIMARY KEY,
+    id INT,
     movie VARCHAR(255),
     description VARCHAR(255),
-    rating FLOAT
+    rating FLOAT,
+    PRIMARY KEY (id)
 );

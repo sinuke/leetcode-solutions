@@ -1,8 +1,9 @@
 DROP TABLE IF EXISTS Product;
 CREATE TABLE Product (
-    product_id INT PRIMARY KEY,
+    product_id INT,
     product_name VARCHAR(255),
-    unit_price INT
+    unit_price INT,
+    PRIMARY KEY (product_id)
 );
 
 DROP TABLE IF EXISTS Sales;

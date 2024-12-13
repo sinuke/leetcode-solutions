@@ -1,7 +1,8 @@
 DROP TABLE IF EXISTS Employees;
 CREATE TABLE Employees (
-    id INT PRIMARY KEY,
-    name VARCHAR(255)
+    id INT,
+    name VARCHAR(255),
+    PRIMARY KEY (id)
 );
 
 DROP TABLE IF EXISTS EmployeeUNI;

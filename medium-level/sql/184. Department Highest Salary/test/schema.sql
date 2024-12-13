@@ -1,13 +1,15 @@
 DROP TABLE IF EXISTS Employee;
 CREATE TABLE Employee (
-    id INT PRIMARY KEY,
+    id INT,
     name VARCHAR(255),
     salary INT,
-    departmentId INT
+    departmentId INT,
+    PRIMARY KEY (id)
 );
 
 DROP TABLE IF EXISTS Department;
 CREATE TABLE Department (
-    id INT PRIMARY KEY,
-    name VARCHAR(255)
+    id INT,
+    name VARCHAR(255),
+    PRIMARY KEY (id)
 );

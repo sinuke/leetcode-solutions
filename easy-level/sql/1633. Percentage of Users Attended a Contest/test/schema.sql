@@ -1,7 +1,8 @@
 DROP TABLE IF EXISTS Users;
 CREATE TABLE Users (
-    user_id INT PRIMARY KEY,
-    user_name VARCHAR(255)
+    user_id INT,
+    user_name VARCHAR(255),
+    PRIMARY KEY (user_id)
 );
 
 DROP TABLE IF EXISTS Register;
