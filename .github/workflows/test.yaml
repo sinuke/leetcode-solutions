@@ -27,11 +27,10 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: Test with Gradle
+      - name: Test with Gradle to generate report
         run: ./gradlew jacocoRootReport
 
-          # generates coverage-report.md and publishes as checkrun
-      - name: JaCoCo Code Coverage Report
+      - name: Jacoco reporter
         id: jacoco_reporter
         uses: PavanMudigonda/jacoco-reporter@v5.0
         with:
@@ -44,8 +43,7 @@ jobs:
           fail_below_threshold: false
           publish_only_summary: false
 
-        # Publish Coverage Job Summary  # Optional
-      - name: Add Jacocoo report to workflow run summary
+      - name: Add Jacoco report to workflow run summary
         run: |
           echo "| Outcome | Value |" >> $GITHUB_STEP_SUMMARY
           echo "| --- | --- |" >> $GITHUB_STEP_SUMMARY
@@ -53,3 +51,10 @@ jobs:
           echo "| :heavy_check_mark: Number of Lines Covered | ${{ steps.jacoco_reporter.outputs.covered_lines }} |" >> $GITHUB_STEP_SUMMARY
           echo "| :x: Number of Lines Missed | ${{ steps.jacoco_reporter.outputs.missed_lines }} |" >> $GITHUB_STEP_SUMMARY
           echo "| Total Number of Lines | ${{ steps.jacoco_reporter.outputs.total_lines }} |" >> $GITHUB_STEP_SUMMARY
+
+      - name: Upload Code Coverage Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: code-coverage-report-markdown
+          path: "*/coverage-results.md"
+          retention-days: 1
