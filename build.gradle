@@ -11,6 +11,9 @@ allprojects {
     apply plugin: 'com.adarshr.test-logger'
     apply plugin: 'io.freefair.lombok'
 
+    jacoco {
+        toolVersion = "0.8.12"
+    }
 
     java {
         sourceCompatibility = JavaVersion.VERSION_21
@@ -44,4 +47,31 @@ allprojects {
         }
     }
 
+    tasks.withType(Test).tap { configureEach
+            {
+                finalizedBy jacocoTestReport
+            }
+    }
+
+    jacocoTestReport {
+        reports {
+            xml.required = true
+            html.required = true
+        }
+    }
+
+}
+
+tasks.register('jacocoRootReport', JacocoReport) {
+    dependsOn subprojects.test
+
+    additionalSourceDirs = files(subprojects.sourceSets.main.allSource.srcDirs)
+    sourceDirectories = files(subprojects.sourceSets.main.allSource.srcDirs)
+    classDirectories = files(subprojects.sourceSets.main.output)
+    executionData = files(subprojects.jacocoTestReport.executionData)
+
+    reports {
+        xml.required = true
+        html.required = true
+    }
 }
