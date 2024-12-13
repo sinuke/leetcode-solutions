@@ -1,5 +1,6 @@
 package com.sinuke;
 
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
@@ -27,6 +28,34 @@ public class FindScoreOfArrayAfterMarkingAllElements {
             if (node.index < nums.length - 1 && nums[node.index + 1] != 0) nums[node.index + 1] = 0;
         }
 
+        return score;
+    }
+    
+    public long findScoreFromLeetCode(int[] nums) {
+        int[][] matrix = new int[nums.length][2];
+        int[] marked = new int[nums.length];
+        long score = 0;
+
+        for (int i = 0; i < nums.length; i++) {
+            matrix[i][0] = nums[i];
+            matrix[i][1] = i;
+        }
+
+        Arrays.sort(matrix, Comparator.comparingInt(a -> a[0]));
+
+        for (int[] node : matrix) {
+            int value = node[0];
+            int index = node[1];
+
+            if (marked[index] == 0) {
+                score += value;
+                marked[index] = 1;
+
+                if (index > 0) marked[index - 1] = 1;
+                if (index < nums.length - 1) marked[index + 1] = 1;
+            }
+        }
+        
         return score;
     }
     

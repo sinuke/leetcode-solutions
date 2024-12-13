@@ -16,6 +16,13 @@ class FindScoreOfArrayAfterMarkingAllElementsTest {
         var findScore = new FindScoreOfArrayAfterMarkingAllElements();
         assertEquals(expected, findScore.findScore(nums));
     }
+
+    @ParameterizedTest
+    @MethodSource("testData")
+    void findScoreFromLeetCode(int[] nums, long expected) {
+        var findScore = new FindScoreOfArrayAfterMarkingAllElements();
+        assertEquals(expected, findScore.findScoreFromLeetCode(nums));
+    }
     
     private static Stream<Arguments> testData() {
         return Stream.of(
