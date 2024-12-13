@@ -70,6 +70,10 @@ tasks.register('jacocoRootReport', JacocoReport) {
     classDirectories = files(subprojects.sourceSets.main.output)
     executionData = files(subprojects.jacocoTestReport.executionData)
 
+    classDirectories = classDirectories.filter { file ->
+        !file.path.contains('common') // exclude "common" module from report
+    }
+
     reports {
         xml.required = true
         html.required = true
