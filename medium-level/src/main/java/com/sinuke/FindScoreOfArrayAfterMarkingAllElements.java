@@ -1,0 +1,43 @@
+package com.sinuke;
+
+import java.util.Comparator;
+import java.util.PriorityQueue;
+
+public class FindScoreOfArrayAfterMarkingAllElements {
+
+    public long findScore(int[] nums) {
+        Comparator<Node> comparator = Comparator.comparing(node -> node.val);
+        comparator = comparator.thenComparing(node -> node.index);
+        
+        var pq = new PriorityQueue<>(comparator);
+        for (int i = 0; i < nums.length; i++) {
+            pq.add(new Node(nums[i], i));
+        }
+
+        long score = 0;
+
+        while (!pq.isEmpty()) {
+            var node = pq.poll();
+            if (nums[node.index] == 0) {
+                continue;
+            }
+            
+            score += node.val;
+            if (node.index > 0 && nums[node.index - 1] != 0) nums[node.index - 1] = 0;
+            if (node.index < nums.length - 1 && nums[node.index + 1] != 0) nums[node.index + 1] = 0;
+        }
+
+        return score;
+    }
+    
+    private static class Node {
+        int val;
+        int index;
+        
+        public Node(int val, int index) {
+            this.val = val;
+            this.index = index;
+        }
+    }
+    
+}
