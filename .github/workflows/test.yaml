@@ -29,8 +29,9 @@ jobs:
       - name: Test with Gradle
         run: ./gradlew jacocoRootReport
 
-      - name: Upload Jacoco Report
-        uses: actions/upload-artifact@v4
+      - name: Jacoco Report
+        id: jacoco
+        uses: medrapps/jacoco-report@v1.7.1
         with:
-          name: jacoco-report
-          path: build/reports/jacoco/jacocoRootReport/html
+          paths: build/reports/jacoco/jacocoRootReport/jacocoRootReport.xml
+          token: ${{ secrets.GITHUB_TOKEN }}
