@@ -1,12 +1,27 @@
 {
-	"title": "Market Analysis I",
-	"number": 1158,
-	"schema": "schema.sql",
-	"input-data": "data.sql",
-	"results-size": 4,
-	"results-map": {
-		"buyer_id": [ 1, 2, 3, 4 ],
-		"join_date": [ "2018-01-01", "2018-02-09", "2018-01-19", "2018-05-21" ],
-		"orders_in_2019": [ 1, 2, 0, 0 ]
-	}
+  "title": "Market Analysis I",
+  "number": 1158,
+  "schema": "schema.sql",
+  "input-data": "data.sql",
+  "results-size": 4,
+  "results-map": {
+    "buyer_id": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "join_date": [
+      "2018-01-01",
+      "2018-02-09",
+      "2018-01-19",
+      "2018-05-21"
+    ],
+    "orders_in_2019": [
+      1,
+      2,
+      0,
+      0
+    ]
+  }
 }

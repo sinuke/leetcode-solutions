@@ -1,22 +1,74 @@
 {
-  "title" : "Reformat Department Table",
-  "number" : 1179,
-  "schema" : "schema.sql",
-  "input-data" : "data.sql",
-  "results-size" : 3,
-  "results-map" : {
-    "Jun_Revenue" : [ null, null, null ],
-    "Sep_Revenue" : [ null, null, null ],
-    "Feb_Revenue" : [ 7000, null, 10000 ],
-    "id" : [ 1, 2, 3 ],
-    "Oct_Revenue" : [ null, null, null ],
-    "Mar_Revenue" : [ 6000, null, null ],
-    "Dec_Revenue" : [ null, null, null ],
-    "May_Revenue" : [ null, null, null ],
-    "Aug_Revenue" : [ null, null, null ],
-    "Jul_Revenue" : [ null, null, null ],
-    "Nov_Revenue" : [ null, null, null ],
-    "Jan_Revenue" : [ 8000, 9000, null ],
-    "Apr_Revenue" : [ null, null, null ]
+  "title": "Reformat Department Table",
+  "number": 1179,
+  "schema": "schema.sql",
+  "input-data": "data.sql",
+  "results-size": 3,
+  "results-map": {
+    "Jun_Revenue": [
+      null,
+      null,
+      null
+    ],
+    "Sep_Revenue": [
+      null,
+      null,
+      null
+    ],
+    "Feb_Revenue": [
+      7000,
+      null,
+      10000
+    ],
+    "id": [
+      1,
+      2,
+      3
+    ],
+    "Oct_Revenue": [
+      null,
+      null,
+      null
+    ],
+    "Mar_Revenue": [
+      6000,
+      null,
+      null
+    ],
+    "Dec_Revenue": [
+      null,
+      null,
+      null
+    ],
+    "May_Revenue": [
+      null,
+      null,
+      null
+    ],
+    "Aug_Revenue": [
+      null,
+      null,
+      null
+    ],
+    "Jul_Revenue": [
+      null,
+      null,
+      null
+    ],
+    "Nov_Revenue": [
+      null,
+      null,
+      null
+    ],
+    "Jan_Revenue": [
+      8000,
+      9000,
+      null
+    ],
+    "Apr_Revenue": [
+      null,
+      null,
+      null
+    ]
   }
 }

@@ -1,11 +1,23 @@
 {
-	"title": "Tree Node",
-	"number": 608,
-	"schema": "schema.sql",
-	"input-data": "data.sql",
-	"results-size": 5,
-	"results-map": {
-		"id": [ 1, 2, 3, 4, 5 ],
-		"type" : [ "Root", "Inner", "Leaf", "Leaf", "Leaf" ]
-	}
+  "title": "Tree Node",
+  "number": 608,
+  "schema": "schema.sql",
+  "input-data": "data.sql",
+  "results-size": 5,
+  "results-map": {
+    "id": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "type": [
+      "Root",
+      "Inner",
+      "Leaf",
+      "Leaf",
+      "Leaf"
+    ]
+  }
 }

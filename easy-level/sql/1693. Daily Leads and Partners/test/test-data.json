@@ -1,13 +1,33 @@
 {
-  "title" : "Daily Leads and Partners",
-  "number" : 1693,
-  "schema" : "schema.sql",
-  "input-data" : "data.sql",
-  "results-size" : 4,
-  "results-map" : {
-    "make_name" : [ "honda", "toyota", "honda", "toyota" ],
-    "unique_leads" : [ 3, 1, 2, 2 ],
-    "unique_partners" : [ 2, 2, 2, 3 ],
-    "date_id" : [ "2020-12-07", "2020-12-07", "2020-12-08", "2020-12-08" ]
+  "title": "Daily Leads and Partners",
+  "number": 1693,
+  "schema": "schema.sql",
+  "input-data": "data.sql",
+  "results-size": 4,
+  "results-map": {
+    "make_name": [
+      "honda",
+      "toyota",
+      "honda",
+      "toyota"
+    ],
+    "unique_leads": [
+      3,
+      1,
+      2,
+      2
+    ],
+    "unique_partners": [
+      2,
+      2,
+      2,
+      3
+    ],
+    "date_id": [
+      "2020-12-07",
+      "2020-12-07",
+      "2020-12-08",
+      "2020-12-08"
+    ]
   }
 }

@@ -1,10 +1,14 @@
 {
-  "title" : "Sales Person",
-  "number" : 607,
-  "schema" : "schema.sql",
-  "input-data" : "data.sql",
-  "results-size" : 3,
-  "results-map" : {
-    "name" : [ "Amy", "Mark", "Alex" ]
+  "title": "Sales Person",
+  "number": 607,
+  "schema": "schema.sql",
+  "input-data": "data.sql",
+  "results-size": 3,
+  "results-map": {
+    "name": [
+      "Amy",
+      "Mark",
+      "Alex"
+    ]
   }
 }

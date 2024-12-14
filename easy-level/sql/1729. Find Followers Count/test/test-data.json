@@ -1,11 +1,19 @@
 {
-  "title" : "Find Followers Count",
-  "number" : 1729,
-  "schema" : "schema.sql",
-  "input-data" : "data.sql",
-  "results-size" : 3,
-  "results-map" : {
-    "user_id" : [ 0, 1, 2 ],
-    "followers_count" : [ 1, 1, 2 ]
+  "title": "Find Followers Count",
+  "number": 1729,
+  "schema": "schema.sql",
+  "input-data": "data.sql",
+  "results-size": 3,
+  "results-map": {
+    "user_id": [
+      0,
+      1,
+      2
+    ],
+    "followers_count": [
+      1,
+      1,
+      2
+    ]
   }
 }

@@ -1,11 +1,15 @@
 {
-	"title": "Friend Requests II: Who Has the Most Friends",
-	"number": 602,
-	"schema": "schema.sql",
-	"input-data": "data.sql",
-	"results-size": 1,
-	"results-map": {
-		"id": [ 17 ],
-		"num" : [ 10 ]
-	}
+  "title": "Friend Requests II: Who Has the Most Friends",
+  "number": 602,
+  "schema": "schema.sql",
+  "input-data": "data.sql",
+  "results-size": 1,
+  "results-map": {
+    "id": [
+      17
+    ],
+    "num": [
+      10
+    ]
+  }
 }

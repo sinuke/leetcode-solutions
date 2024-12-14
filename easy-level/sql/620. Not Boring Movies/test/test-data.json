@@ -1,13 +1,25 @@
 {
-  "title" : "Not Boring Movies",
-  "number" : 620,
-  "schema" : "schema.sql",
-  "input-data" : "data.sql",
-  "results-size" : 2,
-  "results-map" : {
-    "rating" : [ 9.1, 8.9 ],
-    "movie" : [ "House card", "War" ],
-    "id" : [ 5, 1 ],
-    "description" : [ "Interesting", "great 3D" ]
+  "title": "Not Boring Movies",
+  "number": 620,
+  "schema": "schema.sql",
+  "input-data": "data.sql",
+  "results-size": 2,
+  "results-map": {
+    "rating": [
+      9.1,
+      8.9
+    ],
+    "movie": [
+      "House card",
+      "War"
+    ],
+    "id": [
+      5,
+      1
+    ],
+    "description": [
+      "Interesting",
+      "great 3D"
+    ]
   }
 }

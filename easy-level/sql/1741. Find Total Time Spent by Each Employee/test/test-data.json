@@ -1,12 +1,27 @@
 {
-  "title" : "Find Total Time Spent by Each Employee",
-  "number" : 1741,
-  "schema" : "schema.sql",
-  "input-data" : "data.sql",
-  "results-size" : 4,
-  "results-map" : {
-    "day" : [ "2020-11-28", "2020-11-28", "2020-12-03", "2020-12-09" ],
-    "emp_id" : [ 1, 2, 1, 2 ],
-    "total_time" : [ 173, 30, 41, 27 ]
+  "title": "Find Total Time Spent by Each Employee",
+  "number": 1741,
+  "schema": "schema.sql",
+  "input-data": "data.sql",
+  "results-size": 4,
+  "results-map": {
+    "day": [
+      "2020-11-28",
+      "2020-11-28",
+      "2020-12-03",
+      "2020-12-09"
+    ],
+    "emp_id": [
+      1,
+      2,
+      1,
+      2
+    ],
+    "total_time": [
+      173,
+      30,
+      41,
+      27
+    ]
   }
 }

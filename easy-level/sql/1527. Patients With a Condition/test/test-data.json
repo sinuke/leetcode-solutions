@@ -1,12 +1,21 @@
 {
-  "title" : "Patients With a Condition",
-  "number" : 1527,
-  "schema" : "schema.sql",
-  "input-data" : "data.sql",
-  "results-size" : 2,
-  "results-map" : {
-    "patient_name" : [ "Bob", "George" ],
-    "conditions" : [ "DIAB100 MYOP", "ACNE DIAB100" ],
-    "patient_id" : [ 3, 4 ]
+  "title": "Patients With a Condition",
+  "number": 1527,
+  "schema": "schema.sql",
+  "input-data": "data.sql",
+  "results-size": 2,
+  "results-map": {
+    "patient_name": [
+      "Bob",
+      "George"
+    ],
+    "conditions": [
+      "DIAB100 MYOP",
+      "ACNE DIAB100"
+    ],
+    "patient_id": [
+      3,
+      4
+    ]
   }
 }

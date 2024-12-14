@@ -1,12 +1,21 @@
 {
-  "title" : "Queries Quality and Percentage",
-  "number" : 1211,
-  "schema" : "schema.sql",
-  "input-data" : "data.sql",
-  "results-size" : 2,
-  "results-map" : {
-    "poor_query_percentage" : [ 33.33, 33.33 ],
-    "query_name" : [ "Cat", "Dog" ],
-    "quality" : [ 0.66, 2.5 ]
+  "title": "Queries Quality and Percentage",
+  "number": 1211,
+  "schema": "schema.sql",
+  "input-data": "data.sql",
+  "results-size": 2,
+  "results-map": {
+    "poor_query_percentage": [
+      33.33,
+      33.33
+    ],
+    "query_name": [
+      "Cat",
+      "Dog"
+    ],
+    "quality": [
+      0.66,
+      2.5
+    ]
   }
 }

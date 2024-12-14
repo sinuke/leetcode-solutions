@@ -1,14 +1,34 @@
 {
-  "title" : "Swap Salary",
-  "number" : 627,
-  "schema" : "schema.sql",
-  "input-data" : "data.sql",
-  "results-query" : "results-query.sql",
-  "results-size" : 4,
-  "results-map" : {
-    "sex" : [ "f", "m", "f", "m" ],
-    "salary" : [ 2500, 1500, 5500, 500 ],
-    "id" : [ 1, 2, 3, 4 ],
-    "name" : [ "A", "B", "C", "D" ]
+  "title": "Swap Salary",
+  "number": 627,
+  "schema": "schema.sql",
+  "input-data": "data.sql",
+  "results-query": "results-query.sql",
+  "results-size": 4,
+  "results-map": {
+    "sex": [
+      "f",
+      "m",
+      "f",
+      "m"
+    ],
+    "salary": [
+      2500,
+      1500,
+      5500,
+      500
+    ],
+    "id": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "name": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ]
   }
 }

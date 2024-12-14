@@ -1,10 +1,15 @@
 {
-  "title" : "Find Customer Referee",
-  "number" : 584,
-  "schema" : "schema.sql",
-  "input-data" : "data.sql",
-  "results-size" : 4,
-  "results-map" : {
-    "name" : [ "Will", "Jane", "Bill", "Zack" ]
+  "title": "Find Customer Referee",
+  "number": 584,
+  "schema": "schema.sql",
+  "input-data": "data.sql",
+  "results-size": 4,
+  "results-map": {
+    "name": [
+      "Will",
+      "Jane",
+      "Bill",
+      "Zack"
+    ]
   }
 }

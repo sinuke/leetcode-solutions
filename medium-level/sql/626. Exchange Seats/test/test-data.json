@@ -1,11 +1,23 @@
 {
-	"title": "Exchange Seats",
-	"number": 626,
-	"schema": "schema.sql",
-	"input-data": "data.sql",
-	"results-size": 5,
-	"results-map": {
-		"id": [ 1, 2, 3, 4, 5 ],
-		"student" : [ "Doris", "Abbot", "Green", "Emerson", "Jeames" ]
-	}
+  "title": "Exchange Seats",
+  "number": 626,
+  "schema": "schema.sql",
+  "input-data": "data.sql",
+  "results-size": 5,
+  "results-map": {
+    "id": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "student": [
+      "Doris",
+      "Abbot",
+      "Green",
+      "Emerson",
+      "Jeames"
+    ]
+  }
 }

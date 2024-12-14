@@ -1,12 +1,24 @@
 {
-  "title" : "Group Sold Products By The Date",
-  "number" : 1484,
-  "schema" : "schema.sql",
-  "input-data" : "data.sql",
-  "results-size" : 3,
-  "results-map" : {
-    "num_sold" : [ 3, 2, 1 ],
-    "products" : [ "Basketball,Headphone,T-Shirt", "Bible,Pencil", "Mask" ],
-    "sell_date" : [ "2020-05-30", "2020-06-01", "2020-06-02" ]
+  "title": "Group Sold Products By The Date",
+  "number": 1484,
+  "schema": "schema.sql",
+  "input-data": "data.sql",
+  "results-size": 3,
+  "results-map": {
+    "num_sold": [
+      3,
+      2,
+      1
+    ],
+    "products": [
+      "Basketball,Headphone,T-Shirt",
+      "Bible,Pencil",
+      "Mask"
+    ],
+    "sell_date": [
+      "2020-05-30",
+      "2020-06-01",
+      "2020-06-02"
+    ]
   }
 }

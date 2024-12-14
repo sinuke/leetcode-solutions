@@ -1,11 +1,19 @@
 {
-  "title" : "The Latest Login in 2020",
-  "number" : 1890,
-  "schema" : "schema.sql",
-  "input-data" : "data.sql",
-  "results-size" : 3,
-  "results-map" : {
-    "user_id" : [ 2, 6, 8 ],
-    "last_stamp" : [ "2020-01-16 02:49:50", "2020-06-30 15:06:07", "2020-12-30 00:46:50" ]
+  "title": "The Latest Login in 2020",
+  "number": 1890,
+  "schema": "schema.sql",
+  "input-data": "data.sql",
+  "results-size": 3,
+  "results-map": {
+    "user_id": [
+      2,
+      6,
+      8
+    ],
+    "last_stamp": [
+      "2020-01-16 02:49:50",
+      "2020-06-30 15:06:07",
+      "2020-12-30 00:46:50"
+    ]
   }
 }

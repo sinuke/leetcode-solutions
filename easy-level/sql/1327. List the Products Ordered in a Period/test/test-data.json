@@ -1,11 +1,17 @@
 {
-  "title" : "List the Products Ordered in a Period",
-  "number" : 1327,
-  "schema" : "schema.sql",
-  "input-data" : "data.sql",
-  "results-size" : 2,
-  "results-map" : {
-    "product_name" : [ "Leetcode Solutions", "Leetcode Kit" ],
-    "unit" : [ 130, 100 ]
+  "title": "List the Products Ordered in a Period",
+  "number": 1327,
+  "schema": "schema.sql",
+  "input-data": "data.sql",
+  "results-size": 2,
+  "results-map": {
+    "product_name": [
+      "Leetcode Solutions",
+      "Leetcode Kit"
+    ],
+    "unit": [
+      130,
+      100
+    ]
   }
 }

@@ -1,12 +1,33 @@
 {
-	"title": "Department Top Three Salaries",
-	"number": 185,
-	"schema": "schema.sql",
-	"input-data": "data.sql",
-	"results-size": 6,
-	"results-map": {
-		"Department": [ "IT", "IT", "IT", "IT", "Sales", "Sales" ],
-		"Employee": [ "Max", "Joe", "Randy", "Will", "Henry", "Sam" ],
-		"Salary" : [ 90000, 85000, 85000, 70000, 80000, 60000 ]
-	}
+  "title": "Department Top Three Salaries",
+  "number": 185,
+  "schema": "schema.sql",
+  "input-data": "data.sql",
+  "results-size": 6,
+  "results-map": {
+    "Department": [
+      "IT",
+      "IT",
+      "IT",
+      "IT",
+      "Sales",
+      "Sales"
+    ],
+    "Employee": [
+      "Max",
+      "Joe",
+      "Randy",
+      "Will",
+      "Henry",
+      "Sam"
+    ],
+    "Salary": [
+      90000,
+      85000,
+      85000,
+      70000,
+      80000,
+      60000
+    ]
+  }
 }

@@ -1,11 +1,23 @@
 {
-  "title" : "Percentage of Users Attended a Contest",
-  "number" : 1633,
-  "schema" : "schema.sql",
-  "input-data" : "data.sql",
-  "results-size" : 5,
-  "results-map" : {
-    "percentage" : [ 100.0, 100.0, 100.0, 66.67, 33.33 ],
-    "contest_id" : [ 208, 209, 210, 215, 207 ]
+  "title": "Percentage of Users Attended a Contest",
+  "number": 1633,
+  "schema": "schema.sql",
+  "input-data": "data.sql",
+  "results-size": 5,
+  "results-map": {
+    "percentage": [
+      100.0,
+      100.0,
+      100.0,
+      66.67,
+      33.33
+    ],
+    "contest_id": [
+      208,
+      209,
+      210,
+      215,
+      207
+    ]
   }
 }

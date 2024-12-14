@@ -1,10 +1,13 @@
 {
-  "title" : "Employees With Missing Information",
-  "number" : 1965,
-  "schema" : "schema.sql",
-  "input-data" : "data.sql",
-  "results-size" : 2,
-  "results-map" : {
-    "employee_id": [ 1, 2 ]
+  "title": "Employees With Missing Information",
+  "number": 1965,
+  "schema": "schema.sql",
+  "input-data": "data.sql",
+  "results-size": 2,
+  "results-map": {
+    "employee_id": [
+      1,
+      2
+    ]
   }
 }

@@ -1,12 +1,24 @@
 {
-  "title" : "Product Sales Analysis I",
-  "number" : 1068,
-  "schema" : "schema.sql",
-  "input-data" : "data.sql",
-  "results-size" : 3,
-  "results-map" : {
-    "price" : [ 5000, 5000, 9000 ],
-    "year" : [ 2008, 2009, 2011 ],
-    "product_name" : [ "Nokia", "Nokia", "Apple" ]
+  "title": "Product Sales Analysis I",
+  "number": 1068,
+  "schema": "schema.sql",
+  "input-data": "data.sql",
+  "results-size": 3,
+  "results-map": {
+    "price": [
+      5000,
+      5000,
+      9000
+    ],
+    "year": [
+      2008,
+      2009,
+      2011
+    ],
+    "product_name": [
+      "Nokia",
+      "Nokia",
+      "Apple"
+    ]
   }
 }

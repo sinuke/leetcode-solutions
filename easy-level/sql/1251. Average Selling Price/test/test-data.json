@@ -1,11 +1,17 @@
 {
-  "title" : "Average Selling Price",
+  "title": "Average Selling Price",
   "number": 1251,
-  "schema" : "schema.sql",
-  "input-data" : "data.sql",
-  "results-size" : 2,
-  "results-map" : {
-    "product_id" : [ 1, 2 ],
-    "average_price" : [ 6.96, 16.96 ]
+  "schema": "schema.sql",
+  "input-data": "data.sql",
+  "results-size": 2,
+  "results-map": {
+    "product_id": [
+      1,
+      2
+    ],
+    "average_price": [
+      6.96,
+      16.96
+    ]
   }
 }

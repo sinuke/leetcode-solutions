@@ -1,5 +1,5 @@
 {
-  "title" : "Valid Phone Numbers",
+  "title": "Valid Phone Numbers",
   "number": 193,
   "input-data": "file.txt",
   "working-dir": "/home/user",

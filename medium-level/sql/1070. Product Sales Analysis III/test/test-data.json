@@ -1,13 +1,25 @@
 {
-	"title": "Product Sales Analysis III",
-	"number": 1070,
-	"schema": "schema.sql",
-	"input-data": "data.sql",
-	"results-size": 2,
-	"results-map": {
-		"product_id": [ 100, 200 ],
-		"first_year": [ 2008, 2011 ],
-		"quantity": [ 10, 15 ],
-		"price": [ 5000, 9000 ]
-	}
+  "title": "Product Sales Analysis III",
+  "number": 1070,
+  "schema": "schema.sql",
+  "input-data": "data.sql",
+  "results-size": 2,
+  "results-map": {
+    "product_id": [
+      100,
+      200
+    ],
+    "first_year": [
+      2008,
+      2011
+    ],
+    "quantity": [
+      10,
+      15
+    ],
+    "price": [
+      5000,
+      9000
+    ]
+  }
 }
