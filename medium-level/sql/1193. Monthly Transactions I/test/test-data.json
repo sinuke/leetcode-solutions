@@ -1,0 +1,15 @@
+{
+	"title": "Monthly Transactions I",
+	"number": 1193,
+	"schema": "schema.sql",
+	"input-data": "data.sql",
+	"results-size": 3,
+	"results-map": {
+		"month": [ "2018-12", "2019-01", "2019-01" ],
+		"country": [ "US", "US", "DE" ],
+		"trans_count": [ 2, 1, 1 ],
+		"approved_count": [ 1, 1, 1 ],
+		"trans_total_amount": [ 3000, 2000, 2000 ],
+		"approved_total_amount": [ 1000, 2000, 2000 ]
+	}
+}
