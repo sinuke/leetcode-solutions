@@ -9,7 +9,7 @@ t2 AS (
         SUM(amount) OVER w AS amount,
         FIRST_VALUE(visited_on) OVER w AS start_date
     FROM t1
-    WINDOW w AS (ORDER BY visited_on RANGE INTERVAL 6 DAY PRECEDING)
+    WINDOW w AS (ORDER BY visited_on ROWS 6 PRECEDING)
 )
 SELECT MAX(visited_on) AS visited_on, MAX(amount) AS amount, ROUND(MAX(amount) / 7, 2) AS average_amount
 FROM t2
