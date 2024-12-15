@@ -1,0 +1,13 @@
+{
+  "title": "Movie Rating",
+  "number": 1341,
+  "schema": "schema.sql",
+  "input-data": "data.sql",
+  "results-size": 2,
+  "results-map": {
+    "results": [
+      "Daniel",
+      "Frozen 2"
+    ]
+  }
+}
