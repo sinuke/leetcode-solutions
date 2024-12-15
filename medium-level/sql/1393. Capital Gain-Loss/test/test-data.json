@@ -1,0 +1,19 @@
+{
+  "title": "Capital Gain/Loss",
+  "number": 1393,
+  "schema": "schema.sql",
+  "input-data": "data.sql",
+  "results-size": 3,
+  "results-map": {
+    "stock_name": [
+      "Corona Masks",
+      "Handbags",
+      "Leetcode"
+    ],
+    "capital_gain_loss": [
+      9500,
+      -23000,
+      8000
+    ]
+  }
+}
