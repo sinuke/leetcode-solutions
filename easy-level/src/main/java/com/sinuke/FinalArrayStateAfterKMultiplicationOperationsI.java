@@ -9,10 +9,10 @@ public class FinalArrayStateAfterKMultiplicationOperationsI {
     public int[] getFinalState(int[] nums, int k, int multiplier) {
         if (multiplier == 1) return nums;
 
-        Queue<Integer[]> pq = new PriorityQueue<>(nums.length, Comparator.comparing((Integer[] a) -> a[0]).thenComparing((Integer[] a) -> a[1]));
+        Queue<int[]> pq = new PriorityQueue<>(nums.length, Comparator.comparing((int[] a) -> a[0]).thenComparing(a -> a[1]));
 
         for (int i = 0; i < nums.length; i++) {
-            pq.add(new Integer[] {nums[i], i});
+            pq.add(new int[] {nums[i], i});
         }
 
         while (k > 0) {
