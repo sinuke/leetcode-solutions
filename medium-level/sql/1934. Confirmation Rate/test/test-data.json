@@ -1,0 +1,21 @@
+{
+  "title": "Confirmation Rate",
+  "number": 1934,
+  "schema": "schema.sql",
+  "input-data": "data.sql",
+  "results-size": 4,
+  "results-map": {
+    "user_id": [
+      2,
+      3,
+      6,
+      7
+    ],
+    "confirmation_rate": [
+      0.50,
+      0.00,
+      0.00,
+      1.00
+    ]
+  }
+}
