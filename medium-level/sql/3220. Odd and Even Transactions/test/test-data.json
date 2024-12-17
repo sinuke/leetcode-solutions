@@ -1,0 +1,24 @@
+{
+  "title": "Odd and Even Transactions",
+  "number": 3220,
+  "schema": "schema.sql",
+  "input-data": "data.sql",
+  "results-size": 3,
+  "results-map": {
+    "transaction_date": [
+      "2024-07-01",
+      "2024-07-02",
+      "2024-07-03"
+    ],
+    "odd_sum": [
+      75,
+      0,
+      0
+    ],
+    "even_sum": [
+      350,
+      350,
+      120
+    ]
+  }
+}
