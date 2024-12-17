@@ -1,0 +1,27 @@
+{
+  "title": "First Letter Capitalization II",
+  "number": 3374,
+  "schema": "schema.sql",
+  "input-data": "data.sql",
+  "results-size": 4,
+  "results-map": {
+    "content_id": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "original_text": [
+      "hello world of SQL",
+      "the QUICK-brown fox",
+      "modern-day DATA science",
+      "web-based FRONT-end development"
+    ],
+    "converted_text": [
+      "Hello World Of Sql",
+      "The Quick-Brown Fox",
+      "Modern-Day Data Science",
+      "Web-Based Front-End Development"
+    ]
+  }
+}
