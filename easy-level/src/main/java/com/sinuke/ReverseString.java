@@ -4,16 +4,14 @@ public class ReverseString {
 
     public void reverseString(char[] s) {
         int left = 0;
-        int right = s.length - 1;
         char temp;
 
-        while (left < right) {
+        while (left < s.length - left - 1) {
             temp = s[left];
-            s[left] = s[right];
-            s[right] = temp;
+            s[left] = s[s.length - left - 1];
+            s[s.length - left - 1] = temp;
 
             left++;
-            right--;
         }
     }
 
