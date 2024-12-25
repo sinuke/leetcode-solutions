@@ -16,11 +16,17 @@ class IntersectionOfTwoArraysIITest {
     void intersect(int[] nums1, int[] nums2, int[] expected) {
         var intersectionOfTwoArraysII = new IntersectionOfTwoArraysII();
         var actual = intersectionOfTwoArraysII.intersect(nums1, nums2);
+        var actual2 = intersectionOfTwoArraysII.intersect2(nums1, nums2);
+        var actual3 = intersectionOfTwoArraysII.intersect3(nums1, nums2);
 
         Arrays.sort(expected);
         Arrays.sort(actual);
+        Arrays.sort(actual2);
+        Arrays.sort(actual3);
 
         assertArrayEquals(expected, actual);
+        assertArrayEquals(expected, actual2);
+        assertArrayEquals(expected, actual3);
     }
 
     private static Stream<Arguments> testData() {
