@@ -1,4 +1,4 @@
-package com.sinuke;
+package com.sinuke.medium;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;

@@ -1,4 +1,4 @@
-package com.sinuke;
+package com.sinuke.medium;
 
 import java.util.Arrays;
 import java.util.Comparator;

@@ -1,4 +1,4 @@
-package com.sinuke;
+package com.sinuke.medium;
 
 public class SpecialArrayII {
 

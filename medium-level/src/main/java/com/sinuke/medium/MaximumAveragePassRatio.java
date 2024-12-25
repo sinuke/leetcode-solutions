@@ -1,4 +1,4 @@
-package com.sinuke;
+package com.sinuke.medium;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;
