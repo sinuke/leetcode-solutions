@@ -1,4 +1,4 @@
-package com.sinuke.sql;
+package com.sinuke.hard.sql;
 
 import com.sinuke.common.SQLSolutionsTest;
 
