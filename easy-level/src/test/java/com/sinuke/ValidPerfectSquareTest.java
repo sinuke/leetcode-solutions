@@ -21,7 +21,8 @@ class ValidPerfectSquareTest {
         return Stream.of(
                 Arguments.of(16, true),
                 Arguments.of(1, true),
-                Arguments.of(14, false)
+                Arguments.of(14, false),
+                Arguments.of(2147395600, true)
         );
     }
 

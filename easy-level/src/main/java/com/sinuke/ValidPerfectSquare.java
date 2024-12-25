@@ -3,33 +3,24 @@ package com.sinuke;
 public class ValidPerfectSquare {
 
     public boolean isPerfectSquare(int num) {
-        var sqrtNum = mySqrt(num);
-        return sqrtNum * sqrtNum == num;
-    }
-
-    private int mySqrt(int x) {
-        if (x == 1) return x;
+        if (num == 1) return true;
 
         int low = 1;
-        int high = x;
-        int result = 0;
+        int high = num;
 
         while (low < high) {
-            if (low == 46341) return low -1;
+            if (low == 46341) return true;
 
             int mid = low + (high - low) / 2;
             mid = Math.min(mid, 46340);
             int sqr = mid * mid;
 
-            if (sqr == x) return mid;
-            else if (sqr > x) high = mid;
-            else {
-                low = mid + 1;
-                result = mid;
-            }
+            if (sqr == num) return true;
+            else if (sqr > num) high = mid;
+            else low = mid + 1;
         }
 
-        return result;
+        return false;
     }
 
 }
