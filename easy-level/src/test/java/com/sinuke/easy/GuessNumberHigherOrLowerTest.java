@@ -21,7 +21,8 @@ class GuessNumberHigherOrLowerTest {
         return Stream.of(
                 Arguments.of(10, 6),
                 Arguments.of(1, 1),
-                Arguments.of(2, 1)
+                Arguments.of(2, 1),
+                Arguments.of(3, 2)
         );
     }
 

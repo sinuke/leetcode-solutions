@@ -16,11 +16,18 @@ public class GuessNumberHigherOrLower {
     }
 
     public int guessNumber(int n) {
-        int res = guess(n);
+        int low = 0, high = n;
 
-        if (res == 1) return guessNumber(n + n / 2);
-        else if (res == -1) return guessNumber(n / 2);
-        else return n;
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            int guess = guess(mid);
+
+            if (guess == 0) return mid;
+            else if (guess == 1) low = mid + 1;
+            else if (guess == -1) high = mid;
+        }
+
+        return n;
     }
 
 }
