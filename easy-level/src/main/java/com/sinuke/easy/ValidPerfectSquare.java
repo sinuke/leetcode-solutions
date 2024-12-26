@@ -9,7 +9,7 @@ public class ValidPerfectSquare {
         int high = num;
 
         while (low < high) {
-            if (low == 46341) return true;
+            if (low == 46341) return false;
 
             int mid = low + (high - low) / 2;
             mid = Math.min(mid, 46340);
