@@ -21,7 +21,8 @@ class ComplementOfBase10IntegerTest {
         return Stream.of(
                 Arguments.of(5, 2),
                 Arguments.of(7, 0),
-                Arguments.of(10, 5)
+                Arguments.of(10, 5),
+                Arguments.of(0, 1)
         );
     }
 
