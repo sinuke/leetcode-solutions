@@ -18,7 +18,7 @@ class FindAllNumbersDisappearedInArrayTest {
         var findAllNumbersDisappeared = new FindAllNumbersDisappearedInArray();
 
         assertEquals(expected, findAllNumbersDisappeared.findDisappearedNumbers(Arrays.copyOf(nums, nums.length)));
-//        assertEquals(expected, findAllNumbersDisappeared.findDisappearedNumbers2(Arrays.copyOf(nums, nums.length)));
+        assertEquals(expected, findAllNumbersDisappeared.findDisappearedNumbers2(Arrays.copyOf(nums, nums.length)));
     }
 
     private static Stream<Arguments> testData() {
