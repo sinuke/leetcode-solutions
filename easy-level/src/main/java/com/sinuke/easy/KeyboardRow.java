@@ -25,8 +25,8 @@ public class KeyboardRow {
             1, // r
             2, // s
             1, // t
-            3, // v
             1, // u
+            3, // v
             1, // w
             3, // x
             1, // y
