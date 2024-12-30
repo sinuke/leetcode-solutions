@@ -2,13 +2,13 @@ package com.sinuke.easy;
 
 public class FibonacciNumber {
 
-    // O(N^2)
+    // O(N^2) - 8 ms
     public int fib(int n) {
         if (n <= 1) return n;
         return fib(n - 1) + fib(n - 2);
     }
 
-    // O(N)
+    // O(N) - 0 ms
     public int fib2(int n) {
         int[] fib = new int[n + 2];
         fib[0] = 0;
@@ -21,7 +21,7 @@ public class FibonacciNumber {
         return fib[n];
     }
 
-    // O(1)
+    // O(1) - 0 ms
     public int fib3(int n) {
         int[] fib = {
                 0,1,1,2,3,5,8,13,21,34,55,89,144,
