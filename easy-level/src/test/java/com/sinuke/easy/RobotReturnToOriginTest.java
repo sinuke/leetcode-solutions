@@ -15,6 +15,7 @@ class RobotReturnToOriginTest {
     void judgeCircle(String moves, boolean expected) {
         var robot = new RobotReturnToOrigin();
         assertEquals(expected, robot.judgeCircle(moves));
+        assertEquals(expected, robot.judgeCircle2(moves));
     }
 
     private static Stream<Arguments> testData() {

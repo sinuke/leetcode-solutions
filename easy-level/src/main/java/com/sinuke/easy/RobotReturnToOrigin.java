@@ -15,4 +15,15 @@ public class RobotReturnToOrigin {
         return x == 0 && y == 0;
     }
 
+    // from LeetCode
+    public boolean judgeCircle2(String moves) {
+        int []check = new int[128];
+
+        for (char c : moves.toCharArray()) {
+            check[c]++;
+        }
+
+        return check['R'] == check['L'] && check['U'] == check['D'];
+    }
+
 }
