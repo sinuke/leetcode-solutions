@@ -85,4 +85,5 @@ public class ImageSmoother {
 
         return sum / count;
     }
+
 }
