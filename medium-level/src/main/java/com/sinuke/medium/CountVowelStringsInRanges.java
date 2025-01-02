@@ -2,6 +2,7 @@ package com.sinuke.medium;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class CountVowelStringsInRanges {
 
@@ -25,6 +26,24 @@ public class CountVowelStringsInRanges {
 
     private boolean isVowel(char c) {
         return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
+    }
+
+    // 9 ms
+    public int[] vowelStrings2(String[] words, int[][] queries) {
+        int[] counts = new int[words.length + 1];
+        Set<Character> vowels = Set.of('a', 'i', 'e', 'o', 'u');
+        for (int i = 0; i < words.length; i++) {
+            counts[i + 1] = counts[i];
+            if (vowels.contains(words[i].charAt(0)) && vowels.contains(words[i].charAt(words[i].length() - 1))) counts[i + 1]++;
+        }
+
+        var results = new int[queries.length];
+        for (int i = 0; i < queries.length; i++) {
+            var query = queries[i];
+            if (query[0] == 0) results[i] = counts[query[1] + 1];
+            else results[i] = counts[query[1] + 1] - counts[query[0]];
+        }
+        return results;
     }
 
 }

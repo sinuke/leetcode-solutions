@@ -15,6 +15,7 @@ class CountVowelStringsInRangesTest {
     void vowelStrings(String[] words, int[][] queries, int[] expected) {
         var countVowelStringsInRanges = new CountVowelStringsInRanges();
         assertArrayEquals(expected, countVowelStringsInRanges.vowelStrings(words, queries));
+        assertArrayEquals(expected, countVowelStringsInRanges.vowelStrings2(words, queries));
     }
 
     private static Stream<Arguments> testData() {
