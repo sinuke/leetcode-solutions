@@ -2,6 +2,7 @@ package com.sinuke.easy;
 
 public class ConcatenationOfArray {
 
+    // 1 ms - 96.48%
     public int[] getConcatenation(int[] nums) {
         int[] result = new int[nums.length * 2];
 
@@ -13,6 +14,7 @@ public class ConcatenationOfArray {
         return result;
     }
 
+    // 0 ms - 100%
     public int[] getConcatenation2(int[] nums) {
         int[] result = new int[nums.length * 2];
 
