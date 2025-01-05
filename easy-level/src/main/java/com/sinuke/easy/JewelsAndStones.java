@@ -3,7 +3,7 @@ package com.sinuke.easy;
 public class JewelsAndStones {
 
     public int numJewelsInStones(String jewels, String stones) {
-        char[] jewelChars = new char[255];
+        char[] jewelChars = new char[128];
 
         for (char c : jewels.toCharArray()) {
             jewelChars[c]++;
