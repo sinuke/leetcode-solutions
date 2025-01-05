@@ -15,6 +15,7 @@ class DivisibleAndNonDivisibleSumsDifferenceTest {
     void differenceOfSums(int n, int m, int expected) {
         var diff = new DivisibleAndNonDivisibleSumsDifference();
         assertEquals(expected, diff.differenceOfSums(n, m));
+        assertEquals(expected, diff.differenceOfSums2(n, m));
     }
 
     private static Stream<Arguments> testData() {
