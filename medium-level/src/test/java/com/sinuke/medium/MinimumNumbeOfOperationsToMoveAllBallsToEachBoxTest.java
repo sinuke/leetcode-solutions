@@ -15,6 +15,7 @@ class MinimumNumbeOfOperationsToMoveAllBallsToEachBoxTest {
     void minOperations(String boxes, int[] expected) {
         var minNumberOfOperations = new MinimumNumbeOfOperationsToMoveAllBallsToEachBox();
         assertArrayEquals(expected, minNumberOfOperations.minOperations(boxes));
+        assertArrayEquals(expected, minNumberOfOperations.minOperations2(boxes));
     }
 
     private static Stream<Arguments> testData() {
