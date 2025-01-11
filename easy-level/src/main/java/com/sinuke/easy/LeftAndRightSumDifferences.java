@@ -10,11 +10,10 @@ public class LeftAndRightSumDifferences {
         }
 
         int[] result = new int[nums.length];
-
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) result[i] = Math.abs(total - nums[i]);
-            else if (i == nums.length - 1) result[i] = nums[i - 1];
-            else result[i] = Math.abs(total - nums[i] - nums[i - 1]);
+        result[0] = Math.abs(total - nums[0]);
+        result[nums.length - 1] = nums.length == 1 ? 0 : nums[nums.length - 2];
+        for (int i = 1; i < nums.length - 1; i++) {
+            result[i] = Math.abs(total - nums[i] - nums[i - 1]);
         }
 
         return result;
