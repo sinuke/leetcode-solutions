@@ -15,6 +15,8 @@ class FindCenterOfStarGraphTest {
     void findCenter(int[][] edges, int expected) {
         var finder = new FindCenterOfStarGraph();
         assertEquals(expected, finder.findCenter(edges));
+        assertEquals(expected, finder.findCenter2(edges));
+        assertEquals(expected, finder.findCenter3(edges));
     }
 
     private static Stream<Arguments> testData() {
