@@ -2,6 +2,7 @@ package com.sinuke.easy;
 
 public class MaximumNumberOfWordsFoundInSentences {
 
+    // 2 ms
     public int mostWordsFound(String[] sentences) {
         int max = 0;
 
@@ -18,6 +19,7 @@ public class MaximumNumberOfWordsFoundInSentences {
         return max + 1;
     }
 
+    // 3 ms
     public int mostWordsFound2(String[] sentences) {
         int max = 0;
 
