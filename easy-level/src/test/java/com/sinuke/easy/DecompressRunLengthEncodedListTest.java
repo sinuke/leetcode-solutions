@@ -15,6 +15,7 @@ class DecompressRunLengthEncodedListTest {
     void decompressRLElist(int[] nums, int[] expected) {
         var decompressor = new DecompressRunLengthEncodedList();
         assertArrayEquals(expected, decompressor.decompressRLElist(nums));
+        assertArrayEquals(expected, decompressor.decompressRLElist2(nums));
     }
 
     private static Stream<Arguments> testData() {
