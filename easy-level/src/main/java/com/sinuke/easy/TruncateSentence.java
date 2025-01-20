@@ -9,4 +9,14 @@ public class TruncateSentence {
         return String.join(" ", Arrays.copyOf(sentences, k));
     }
 
+    public String truncateSentence2(String s, int k) {
+        int count = 0, i = 0;
+
+        while (count < k && i < s.length()) {
+            if (s.charAt(++i) == ' ') count++;
+        }
+
+        return s.substring(0, i);
+    }
+
 }

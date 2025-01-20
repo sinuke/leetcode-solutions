@@ -15,6 +15,7 @@ class TruncateSentenceTest {
     void truncateSentence(String s, int k, String expected) {
         var truncateSentence = new TruncateSentence();
         assertEquals(expected, truncateSentence.truncateSentence(s, k));
+        assertEquals(expected, truncateSentence.truncateSentence2(s, k));
     }
 
     private static Stream<Arguments> testData() {
