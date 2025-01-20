@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public class DecompressRunLengthEncodedList {
 
+    // 1 ms
     public int[] decompressRLElist(int[] nums) {
         int length = 0, i = 0;
         while (i < nums.length - 1) {
@@ -27,6 +28,7 @@ public class DecompressRunLengthEncodedList {
         return result;
     }
 
+    // 0 ms
     public int[] decompressRLElist2(int[] nums) {
         int length = 0, i = 0;
         while (i < nums.length - 1) {
