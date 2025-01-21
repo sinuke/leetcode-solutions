@@ -21,7 +21,8 @@ class TruncateSentenceTest {
     private static Stream<Arguments> testData() {
         return Stream.of(
                 Arguments.of("Hello how are you Contestant", 4, "Hello how are you"),
-                Arguments.of("What is the solution to this problem", 4, "What is the solution")
+                Arguments.of("What is the solution to this problem", 4, "What is the solution"),
+                Arguments.of("chopper is not a tanuki", 5, "chopper is not a tanuki")
         );
     }
 
