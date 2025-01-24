@@ -15,6 +15,7 @@ class SumMultiplesTest {
     void sumOfMultiples(int n, int expected) {
         var sumMultiples = new SumMultiples();
         assertEquals(expected, sumMultiples.sumOfMultiples(n));
+        assertEquals(expected, sumMultiples.sumOfMultiples2(n));
     }
 
     private static Stream<Arguments> testData() {
