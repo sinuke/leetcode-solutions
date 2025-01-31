@@ -15,6 +15,7 @@ class NumberOfArithmeticTripletsTest {
     void arithmeticTriplets(int[] nums, int diff, int expected) {
         var numberOfArithmeticTriplets = new NumberOfArithmeticTriplets();
         assertEquals(expected, numberOfArithmeticTriplets.arithmeticTriplets(nums, diff));
+        assertEquals(expected, numberOfArithmeticTriplets.arithmeticTriplets2(nums, diff));
     }
 
     private static Stream<Arguments> testData() {
