@@ -23,7 +23,7 @@ public class DesignOrderedStream {
         private List<String> getValues() {
             int start = ptr;
             for (int i = start; i < values.length; i++) {
-                if (values[i] == null || (values[i] != null && i == values.length - 1)) {
+                if (values[i] == null || i == values.length - 1) {
                     ptr = values[i] == null ? i : i + 1;
                     return Arrays.asList(Arrays.copyOfRange(values, start, ptr));
                 }
