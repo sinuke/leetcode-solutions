@@ -24,7 +24,7 @@ public class DesignOrderedStream {
             int start = ptr;
             for (int i = start; i < values.length; i++) {
                 if (values[i] == null || (values[i] != null && i == values.length - 1)) {
-                    ptr = i == values.length - 1 ? i + 1 : i;
+                    ptr = values[i] == null ? i : i + 1;
                     return Arrays.asList(Arrays.copyOfRange(values, start, ptr));
                 }
             }
