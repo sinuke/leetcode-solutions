@@ -1,6 +1,6 @@
 package com.sinuke.easy;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 public class DesignOrderedStream {
@@ -21,17 +21,14 @@ public class DesignOrderedStream {
         }
 
         private List<String> getValues() {
-            int start = ptr;
+            List<String> result = new ArrayList<>();
 
-            for (int i = start; i < values.length; i++) {
-                if (values[i] == null) {
-                    ptr = i;
-                    return Arrays.asList(Arrays.copyOfRange(values, start, ptr));
-                }
+            while (ptr < values.length && values[ptr] != null) {
+                result.add(values[ptr]);
+                ptr++;
             }
 
-            ptr = values.length - 1;
-            return Arrays.asList(Arrays.copyOfRange(values, start, values.length));
+            return result;
         }
 
     }
