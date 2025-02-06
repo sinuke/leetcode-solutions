@@ -1,4 +1,4 @@
-package com.sinuke.easy;
+package com.sinuke.medium;
 
 import java.util.HashMap;
 import java.util.Map;
