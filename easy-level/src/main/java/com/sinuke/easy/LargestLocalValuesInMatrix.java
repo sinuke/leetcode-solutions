@@ -1,7 +1,5 @@
 package com.sinuke.easy;
 
-import java.util.Arrays;
-
 public class LargestLocalValuesInMatrix {
 
     public int[][] largestLocal(int[][] grid) {
@@ -10,7 +8,7 @@ public class LargestLocalValuesInMatrix {
 
         for (int i = 1; i < n - 1; i++) {
             for (int j = 1; j < n - 1; j++) {
-                result[i - 1][j - 1] = getMax2(grid, i, j);
+                result[i - 1][j - 1] = getMax(grid, i, j);
             }
         }
 
@@ -18,23 +16,6 @@ public class LargestLocalValuesInMatrix {
     }
 
     private int getMax(int[][] grid, int i, int j) {
-        var tmp = new int[]{
-                grid[i][j],
-                grid[i - 1][j],
-                grid[i + 1][j],
-                grid[i][j - 1],
-                grid[i][j + 1],
-                grid[i - 1][j - 1],
-                grid[i + 1][j - 1],
-                grid[i - 1][j + 1],
-                grid[i + 1][j + 1]
-        };
-        Arrays.sort(tmp);
-
-        return tmp[tmp.length - 1];
-    }
-
-    private int getMax2(int[][] grid, int i, int j) {
         int m1 = Math.max(grid[i][j], grid[i - 1][j]);
         int m2 = Math.max(m1, grid[i + 1][j]);
         int m3 = Math.max(m2, grid[i][j + 1]);
