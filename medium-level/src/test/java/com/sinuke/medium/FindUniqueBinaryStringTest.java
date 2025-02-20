@@ -15,9 +15,9 @@ class FindUniqueBinaryStringTest {
     @MethodSource("testData")
     void findDifferentBinaryString(String[] nums, List<String> expected) {
         var solution = new FindUniqueBinaryString();
-        var actual = solution.findDifferentBinaryString2(nums);
 
-        assertTrue(expected.contains(actual));
+        assertTrue(expected.contains(solution.findDifferentBinaryString(nums)));
+        assertTrue(expected.contains(solution.findDifferentBinaryString2(nums)));
     }
 
     private static Stream<Arguments> testData() {
