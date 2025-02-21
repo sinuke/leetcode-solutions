@@ -11,7 +11,6 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 class DesignOrderedStreamTest {
 
-
     @ParameterizedTest
     @MethodSource("testData")
     void orderedStreamTest(String[] operations, Object[][] values, Object[] expected) {
