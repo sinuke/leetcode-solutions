@@ -12,20 +12,20 @@ class FindElementsInContaminatedBinaryTreeTest {
 
     @ParameterizedTest
     @MethodSource("testData")
-    void findElementsTest(String[] operations, Object[][] values, Object[] expected) {
+    void findElementsTest(String[] operations, Integer[][] values, Boolean[] expected) {
         FindElementsInContaminatedBinaryTree.FindElements solution = null;
-        Object[] actual = new Object[operations.length];
+        Boolean[] actual = new Boolean[operations.length];
 
         for (int i = 0; i < operations.length; i++) {
             switch (operations[i]) {
                 case "FindElements": {
-                    solution = new FindElementsInContaminatedBinaryTree.FindElements(createRoot(values[i]));
+                    solution = new FindElementsInContaminatedBinaryTree.FindElements(buildTree(values[i]));
                     actual[i] = null;
                     break;
                 }
 
                 case "find": {
-                    actual[i] = solution.find((int) values[i][0]);
+                    actual[i] = solution.find(values[i][0]);
                     break;
                 }
 
@@ -40,41 +40,35 @@ class FindElementsInContaminatedBinaryTreeTest {
         return Stream.of(
                 Arguments.of(
                         new String[] {"FindElements", "find", "find"},
-                        new Object[][] {{-1, null, -1}, {1}, {2}},
-                        new Object[] {null, false, true}
+                        new Integer[][] {{-1, null, -1}, {1}, {2}},
+                        new Boolean[] {null, false, true}
                 ),
                 Arguments.of(
                         new String[] {"FindElements","find","find","find"},
-                        new Object[][] {{-1,-1,-1,-1,-1}, {1}, {3}, {5}},
-                        new Object[] {null, true, true, false}
+                        new Integer[][] {{-1,-1,-1,-1,-1}, {1}, {3}, {5}},
+                        new Boolean[] {null, true, true, false}
                 ),
                 Arguments.of(
                         new String[] {"FindElements","find","find","find","find"},
-                        new Object[][] {{-1,null,-1,-1,null,-1}, {2}, {3}, {4}, {5}},
-                        new Object[] {null,true,false,false,true}
+                        new Integer[][] {{-1,null,-1,-1,null,-1}, {2}, {3}, {4}, {5}},
+                        new Boolean[] {null,true,false,false,true}
                 )
         );
     }
 
-    private FindElementsInContaminatedBinaryTree.TreeNode createRoot(Object[] values) {
-        var root = createTreeNode(values, 0);
-        createTree(root, values, 1);
-        return root;
+    public static FindElementsInContaminatedBinaryTree.TreeNode buildTree(Integer[] array) {
+        if (array == null || array.length == 0) return null;
+        return buildTree(array, 0);
     }
 
-    private void createTree(FindElementsInContaminatedBinaryTree.TreeNode parent, Object[] values, int i) {
-        if (i >= values.length || parent == null) return;
+    private static FindElementsInContaminatedBinaryTree.TreeNode buildTree(Integer[] array, int index) {
+        if (index >= array.length || array[index] == null) return null;
 
-        parent.left = createTreeNode(values, i);
-        parent.right = createTreeNode(values, i + 1);
+        var node = new FindElementsInContaminatedBinaryTree.TreeNode(array[index]);
+        node.left = buildTree(array, 2 * index + 1);
+        node.right = buildTree(array, 2 * index + 2);
 
-        createTree(parent.left, values, i + 2);
-        createTree(parent.right, values, i + 4);
-    }
-
-    private FindElementsInContaminatedBinaryTree.TreeNode createTreeNode(Object[] values, int i) {
-        if (i < values.length && values[i] != null) return new FindElementsInContaminatedBinaryTree.TreeNode((int) values[i]);
-        return null;
+        return node;
     }
 
 }
