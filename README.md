@@ -14,4 +14,4 @@ Used:
 * Test Containers 1.20.4 for MySQL 9.1.0
 
 TODOs:
-* implement unit-tests for pandas solutions
+* implement unit-tests for pandas solutions ([todo.txt](easy-level/pandas/todo.txt))
