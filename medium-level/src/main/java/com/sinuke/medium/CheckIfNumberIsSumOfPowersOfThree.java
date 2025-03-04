@@ -9,7 +9,7 @@ public class CheckIfNumberIsSumOfPowersOfThree {
             sb.append(n % 3);
             n /= 3;
         }
-        
+
         return sb.indexOf("2") == -1;
     }
 
