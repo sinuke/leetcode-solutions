@@ -9,9 +9,8 @@ public class CheckIfNumberIsSumOfPowersOfThree {
             sb.append(n % 3);
             n /= 3;
         }
-        var digits = sb.reverse().toString();
-
-        return !digits.contains("2");
+        
+        return sb.indexOf("2") == -1;
     }
 
 }
