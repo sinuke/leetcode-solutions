@@ -1,0 +1,24 @@
+{
+  "title": "Find Products with Valid Serial Numbers",
+  "number": 3465,
+  "schema": "schema.sql",
+  "input-data": "data.sql",
+  "results-size": 3,
+  "results-map": {
+    "product_id": [
+      1,
+      2,
+      5
+    ],
+    "product_name": [
+      "Widget A",
+      "Widget B",
+      "Widget E"
+    ],
+    "description": [
+      "This is a sample product with SN1234-5678",
+      "A product with serial SN9876-1234 in the description",
+      "Check out SN4321-8765 in this description"
+    ]
+  }
+}
