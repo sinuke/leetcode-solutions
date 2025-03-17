@@ -11,7 +11,11 @@ public class DivideArrayIntoEqualPairs {
             map.put(num, map.getOrDefault(num, 0) + 1);
         }
 
-        return map.values().stream().allMatch(value -> value % 2 == 0);
+        for (var value : map.values()) {
+            if (value % 2 != 0) return false;
+        }
+
+        return true;
     }
 
 }
