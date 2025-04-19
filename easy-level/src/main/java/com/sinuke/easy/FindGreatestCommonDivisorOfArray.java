@@ -11,12 +11,11 @@ public class FindGreatestCommonDivisorOfArray {
             max = Math.max(max, num);
         }
 
-        int result = 1;
-        for (int i = 2; i <= min; i++) {
-            if (min % i == 0 && max % i == 0) result = i;
+        for (int i = min; i > 0; i--) {
+            if (min % i == 0 && max % i == 0) return i;
         }
 
-        return result;
+        return 1;
     }
 
 }
