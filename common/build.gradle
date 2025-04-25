@@ -1,7 +1,6 @@
 dependencies {
-    implementation platform('org.junit:junit-bom:5.10.0')
-    implementation 'org.junit.jupiter:junit-jupiter'
-    implementation 'org.testcontainers:junit-jupiter:1.20.4'
-    implementation 'org.testcontainers:mysql:1.20.4'
-//    implementation 'com.mysql:mysql-connector-j:9.1.0'
+    implementation platform("org.junit:junit-bom:${version_junit}")
+    implementation "org.junit.jupiter:junit-jupiter:${version_junit}"
+    implementation "org.testcontainers:junit-jupiter:${version_testcontainers}"
+    implementation "org.testcontainers:mysql:${version_testcontainers}"
 }
