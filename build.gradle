@@ -42,7 +42,7 @@ allprojects {
         testImplementation group: 'org.testcontainers', name: 'mysql', version: version_testcontainers
         testImplementation group: 'com.mysql', name: 'mysql-connector-j', version: '9.2.0'
 
-        testRuntimeOnly group: 'org.junit.platform', name: 'junit-platform-launcher', version: version_junit
+        testRuntimeOnly group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.12.2'
     }
 
     test {
