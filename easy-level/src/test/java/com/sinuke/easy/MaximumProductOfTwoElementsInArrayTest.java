@@ -21,7 +21,8 @@ class MaximumProductOfTwoElementsInArrayTest {
         return Stream.of(
                 Arguments.of(new int[] {3,4,5,2}, 12),
                 Arguments.of(new int[] {1,5,4,5}, 16),
-                Arguments.of(new int[] {3,7}, 12)
+                Arguments.of(new int[] {3,7}, 12),
+                Arguments.of(new int[] {10,2,5,2}, 36)
         );
     }
 
