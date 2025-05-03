@@ -26,7 +26,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @Testcontainers
 public abstract class SQLSolutionsTest extends AbstractTestCase<SQLSolutionsTest.SqlTestData> {
 
-    private static final String MYSQL_CONTAINER_WITH_VERSION = "mysql:9.2.0";
+    private static final String MYSQL_CONTAINER_WITH_VERSION = "mysql:9.3.0";
     private static final String TEST_DB_NAME = "test_db";
     private static final String TEST_USER = "test_user";
     private static final String TEST_PASSWORD = "test_password";

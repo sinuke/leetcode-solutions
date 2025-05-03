@@ -40,7 +40,7 @@ allprojects {
         testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter', version: version_junit
         testImplementation group: 'org.testcontainers', name: 'junit-jupiter', version: version_testcontainers
         testImplementation group: 'org.testcontainers', name: 'mysql', version: version_testcontainers
-        testImplementation group: 'com.mysql', name: 'mysql-connector-j', version: '9.2.0'
+        testImplementation group: 'com.mysql', name: 'mysql-connector-j', version: '9.3.0'
 
         testRuntimeOnly group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.12.2'
     }
@@ -83,4 +83,5 @@ tasks.register('jacocoRootReport', JacocoReport) {
         xml.required = true
         html.required = true
     }
+
 }
