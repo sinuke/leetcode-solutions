@@ -20,7 +20,8 @@ class FindTheEncryptedStringTest {
     private static Stream<Arguments> testData() {
         return Stream.of(
                 Arguments.of("dart", 3, "tdar"),
-                Arguments.of("aaa", 1, "aaa")
+                Arguments.of("aaa", 1, "aaa"),
+                Arguments.of("byd", 4, "ydb")
         );
     }
 
