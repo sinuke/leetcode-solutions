@@ -5,8 +5,12 @@ import java.util.List;
 public class MaximumDepthOfNaryTree {
 
     public int maxDepth(Node root) {
-        if (root.children == null || root.children.isEmpty()) return 1;
-        return 1 + root.children.stream().mapToInt(this::maxDepth).max().getAsInt();
+        if (root == null) return 0;
+        int depth = 0;
+        for (var node : root.children) {
+            depth = Math.max(depth, maxDepth(node));
+        }
+        return depth + 1;
     }
 
     public static class Node {
