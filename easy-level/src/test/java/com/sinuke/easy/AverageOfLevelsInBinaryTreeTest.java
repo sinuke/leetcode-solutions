@@ -21,7 +21,8 @@ class AverageOfLevelsInBinaryTreeTest {
     private static Stream<Arguments> testData() {
         return Stream.of(
                 Arguments.of(buildTree(new Integer[]{3,9,20,null,null,15,7}), List.of(3.00000d,14.50000d,11.00000d)),
-                Arguments.of(buildTree(new Integer[]{3,9,20,15,7}), List.of(3.00000d,14.50000d,11.00000d))
+                Arguments.of(buildTree(new Integer[]{3,9,20,15,7}), List.of(3.00000d,14.50000d,11.00000d)),
+                Arguments.of(buildTree(new Integer[]{2147483647,2147483647,2147483647}), List.of(2147483647.00000d,2147483647.00000d))
         );
     }
 
