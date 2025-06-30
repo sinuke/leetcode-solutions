@@ -6,8 +6,8 @@ import java.util.List;
 public class LastVisitedIntegers {
 
     public List<Integer> lastVisitedIntegers(int[] nums) {
-        List<Integer> seen = new ArrayList<>();
-        List<Integer> ans = new ArrayList<>();
+        List<Integer> seen = new ArrayList<>(nums.length);
+        List<Integer> ans = new ArrayList<>(nums.length);
         int k = 0;
 
         for (int num : nums) {
