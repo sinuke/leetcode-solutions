@@ -15,6 +15,7 @@ class MakeTheStringGreatTest {
     void makeGood(String s, String expected) {
         var solution =  new MakeTheStringGreat();
         assertEquals(expected, solution.makeGood(s));
+        assertEquals(expected, solution.makeGood2(s));
     }
 
     private static Stream<Arguments> testData() {
