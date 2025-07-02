@@ -12,7 +12,7 @@ public class MakeTheStringGreat {
 
         for (int i = 1;  i < s.length(); i++) {
             if (!stack.isEmpty() && isSame(stack.peek(), s.charAt(i))) {
-                if (isBad(stack.peek(), s.charAt(i)) || isBad(s.charAt(i), stack.peek())) stack.pop();
+                if (isBad(stack.peek(), s.charAt(i))) stack.pop();
                 else stack.push(s.charAt(i));
             } else stack.push(s.charAt(i));
         }
@@ -25,7 +25,7 @@ public class MakeTheStringGreat {
         return sb.reverse().toString();
     }
 
-    // 2 ms
+    // 1 ms
     public String makeGood2(String s) {
         char[] chars = new char[s.length()];
         int index = 0;
@@ -33,7 +33,7 @@ public class MakeTheStringGreat {
 
         for (int i = 1;  i < s.length(); i++) {
             if (index >= 0 && chars[index] != 0 && isSame(chars[index], s.charAt(i))) {
-                if (isBad(chars[index], s.charAt(i)) || isBad(s.charAt(i), chars[index])) chars[index--] = 0;
+                if (isBad(chars[index], s.charAt(i))) chars[index--] = 0;
                 else chars[++index] = s.charAt(i);
             } else chars[++index] = s.charAt(i);
         }
@@ -42,11 +42,11 @@ public class MakeTheStringGreat {
     }
 
     private boolean isSame(char c1, char c2) {
-        return Character.toLowerCase(c1) == Character.toLowerCase(c2);
+        return Math.abs(c1 - c2) == 0 || Math.abs(c1 - c2) == 32;
     }
 
     private boolean isBad(char c1, char c2) {
-        return Character.isUpperCase(c1) && Character.isLowerCase(c2);
+        return Math.abs(c1 - c2) == 32;
     }
 
 }
