@@ -5,6 +5,7 @@ import java.util.Stack;
 
 public class MakeTheStringGreat {
 
+    // 4 ms
     public String makeGood(String s) {
         Stack<Character> stack = new Stack<>();
         stack.push(s.charAt(0));
@@ -24,6 +25,7 @@ public class MakeTheStringGreat {
         return sb.reverse().toString();
     }
 
+    // 2 ms
     public String makeGood2(String s) {
         char[] chars = new char[s.length()];
         int index = 0;
