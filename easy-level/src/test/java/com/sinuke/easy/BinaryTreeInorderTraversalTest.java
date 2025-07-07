@@ -29,7 +29,7 @@ class BinaryTreeInorderTraversalTest {
         );
     }
 
-    public static BinaryTreeInorderTraversal.TreeNode buildTree(Integer[] array) {
+    private static BinaryTreeInorderTraversal.TreeNode buildTree(Integer[] array) {
         if (array == null || array.length == 0) return null;
 
         var root = new BinaryTreeInorderTraversal.TreeNode(array[0]);
