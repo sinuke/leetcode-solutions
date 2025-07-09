@@ -20,8 +20,8 @@ class ConvertSortedArrayToBinarySearchTreeTest {
 
     private static Stream<Arguments> testData() {
         return Stream.of(
-                Arguments.of(new int[] {-10,-3,0,5,9}, new ConvertSortedArrayToBinarySearchTree.TreeNode(-10)),
-                Arguments.of(new int[] {1, 3}, new ConvertSortedArrayToBinarySearchTree.TreeNode(3))
+                Arguments.of(new int[] {-10,-3,0,5,9}, new ConvertSortedArrayToBinarySearchTree.TreeNode(0)),
+                Arguments.of(new int[] {1, 3}, new ConvertSortedArrayToBinarySearchTree.TreeNode(1))
         );
     }
 
