@@ -28,19 +28,19 @@ allprojects {
     }
 
     ext {
-        version_testcontainers = '1.21.0'
-        version_junit = '5.12.2'
+        version_testcontainers = '1.21.3'
+        version_junit = '5.13.3'
     }
 
     dependencies {
-        implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.18.3'
-        implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.5.13'
+        implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.19.1'
+        implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.5.18'
 
         testImplementation platform("org.junit:junit-bom:${version_junit}")
         testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter', version: version_junit
         testImplementation group: 'org.testcontainers', name: 'junit-jupiter', version: version_testcontainers
         testImplementation group: 'org.testcontainers', name: 'mysql', version: version_testcontainers
-        testImplementation group: 'com.mysql', name: 'mysql-connector-j', version: '9.2.0'
+        testImplementation group: 'com.mysql', name: 'mysql-connector-j', version: '9.3.0'
 
         testRuntimeOnly group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.12.2'
     }
