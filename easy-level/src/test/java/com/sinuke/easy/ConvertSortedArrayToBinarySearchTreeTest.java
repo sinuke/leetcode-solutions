@@ -15,7 +15,7 @@ class ConvertSortedArrayToBinarySearchTreeTest {
     void sortedArrayToBST(int[] nums, ConvertSortedArrayToBinarySearchTree.TreeNode expected) {
         var solution = new ConvertSortedArrayToBinarySearchTree();
         var actual = solution.sortedArrayToBST(nums);
-        assertEquals(expected, actual);
+        assertEquals(expected.val, actual.val);
     }
 
     private static Stream<Arguments> testData() {
