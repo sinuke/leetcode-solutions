@@ -20,7 +20,6 @@ public class PascalsTriangle {
 
             row.add(1);
             pt.add(row);
-
         }
 
         return pt;
