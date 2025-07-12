@@ -22,7 +22,8 @@ class MinimumDepthOfBinaryTreeTest {
     private static Stream<Arguments> testData() {
         return Stream.of(
                 Arguments.of(buildTree(new Integer[] {3,9,20,null,null,15,7}), 2),
-                Arguments.of(buildTree(new Integer[] {2,null,3,null,4,null,5,null,6}), 5)
+                Arguments.of(buildTree(new Integer[] {2,null,3,null,4,null,5,null,6}), 5),
+                Arguments.of(buildTree(new Integer[] {}), 0)
         );
     }
 

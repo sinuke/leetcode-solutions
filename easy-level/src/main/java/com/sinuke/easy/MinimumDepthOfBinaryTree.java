@@ -3,7 +3,7 @@ package com.sinuke.easy;
 public class MinimumDepthOfBinaryTree {
 
     public int minDepth(TreeNode root) {
-        return getPath(root, 0, Integer.MAX_VALUE);
+        return root == null ? 0 : getPath(root, 0, Integer.MAX_VALUE);
     }
 
     private int getPath(TreeNode node, int depth, int min) {
