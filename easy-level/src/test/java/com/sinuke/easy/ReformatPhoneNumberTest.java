@@ -23,7 +23,8 @@ class ReformatPhoneNumberTest {
                 Arguments.of("123 4-567", "123-45-67"),
                 Arguments.of("123 4-5678", "123-456-78"),
                 Arguments.of("123 4-5678--9", "123-456-789"),
-                Arguments.of("123 4", "12-34")
+                Arguments.of("123 4", "12-34"),
+                Arguments.of("1-2", "12")
         );
     }
 
