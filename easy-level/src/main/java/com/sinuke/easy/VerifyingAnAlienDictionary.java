@@ -3,8 +3,8 @@ package com.sinuke.easy;
 public class VerifyingAnAlienDictionary {
 
     public boolean isAlienSorted(String[] words, String order) {
-        int[] abc = new int[26];
-        for (int i = 0; i < order.length(); i++) {
+        byte[] abc = new byte[26];
+        for (byte i = 0; i < order.length(); i++) {
             abc[order.charAt(i) - 'a'] = i;
         }
 
@@ -17,7 +17,7 @@ public class VerifyingAnAlienDictionary {
         return true;
     }
 
-    private boolean checkWords(int[] abc, String word1, String word2) {
+    private boolean checkWords(byte[] abc, String word1, String word2) {
         if (word1.length() > word2.length()) return false;
         int i = 0;
         while (i < word1.length()) {
