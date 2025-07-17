@@ -2,22 +2,23 @@ package com.sinuke.easy;
 
 public class VerifyingAnAlienDictionary {
 
+    private final byte[] abc = new byte[26];
+
     public boolean isAlienSorted(String[] words, String order) {
-        byte[] abc = new byte[26];
         for (byte i = 0; i < order.length(); i++) {
             abc[order.charAt(i) - 'a'] = i;
         }
 
         int i = 0;
         while (i < words.length - 1) {
-            if (!checkWords(abc, words[i], words[i + 1])) return false;
+            if (!checkWords(words[i], words[i + 1])) return false;
             i++;
         }
 
         return true;
     }
 
-    private boolean checkWords(byte[] abc, String word1, String word2) {
+    private boolean checkWords(String word1, String word2) {
         if (word1.length() > word2.length()) return false;
         int i = 0;
         while (i < word1.length()) {
