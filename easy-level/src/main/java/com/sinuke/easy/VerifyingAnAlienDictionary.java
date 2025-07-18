@@ -19,10 +19,17 @@ public class VerifyingAnAlienDictionary {
     }
 
     private boolean checkWords(String word1, String word2) {
-        if (word1.length() > word2.length()) return false;
         int i = 0;
-        while (i < word1.length() && word1.charAt(i) == word2.charAt(i)) i++;
-        return abc[word1.charAt(i) - 'a'] <= abc[word2.charAt(i) - 'a'];
+        while (i < word1.length() && i < word2.length()) {
+            byte c1 = abc[word1.charAt(i) - 'a'];
+            byte c2 = abc[word2.charAt(i) - 'a'];
+
+            if (c1 > c2) return false;
+            if (c1 < c2) return true;
+
+            i++;
+        }
+        return word1.length() <= word2.length();
     }
 
 }
