@@ -4,10 +4,9 @@ WITH ranked AS (
 ),
 joined1 AS (
     SELECT t1.departmentId, t2.name, t1.salary
-    FROM ranked t1
+    FROM (SELECT * FROM ranked WHERE rnk <= 3) AS t1
     JOIN Department t2
     ON t1.departmentId = t2.id
-    WHERE rnk <= 3
 )
 SELECT t3.name AS Department, t4.name AS Employee, t3.salary AS Salary
 FROM Employee t4
