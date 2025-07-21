@@ -4,24 +4,15 @@ public class DeleteCharactersToMakeFancyString {
 
     public String makeFancyString(String s) {
         var sb = new StringBuilder();
-        int start = 0, prev = 0, i = 1;
+        sb.append(s.charAt(0));
 
-        while (i < s.length()) {
-            if (s.charAt(i) != s.charAt(prev)) {
-                sb.append(getSubstring(s, start, i));
-                start = i;
-            }
-            prev = i;
-            i++;
+        int cnt = 1;
+        for (int i = 1; i < s.length(); i++) {
+            cnt = s.charAt(i) == s.charAt(i - 1) ? cnt + 1 : 1;
+            if (cnt < 3) sb.append(s.charAt(i));
         }
 
-        return sb.append(getSubstring(s, start, i)).toString();
-    }
-
-    private String getSubstring(String s, int start, int end) {
-        var substr = s.substring(start, end);
-        if (substr.length() > 2) return substr.substring(0, 2);
-        else return substr;
+        return sb.toString();
     }
 
 }
