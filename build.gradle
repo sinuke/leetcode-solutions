@@ -48,7 +48,7 @@ allprojects {
     test {
         useJUnitPlatform()
         testlogger {
-            theme 'mocha'
+            theme = 'mocha'
         }
     }
 
