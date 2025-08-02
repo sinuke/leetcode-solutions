@@ -10,7 +10,7 @@ Solutions:
 
 Used:
 * Java 21
-* Gradle 8.14.3
+* Gradle 9.0.0
 * Test Containers 1.21.3 for MySQL 9.2.0
 
 TODOs:
