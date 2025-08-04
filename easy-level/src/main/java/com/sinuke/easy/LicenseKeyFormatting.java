@@ -14,7 +14,7 @@ public class LicenseKeyFormatting {
                 sb.append('-');
             }
         }
-        if (sb.charAt(sb.length() - 1) == '-') sb.deleteCharAt(sb.length() - 1);
+        if (!sb.isEmpty() && sb.charAt(sb.length() - 1) == '-') sb.deleteCharAt(sb.length() - 1);
         return sb.reverse().toString();
     }
 
