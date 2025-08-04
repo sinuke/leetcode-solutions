@@ -3,6 +3,8 @@ package com.sinuke.easy;
 public class PerfectNumber {
 
     public boolean checkPerfectNumber(int num) {
+        if (num == 1) return false;
+
         int i = 1, sum = 0;
         long smallest = Math.round(Math.sqrt(num));
         while (i <= num / smallest) {

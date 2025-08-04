@@ -20,7 +20,8 @@ class PerfectNumberTest {
     private static Stream<Arguments> testData() {
         return Stream.of(
                 Arguments.of(28, true),
-                Arguments.of(7, false)
+                Arguments.of(7, false),
+                Arguments.of(1, false)
         );
     }
 
