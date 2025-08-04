@@ -15,13 +15,17 @@ class LicenseKeyFormattingTest {
     void licenseKeyFormatting(String s, int k, String expected) {
         var solution = new LicenseKeyFormatting();
         assertEquals(expected, solution.licenseKeyFormatting(s, k));
+        assertEquals(expected, solution.licenseKeyFormatting2(s, k));
     }
 
     private static Stream<Arguments> testData() {
         return Stream.of(
                 Arguments.of("5F3Z-2e-9-w", 4, "5F3Z-2E9W"),
                 Arguments.of("2-5g-3-J", 2, "2-5G-3J"),
-                Arguments.of("---", 3, "")
+                Arguments.of("---", 3, ""),
+                Arguments.of("aaaa", 2, "AA-AA"),
+                Arguments.of("r", 1, "R"),
+                Arguments.of("2", 2, "2")
         );
     }
 
