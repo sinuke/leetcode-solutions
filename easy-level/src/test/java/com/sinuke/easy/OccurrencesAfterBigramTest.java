@@ -20,7 +20,8 @@ class OccurrencesAfterBigramTest {
     private static Stream<Arguments> testData() {
         return Stream.of(
                 Arguments.of("alice is a good girl she is a good student", "a", "good", new String[] {"girl","student"}),
-                Arguments.of("we will we will rock you", "we", "will", new String[] {"we","rock"})
+                Arguments.of("we will we will rock you", "we", "will", new String[] {"we","rock"}),
+                Arguments.of("we we we we will rock you", "we", "we", new String[] {"we", "we", "will"})
         );
     }
 
