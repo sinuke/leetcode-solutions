@@ -15,6 +15,7 @@ class DistributeCandiesTest {
     void distributeCandies(int[] candyType, int expected) {
         var solution = new DistributeCandies();
         assertEquals(expected, solution.distributeCandies(candyType));
+        assertEquals(expected, solution.distributeCandies2(candyType));
     }
 
     private static Stream<Arguments> testData() {
