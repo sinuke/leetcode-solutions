@@ -6,7 +6,7 @@ import java.util.Set;
 public class DistributeCandies {
 
     public int distributeCandies(int[] candyType) {
-        Set<Integer> set = new HashSet<>();
+        Set<Integer> set = new HashSet<>(candyType.length);
         for (int type : candyType) {
             set.add(type);
         }
