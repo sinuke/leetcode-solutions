@@ -19,8 +19,9 @@ public class DistributeCandies {
         int count = 0;
         int[] candy = new int[200_001];
         for (int type : candyType) {
-            if (candy[type + 100_000] == 0) {
-                candy[type + 100_000] = 1;
+            int index = type + 100_000;
+            if (candy[index] == 0) {
+                candy[index] = 1;
                 count++;
             }
         }
