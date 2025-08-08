@@ -15,12 +15,14 @@ class DegreeOfArrayTest {
     void findShortestSubArray(int[] nums, int expected) {
         var solution = new DegreeOfArray();
         assertEquals(expected, solution.findShortestSubArray(nums));
+        assertEquals(expected, solution.findShortestSubArray2(nums));
     }
 
     private static Stream<Arguments> testData() {
         return Stream.of(
                 Arguments.of(new int[] {1,2,2,3,1}, 2),
-                Arguments.of(new int[] {1,2,2,3,1,4,2}, 6)
+                Arguments.of(new int[] {1,2,2,3,1,4,2}, 6),
+                Arguments.of(new int[] {1,1}, 2)
         );
     }
 
