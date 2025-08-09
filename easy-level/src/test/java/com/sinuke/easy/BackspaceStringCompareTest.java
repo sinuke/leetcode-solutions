@@ -22,7 +22,8 @@ class BackspaceStringCompareTest {
         return Stream.of(
                 Arguments.of("ab#c", "ad#c", true),
                 Arguments.of("ab##", "c#d#", true),
-                Arguments.of("a#c", "b", false)
+                Arguments.of("a#c", "b", false),
+                Arguments.of("y#fo##f", "y#f#o##f", true)
         );
     }
 
