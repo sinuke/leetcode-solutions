@@ -10,7 +10,7 @@ public class ReverseStringII {
         while (i < s.length()) {
             if (reverse) {
                 int start = i;
-                int j = Math.min(i + k - 1, s.length());
+                int j = Math.min(i + k - 1, s.length() - 1);
                 while (j >= start) chars[i++] = s.charAt(j--);
             } else {
                 int j = 0;

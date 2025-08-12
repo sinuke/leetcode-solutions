@@ -20,7 +20,8 @@ class ReverseStringIITest {
     private static Stream<Arguments> testData() {
         return Stream.of(
                 Arguments.of("abcdefg", 2, "bacdfeg"),
-                Arguments.of("abcd", 2, "bacd")
+                Arguments.of("abcd", 2, "bacd"),
+                Arguments.of("a", 2, "a")
         );
     }
 
