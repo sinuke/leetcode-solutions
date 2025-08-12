@@ -14,9 +14,9 @@ class MergeKSortedListsTest {
     @MethodSource("testData")
     void mergeKLists(MergeKSortedLists.ListNode[] lists, MergeKSortedLists.ListNode expected) {
         var solution = new MergeKSortedLists();
-        assertArrayEquals(extractValues(expected), extractValues(solution.mergeKLists(lists)));
-        assertArrayEquals(extractValues(expected), extractValues(solution.mergeKLists2(lists)));
-        assertArrayEquals(extractValues(expected), extractValues(solution.mergeKLists3(lists)));
+        assertArrayEquals(extractValues(expected), extractValues(solution.mergeKLists(lists.clone())));
+        assertArrayEquals(extractValues(expected), extractValues(solution.mergeKLists2(lists.clone())));
+        assertArrayEquals(extractValues(expected), extractValues(solution.mergeKLists3(lists.clone())));
     }
 
     private static Stream<Arguments> testData() {
@@ -43,7 +43,7 @@ class MergeKSortedListsTest {
     }
 
     private static int[] extractValues(MergeKSortedLists.ListNode node) {
-        if (node == null) return null;
+        if (node == null) return new int[] {};
 
         int count = 0;
         var first = node;
