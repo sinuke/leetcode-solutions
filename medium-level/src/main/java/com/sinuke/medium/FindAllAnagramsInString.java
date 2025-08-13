@@ -8,6 +8,7 @@ import java.util.Map;
 
 public class FindAllAnagramsInString {
 
+    // 1579 ms
     public List<Integer> findAnagrams(String s, String p) {
         char[] pchars = p.toCharArray();
         Arrays.sort(pchars);
@@ -22,21 +23,35 @@ public class FindAllAnagramsInString {
         return result;
     }
 
+    // 33 ms
     public List<Integer> findAnagrams2(String s, String p) {
-        Map<Character, Integer> pMap = new HashMap<>();
+        Map<Character, Integer> map = new HashMap<>();
         for (int i = 0; i < p.length(); i++) {
-            pMap.put(p.charAt(i), pMap.getOrDefault(p.charAt(i), 0) + 1);
+            map.put(p.charAt(i), map.getOrDefault(p.charAt(i), 0) + 1);
         }
 
+        int start = 0, matched = 0;
         List<Integer> result = new ArrayList<>();
-
-        for (int i = 0; i < s.length() - p.length() + 1; i++) {
-            Map<Character, Integer> sMap = new HashMap<>();
-            for (int j = i; j < i + p.length(); j++) {
-                sMap.put(s.charAt(j), sMap.getOrDefault(s.charAt(j), 0) + 1);
+        for (int end = 0; end < s.length(); end++) {
+            var ch = s.charAt(end);
+            if (map.containsKey(ch)) {
+                map.put(ch, map.get(ch) - 1);
+                if (map.get(ch) == 0) matched++;
             }
 
-            if (pMap.equals(sMap)) result.add(i);
+            if (end >= p.length() - 1) {
+                if (matched == map.size()) {
+                    result.add(start);
+                }
+
+                ch = s.charAt(start);
+                start++;
+                if (map.containsKey(ch)) {
+                    int value  = map.get(ch);
+                    if (value == 0) matched--;
+                    map.put(ch, map.get(ch) + 1);
+                }
+            }
         }
 
         return result;
