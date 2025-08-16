@@ -14,18 +14,16 @@ public class PartitionLabels {
         }
 
         int i = 0;
-        List<Integer> result = new ArrayList<>();
+        List<Integer> result = new ArrayList<>(s.length() / 2);
         while (i < s.length()) {
             int pos = map.get(s.charAt(i));
 
             int j = i + 1;
             while (j < pos) {
-                if (map.get(s.charAt(j)) > pos) pos = map.get(s.charAt(j));
+                pos = Math.max(pos, map.get(s.charAt(j)));
                 j++;
             }
-
-            int len = pos - i + 1;
-            result.add(len);
+            result.add(pos - i + 1);
             i = pos + 1;
         }
 
