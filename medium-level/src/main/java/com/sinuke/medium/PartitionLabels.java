@@ -18,10 +18,10 @@ public class PartitionLabels {
         while (i < s.length()) {
             int pos = map.get(s.charAt(i));
 
-            int j = pos;
-            while (j > i) {
+            int j = i + 1;
+            while (j < pos) {
                 if (map.get(s.charAt(j)) > pos) pos = map.get(s.charAt(j));
-                j--;
+                j++;
             }
 
             int len = pos - i + 1;

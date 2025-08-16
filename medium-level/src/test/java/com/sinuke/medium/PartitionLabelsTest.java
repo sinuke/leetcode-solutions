@@ -22,7 +22,8 @@ class PartitionLabelsTest {
         return Stream.of(
                 Arguments.of("ababcbacadefegdehijhklij", List.of(9, 7, 8)),
                 Arguments.of("eccbbbbdec", List.of(10)),
-                Arguments.of("e", List.of(1))
+                Arguments.of("e", List.of(1)),
+                Arguments.of("qiejxqfnqceocmy", List.of(13,1,1))
         );
     }
 
