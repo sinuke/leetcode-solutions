@@ -10,7 +10,7 @@ public class MergeIntervals {
 
         int i = 1, k = 0;
         while (i < intervals.length) {
-            if (intervals[i][0] <= intervals[k][1]) intervals[k][1] = intervals[i][1];
+            if (intervals[i][0] <= intervals[k][1]) intervals[k][1] = Math.max(intervals[i][1], intervals[k][1]);
             else intervals[++k] = intervals[i];
             i++;
         }
