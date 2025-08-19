@@ -17,16 +17,12 @@ public class FourSum {
             int sum = nums[i];
 
             for (int j = nums.length - 1; j > i + 2; j--) {
-                int sum2 = sum + nums[j];
+                long sum2 = sum + nums[j];
 
-                for (int k = i + 1; k < j - 1; k++) {
-                    int sum3 = sum2 + nums[k];
-
-                    for (int t = j - 1; t > k; t--) {
-                        if (sum3 + nums[t] == target) {
-                            result.add(List.of(nums[i], nums[j], nums[k], nums[t]));
-                        }
-                    }
+                Set<Long> set = new HashSet<>();
+                for (int k = i + 1; k < j; k++) {
+                    if (set.contains(target - sum2 - nums[k])) result.add(List.of(nums[i], nums[j], target - (int) sum2 - nums[k], nums[k]));
+                    else set.add((long) nums[k]);
                 }
             }
         }
