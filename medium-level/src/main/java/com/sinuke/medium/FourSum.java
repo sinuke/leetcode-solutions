@@ -8,6 +8,7 @@ import java.util.Set;
 
 public class FourSum {
 
+    // 476 ms
     public List<List<Integer>> fourSum(int[] nums, int target) {
         Arrays.sort(nums);
 
