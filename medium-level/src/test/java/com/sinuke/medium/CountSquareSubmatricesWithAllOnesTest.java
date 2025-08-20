@@ -15,6 +15,7 @@ class CountSquareSubmatricesWithAllOnesTest {
     void countSquares(int[][] matrix, int expected) {
         var solution = new CountSquareSubmatricesWithAllOnes();
         assertEquals(expected, solution.countSquares(matrix));
+        assertEquals(expected, solution.countSquares2(matrix));
     }
 
     private static Stream<Arguments> testData() {
