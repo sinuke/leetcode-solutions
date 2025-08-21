@@ -12,7 +12,7 @@ public class LongestSubarrayOf1sAfterDeletingOneElement {
             } else {
                 zeros++;
                 max = Math.max(max, ones[0] + ones[1]);
-                j = j == 0 ? 1 : 0;
+                j ^= 1;
                 ones[j] = 0;
             }
         }
