@@ -49,10 +49,26 @@ jobs:
 
       - name: Add Jacoco report to workflow run summary
         run: |
-          echo "| Code Coverage Summary | Value |" >> $GITHUB_STEP_SUMMARY
-          echo "| --- | --- |" >> $GITHUB_STEP_SUMMARY
-          echo "| Overall Code Coverage % | ${{ steps.jacoco_reporter.outputs.coverage-overall }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| Changed Files Coverage % | ${{ steps.jacoco_reporter.outputs.coverage-changed-files }} |" >> $GITHUB_STEP_SUMMARY
+          OVERALL_COVERAGE=${{ steps.jacoco_reporter.outputs.coverage-overall }}
+          CHANGED_COVERAGE=${{ steps.jacoco_reporter.outputs.coverage-changed-files }}
+          THRESHOLD=${{ env.COVERAGE_THRESHOLD }}
+
+          if (( $(echo "$OVERALL_COVERAGE >= $THRESHOLD" | bc -l) )); then
+            OVERALL_EMOJI="✅"
+          else
+            OVERALL_EMOJI="❌"
+          fi
+
+          if (( $(echo "$CHANGED_COVERAGE >= $THRESHOLD" | bc -l) )); then
+            CHANGED_EMOJI="✅"
+          else
+            CHANGED_EMOJI="❌"
+          fi
+          
+          echo "| Code Coverage Summary | Value | Passed |" >> $GITHUB_STEP_SUMMARY
+          echo "| --- | --- | --- |" >> $GITHUB_STEP_SUMMARY
+          echo "| Overall Code Coverage % | $OVERALL_COVERAGE | $OVERALL_EMOJI |" >> $GITHUB_STEP_SUMMARY
+          echo "| Changed Files Coverage % | $CHANGED_COVERAGE | $CHANGED_EMOJI |" >> $GITHUB_STEP_SUMMARY
 
       - name: Publish Coverage Workflow Build Summary
         run: echo "${{ steps.jacoco_reporter.outputs.coverageSummary }}" >> $GITHUB_STEP_SUMMARY
