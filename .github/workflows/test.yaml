@@ -70,10 +70,10 @@ jobs:
             CHANGED_EMOJI=$FAILED
           fi
 
-          echo "Code Coverage Summary:"
-          echo "Overall Code Coverage: $OVERALL_COVERAGE% | $OVERALL_EMOJI"
-          echo "Changed Files Coverage: $CHANGED_COVERAGE% | $CHANGED_EMOJI"
-          echo "::set-output name=summary::Code Coverage Summary: Overall Code Coverage: $OVERALL_COVERAGE% | $OVERALL_EMOJI; Changed Files Coverage: $CHANGED_COVERAGE% | $CHANGED_EMOJI"
+          echo "| Code Coverage Summary | Value | Passed |" >> $GITHUB_STEP_SUMMARY
+          echo "| --- | --- | --- |" >> $GITHUB_STEP_SUMMARY
+          echo "| Overall Code Coverage | $OVERALL_COVERAGE % | $OVERALL_EMOJI |" >> $GITHUB_STEP_SUMMARY
+          echo "| Changed Files Coverage | $CHANGED_COVERAGE % | $CHANGED_EMOJI |" >> $GITHUB_STEP_SUMMARY
 
       - name: Publish Coverage Workflow Build Summary
         run: echo "${{ steps.jacoco_reporter.outputs.coverageSummary }}" >> $GITHUB_STEP_SUMMARY
