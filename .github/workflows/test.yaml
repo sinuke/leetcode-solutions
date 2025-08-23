@@ -15,10 +15,10 @@ jobs:
 
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up JDK 21
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           java-version: '21'
           distribution: 'zulu'
@@ -32,16 +32,13 @@ jobs:
 
       - name: Jacoco reporter
         id: jacoco_reporter
-        uses: PavanMudigonda/jacoco-reporter@v5.0
+        uses: madrapps/jacoco-report@v1.7.2
         with:
-          coverage_results_path: ${{ github.workspace }}/build/reports/jacoco/jacocoRootReport/jacocoRootReport.xml
-          coverage_report_name: Coverage
-          coverage_report_title: LeetCode Solutions
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          skip_check_run: false
-          minimum_coverage: 80
-          fail_below_threshold: false
-          publish_only_summary: false
+          paths: |
+            ${{ github.workspace }}/build/reports/jacoco/jacocoRootReport/jacocoRootReport.xml
+          min-coverage-overall: 80
+          min-coverage-changed-files: 80
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Add Jacoco report to workflow run summary
         run: |
