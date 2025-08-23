@@ -10,6 +10,8 @@ on:
 
 env:
   COVERAGE_THRESHOLD: 80
+  PASSED_ICON: '✅'
+  FAILED_ICON: '❌'
 
 jobs:
   Test:
@@ -44,8 +46,8 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           title: Code Coverage
           update-comment: true
-          pass-emoji: '✅'
-          fail-emoji: '❌'
+          pass-emoji: ${{ env.PASSED_ICON }}
+          fail-emoji: ${{ env.FAILED_ICON }}
 
       - name: Add Jacoco report to workflow run summary
         run: |
@@ -57,15 +59,15 @@ jobs:
           CHANGED_COVERAGE=$(echo "$CHANGED_COVERAGE" | bc -l)
 
           if (( $(echo "$OVERALL_COVERAGE >= $THRESHOLD" | bc -l) )); then
-            OVERALL_EMOJI="✅"
+            OVERALL_EMOJI=${{ env.PASSED_ICON }}
           else
-            OVERALL_EMOJI="❌"
+            OVERALL_EMOJI=${{ env.FAILED_ICON }}
           fi
 
           if (( $(echo "$CHANGED_COVERAGE >= $THRESHOLD" | bc -l) )); then
-            CHANGED_EMOJI="✅"
+            CHANGED_EMOJI=${{ env.PASSED_ICON }}
           else
-            CHANGED_EMOJI="❌"
+            CHANGED_EMOJI=${{ env.FAILED_ICON }}
           fi
 
           echo "| Code Coverage Summary | Value | Passed |" >> $GITHUB_STEP_SUMMARY
