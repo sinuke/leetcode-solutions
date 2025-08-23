@@ -1,5 +1,7 @@
 package com.sinuke.medium;
 
+import com.sinuke.common.data.ListNode;
+
 public class InsertGreatestCommonDivisorsInLinkedList {
 
     public ListNode insertGreatestCommonDivisors(ListNode head) {
@@ -25,16 +27,6 @@ public class InsertGreatestCommonDivisorsInLinkedList {
         else if (m % 2 != 0 && n % 2 == 0) return nod(m, n / 2);
         else if (m % 2 != 0 && n % 2 != 0 && n > m) return nod(m, (n - m) / 2);
         else return nod((m - n) / 2, n);
-    }
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {}
-        ListNode(int val) { this.val = val; }
-        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-
     }
 
 }

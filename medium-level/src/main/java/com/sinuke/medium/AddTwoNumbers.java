@@ -1,5 +1,7 @@
 package com.sinuke.medium;
 
+import com.sinuke.common.data.ListNode;
+
 public class AddTwoNumbers {
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
@@ -50,15 +52,6 @@ public class AddTwoNumbers {
         if (additional == 1) curResult.val = additional;
 
         return result;
-    }
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        public ListNode() {}
-        public ListNode(int val) { this.val = val; }
-        public ListNode(int val, ListNode next) { this.val = val; this.next = next; }
     }
 
 }
