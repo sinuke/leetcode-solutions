@@ -55,22 +55,25 @@ jobs:
           PASSED = "✅"
           FAILED = "❌"
 
+          OVERALL_COVERAGE=$(echo "$OVERALL_COVERAGE" | bc -l)
+          CHANGED_COVERAGE=$(echo "$CHANGED_COVERAGE" | bc -l)
+
           if (( $(echo "$OVERALL_COVERAGE >= $THRESHOLD" | bc -l) )); then
-            OVERALL_EMOJI=PASSED
+            OVERALL_EMOJI=$PASSED
           else
-            OVERALL_EMOJI=FAILED
+            OVERALL_EMOJI=$FAILED
           fi
 
           if (( $(echo "$CHANGED_COVERAGE >= $THRESHOLD" | bc -l) )); then
-            CHANGED_EMOJI=PASSED
+            CHANGED_EMOJI=$PASSED
           else
-            CHANGED_EMOJI=FAILED
+            CHANGED_EMOJI=$FAILED
           fi
-          
-          echo "| Code Coverage Summary | Value | Passed |" >> $GITHUB_STEP_SUMMARY
-          echo "| --- | --- | --- |" >> $GITHUB_STEP_SUMMARY
-          echo "| Overall Code Coverage | $OVERALL_COVERAGE % | $OVERALL_EMOJI |" >> $GITHUB_STEP_SUMMARY
-          echo "| Changed Files Coverage | $CHANGED_COVERAGE % | $CHANGED_EMOJI |" >> $GITHUB_STEP_SUMMARY
+
+          echo "Code Coverage Summary:"
+          echo "Overall Code Coverage: $OVERALL_COVERAGE% | $OVERALL_EMOJI"
+          echo "Changed Files Coverage: $CHANGED_COVERAGE% | $CHANGED_EMOJI"
+          echo "::set-output name=summary::Code Coverage Summary: Overall Code Coverage: $OVERALL_COVERAGE% | $OVERALL_EMOJI; Changed Files Coverage: $CHANGED_COVERAGE% | $CHANGED_EMOJI"
 
       - name: Publish Coverage Workflow Build Summary
         run: echo "${{ steps.jacoco_reporter.outputs.coverageSummary }}" >> $GITHUB_STEP_SUMMARY
