@@ -56,15 +56,15 @@ jobs:
           FAILED = "❌"
 
           if (( $(echo "$OVERALL_COVERAGE >= $THRESHOLD" | bc -l) )); then
-            OVERALL_EMOJI=$PASSED
+            OVERALL_EMOJI=PASSED
           else
-            OVERALL_EMOJI=$FAILED
+            OVERALL_EMOJI=FAILED
           fi
 
           if (( $(echo "$CHANGED_COVERAGE >= $THRESHOLD" | bc -l) )); then
-            CHANGED_EMOJI=$PASSED
+            CHANGED_EMOJI=PASSED
           else
-            CHANGED_EMOJI=$FAILED
+            CHANGED_EMOJI=FAILED
           fi
           
           echo "| Code Coverage Summary | Value | Passed |" >> $GITHUB_STEP_SUMMARY
