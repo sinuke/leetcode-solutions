@@ -1,18 +1,21 @@
 package com.sinuke.easy;
 
+import com.sinuke.common.data.ListNode;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
+import static com.sinuke.common.data.ListNode.createList;
+import static com.sinuke.common.data.ListNode.extractValues;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 class IntersectionTwoLinkedListsTest {
 
     @ParameterizedTest
     @MethodSource("testData")
-    void getIntersectionNode(IntersectionTwoLinkedLists.ListNode headA, IntersectionTwoLinkedLists.ListNode headB, IntersectionTwoLinkedLists.ListNode intersection) {
+    void getIntersectionNode(ListNode headA, ListNode headB, ListNode intersection) {
         // given
         var intersectionTwoLinkedLists = new IntersectionTwoLinkedLists();
         if (intersection != null) {
@@ -31,7 +34,7 @@ class IntersectionTwoLinkedListsTest {
 
     @ParameterizedTest
     @MethodSource("testData")
-    void getIntersectionNodeTwoPointers(IntersectionTwoLinkedLists.ListNode headA, IntersectionTwoLinkedLists.ListNode headB, IntersectionTwoLinkedLists.ListNode intersection) {
+    void getIntersectionNodeTwoPointers(ListNode headA, ListNode headB, ListNode intersection) {
         // given
         var intersectionTwoLinkedLists = new IntersectionTwoLinkedLists();
         if (intersection != null) {
@@ -56,42 +59,7 @@ class IntersectionTwoLinkedListsTest {
         );
     }
 
-    private static IntersectionTwoLinkedLists.ListNode createList(int... values) {
-        if (values.length == 0) return null;
-
-        var head = new IntersectionTwoLinkedLists.ListNode(values[0]);
-        var previous = head;
-        for (int i = 1; i < values.length; i++) {
-            var element = new IntersectionTwoLinkedLists.ListNode(values[i]);
-            previous.next = element;
-            previous = element;
-        }
-
-        return head;
-    }
-
-    private static int[] extractValues(IntersectionTwoLinkedLists.ListNode node) {
-
-        int count = 0;
-        var first = node;
-        while (node != null) {
-            count++;
-            node = node.next;
-        }
-
-        var result = new int[count];
-        node = first;
-        var index = 0;
-        while (node != null) {
-            result[index] = node.val;
-            node = node.next;
-            index++;
-        }
-
-        return result;
-    }
-
-    private static void addIntersection(IntersectionTwoLinkedLists.ListNode list, IntersectionTwoLinkedLists.ListNode intersection) {
+    private static void addIntersection(ListNode list, ListNode intersection) {
         var current = list;
         while (current != null) {
             if (current.next == null) {

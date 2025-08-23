@@ -1,5 +1,7 @@
 package com.sinuke.easy;
 
+import com.sinuke.common.data.ListNode;
+
 public class ConvertBinaryNumberInLinkedListToInteger {
 
     public int getDecimalValue(ListNode head) {
@@ -10,25 +12,6 @@ public class ConvertBinaryNumberInLinkedListToInteger {
         }
 
         return Integer.parseInt(sb.toString(), 2);
-    }
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-
     }
 
 }

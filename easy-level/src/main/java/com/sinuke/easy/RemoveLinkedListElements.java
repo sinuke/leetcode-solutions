@@ -1,5 +1,7 @@
 package com.sinuke.easy;
 
+import com.sinuke.common.data.ListNode;
+
 public class RemoveLinkedListElements {
 
     public ListNode removeElements(ListNode head, int val) {
@@ -19,24 +21,6 @@ public class RemoveLinkedListElements {
         }
 
         return result.next;
-    }
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-
-        }
-
-        ListNode(int x) {
-            val = x;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
     }
 
 }

@@ -1,5 +1,7 @@
 package com.sinuke.easy;
 
+import com.sinuke.common.data.ListNode;
+
 public class MiddleOfTheLinkedList {
 
     public ListNode middleNode(ListNode head) {
@@ -13,24 +15,6 @@ public class MiddleOfTheLinkedList {
         }
 
         return slow;
-    }
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-
     }
 
 }

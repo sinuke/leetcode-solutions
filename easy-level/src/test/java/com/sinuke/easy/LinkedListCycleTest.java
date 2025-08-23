@@ -1,5 +1,6 @@
 package com.sinuke.easy;
 
+import com.sinuke.common.data.ListNode;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -13,7 +14,7 @@ class LinkedListCycleTest {
 
     @ParameterizedTest
     @MethodSource("testData")
-    void hasCycle(LinkedListCycle.ListNode input, boolean expected) {
+    void hasCycle(ListNode input, boolean expected) {
         var linkedListCycle = new LinkedListCycle();
 
         assertEquals(expected, linkedListCycle.hasCycle(input));
@@ -30,18 +31,18 @@ class LinkedListCycleTest {
     }
 
 
-    private static LinkedListCycle.ListNode createList(int pos, int... values) {
+    private static ListNode createList(int pos, int... values) {
         if (values.length == 0) return null;
 
-        var head = new LinkedListCycle.ListNode(values[0]);
+        var head = new ListNode(values[0]);
         var previous = head;
-        LinkedListCycle.ListNode element = null;
+        ListNode element = null;
 
-        LinkedListCycle.ListNode posElement = null;
+        ListNode posElement = null;
         if (pos == 0) posElement = head;
 
         for (int i = 1; i < values.length; i++) {
-            element = new LinkedListCycle.ListNode(values[i]);
+            element = new ListNode(values[i]);
             previous.next = element;
             previous = element;
 

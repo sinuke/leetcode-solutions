@@ -1,5 +1,7 @@
 package com.sinuke.easy;
 
+import com.sinuke.common.data.ListNode;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -34,17 +36,6 @@ public class IntersectionTwoLinkedLists {
         }
 
         return currentA;
-    }
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-            next = null;
-        }
-
     }
 
 }

@@ -1,5 +1,7 @@
 package com.sinuke.easy;
 
+import com.sinuke.common.data.ListNode;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -30,17 +32,6 @@ public class LinkedListCycle {
         }
 
         return false;
-    }
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        public ListNode(int x) {
-            val = x;
-            next = null;
-        }
-
     }
 
 }
