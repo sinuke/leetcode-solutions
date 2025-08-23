@@ -1,5 +1,7 @@
 package com.sinuke.hard;
 
+import com.sinuke.common.data.ListNode;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.PriorityQueue;
@@ -86,15 +88,6 @@ public class MergeKSortedLists {
         }
 
         return result;
-    }
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {}
-        ListNode(int val) { this.val = val; }
-        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
     }
 
 }

@@ -1,5 +1,7 @@
 package com.sinuke.easy;
 
+import com.sinuke.common.data.ListNode;
+
 public class MergeTwoSortedLists {
 
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
@@ -38,25 +40,6 @@ public class MergeTwoSortedLists {
         }
 
         return firstResult;
-    }
-
-    public static class ListNode {
-        int val;
-        MergeTwoSortedLists.ListNode next;
-
-        ListNode() {
-
-        }
-
-        ListNode(int x) {
-            val = x;
-        }
-
-        ListNode(int val, MergeTwoSortedLists.ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-
     }
 
 }

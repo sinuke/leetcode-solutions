@@ -1,5 +1,7 @@
 package com.sinuke.easy;
 
+import com.sinuke.common.data.ListNode;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -39,23 +41,6 @@ public class PalindromeLinkedList {
         }
 
         return true;
-    }
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {}
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-
     }
 
 }

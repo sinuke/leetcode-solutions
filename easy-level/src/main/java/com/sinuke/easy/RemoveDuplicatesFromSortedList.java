@@ -1,5 +1,7 @@
 package com.sinuke.easy;
 
+import com.sinuke.common.data.ListNode;
+
 public class RemoveDuplicatesFromSortedList {
 
     public ListNode deleteDuplicates(ListNode head) {
@@ -16,25 +18,6 @@ public class RemoveDuplicatesFromSortedList {
         }
 
         return result;
-    }
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-
-        }
-
-        ListNode(int x) {
-            val = x;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-
     }
 
 }
