@@ -52,22 +52,20 @@ jobs:
           OVERALL_COVERAGE=${{ steps.jacoco_reporter.outputs.coverage-overall }}
           CHANGED_COVERAGE=${{ steps.jacoco_reporter.outputs.coverage-changed-files }}
           THRESHOLD=${{ env.COVERAGE_THRESHOLD }}
-          PASSED = "✅"
-          FAILED = "❌"
 
           OVERALL_COVERAGE=$(echo "$OVERALL_COVERAGE" | bc -l)
           CHANGED_COVERAGE=$(echo "$CHANGED_COVERAGE" | bc -l)
 
           if (( $(echo "$OVERALL_COVERAGE >= $THRESHOLD" | bc -l) )); then
-            OVERALL_EMOJI=$PASSED
+            OVERALL_EMOJI="✅"
           else
-            OVERALL_EMOJI=$FAILED
+            OVERALL_EMOJI="❌"
           fi
 
           if (( $(echo "$CHANGED_COVERAGE >= $THRESHOLD" | bc -l) )); then
-            CHANGED_EMOJI=$PASSED
+            CHANGED_EMOJI="✅"
           else
-            CHANGED_EMOJI=$FAILED
+            CHANGED_EMOJI="❌"
           fi
 
           echo "| Code Coverage Summary | Value | Passed |" >> $GITHUB_STEP_SUMMARY
