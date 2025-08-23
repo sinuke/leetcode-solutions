@@ -31,6 +31,7 @@ public class ListNode {
     }
 
     public static int[] extractValues(ListNode node) {
+        if (node == null) return null;
 
         int count = 0;
         var first = node;
