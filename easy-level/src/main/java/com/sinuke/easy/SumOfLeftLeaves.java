@@ -1,5 +1,7 @@
 package com.sinuke.easy;
 
+import com.sinuke.common.data.TreeNode;
+
 import java.util.Stack;
 
 public class SumOfLeftLeaves {
@@ -29,23 +31,6 @@ public class SumOfLeftLeaves {
         if (isLeft && node.left == null && node.right == null) return node.val;
 
         return calcSum(node.left, true) + calcSum(node.right, false);
-    }
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode() {}
-
-        TreeNode(int val) { this.val = val; }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-
     }
 
 }

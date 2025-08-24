@@ -1,5 +1,7 @@
 package com.sinuke.hard;
 
+import com.sinuke.common.data.TreeNode;
+
 import java.util.Stack;
 
 public class RecoverTreeFromPreorderTraversal {
@@ -35,25 +37,6 @@ public class RecoverTreeFromPreorderTraversal {
         while (stack.size() > 1) stack.pop();
 
         return stack.pop();
-    }
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode() {
-        }
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
     }
 
 }

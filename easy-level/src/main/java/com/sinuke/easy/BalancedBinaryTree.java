@@ -1,5 +1,7 @@
 package com.sinuke.easy;
 
+import com.sinuke.common.data.TreeNode;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -21,23 +23,6 @@ public class BalancedBinaryTree {
         int right = getHeight(node.right, result);
         result.add(Math.abs(left - right) <= 1);
         return Math.max(left, right) + 1;
-    }
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode() {}
-
-        TreeNode(int val) { this.val = val; }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-
     }
 
 }

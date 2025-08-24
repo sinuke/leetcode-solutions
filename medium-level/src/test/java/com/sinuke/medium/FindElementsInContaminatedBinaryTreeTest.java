@@ -6,6 +6,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
+import static com.sinuke.common.data.TreeNode.buildTree;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 class FindElementsInContaminatedBinaryTreeTest {
@@ -54,21 +55,6 @@ class FindElementsInContaminatedBinaryTreeTest {
                         new Boolean[] {null,true,false,false,true}
                 )
         );
-    }
-
-    public static FindElementsInContaminatedBinaryTree.TreeNode buildTree(Integer[] array) {
-        if (array == null || array.length == 0) return null;
-        return buildTree(array, 0);
-    }
-
-    private static FindElementsInContaminatedBinaryTree.TreeNode buildTree(Integer[] array, int index) {
-        if (index >= array.length || array[index] == null) return null;
-
-        var node = new FindElementsInContaminatedBinaryTree.TreeNode(array[index]);
-        node.left = buildTree(array, 2 * index + 1);
-        node.right = buildTree(array, 2 * index + 2);
-
-        return node;
     }
 
 }
