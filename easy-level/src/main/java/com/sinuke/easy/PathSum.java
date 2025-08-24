@@ -1,5 +1,7 @@
 package com.sinuke.easy;
 
+import com.sinuke.common.data.TreeNode;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -23,23 +25,6 @@ public class PathSum {
 
         getPathSum(node.left, sum, set);
         getPathSum(node.right, sum, set);
-    }
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode() {}
-
-        TreeNode(int val) { this.val = val; }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-
     }
 
 }

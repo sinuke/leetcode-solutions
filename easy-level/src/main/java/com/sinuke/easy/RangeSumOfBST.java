@@ -1,5 +1,7 @@
 package com.sinuke.easy;
 
+import com.sinuke.common.data.TreeNode;
+
 public class RangeSumOfBST {
 
     private int sum = 0;
@@ -13,25 +15,6 @@ public class RangeSumOfBST {
         if (node.val >= low && node.val <= high) sum += node.val;
         if (node.left != null) walk(node.left, low, high);
         if (node.right != null) walk(node.right, low, high);
-    }
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode() {
-        }
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
     }
 
 }

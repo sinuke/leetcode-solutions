@@ -1,6 +1,8 @@
 package com.sinuke.common.data;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 public class TreeNode {
@@ -47,6 +49,32 @@ public class TreeNode {
         }
 
         return root;
+    }
+
+    public static int[] toArray(TreeNode root) {
+        List<Integer> list = new LinkedList<>();
+        if (root != null) {
+            list.add(root.val);
+            for (int val : toArray(root.left)) list.add(val);
+            for (int val : toArray(root.right)) list.add(val);
+        }
+        return list.stream().mapToInt(x -> x).toArray();
+    }
+
+    public static List<Integer> toList(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        doToList(root, list);
+        return list;
+    }
+
+    private static void doToList(TreeNode node, List<Integer> list) {
+        if (node == null) return;
+        list.add(node.val);
+
+        if (node.left == null && node.right != null) {
+            list.add(null);
+            doToList(node.right, list);
+        }
     }
 
 }

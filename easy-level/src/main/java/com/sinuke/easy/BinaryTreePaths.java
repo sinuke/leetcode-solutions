@@ -1,5 +1,7 @@
 package com.sinuke.easy;
 
+import com.sinuke.common.data.TreeNode;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,24 +26,6 @@ public class BinaryTreePaths {
 
         getPath(node.left, new StringBuilder(path), result);
         getPath(node.right, new StringBuilder(path), result);
-    }
-
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode() {}
-
-        TreeNode(int val) { this.val = val; }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-
     }
 
 }

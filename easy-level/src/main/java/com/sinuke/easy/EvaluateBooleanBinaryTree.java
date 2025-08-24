@@ -1,5 +1,7 @@
 package com.sinuke.easy;
 
+import com.sinuke.common.data.TreeNode;
+
 public class EvaluateBooleanBinaryTree {
 
     public boolean evaluateTree(TreeNode root) {
@@ -7,27 +9,6 @@ public class EvaluateBooleanBinaryTree {
         return root.val == 2
                 ? evaluateTree(root.left) || evaluateTree(root.right)
                 : evaluateTree(root.left) && evaluateTree(root.right);
-    }
-
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode() {
-        }
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-
     }
 
 }

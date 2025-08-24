@@ -1,5 +1,7 @@
 package com.sinuke.easy;
 
+import com.sinuke.common.data.TreeNode;
+
 public class BinaryTreeTilt {
 
     public int findTilt(TreeNode root) {
@@ -17,23 +19,6 @@ public class BinaryTreeTilt {
         if (node == null) return 0;
         int diff = Math.abs((node.left == null ? 0 : node.left.val) - (node.right == null ? 0 : node.right.val));
         return diff + tilt(node.left) + tilt(node.right);
-    }
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode() {}
-
-        TreeNode(int val) { this.val = val; }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-
     }
 
 }
