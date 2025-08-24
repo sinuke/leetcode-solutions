@@ -1,5 +1,7 @@
 package com.sinuke.medium;
 
+import com.sinuke.common.data.TreeNode;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,23 +25,6 @@ public class PathSumII {
             getSum(node.left, target, curSum, new ArrayList<>(curPath), result);
             getSum(node.right, target, curSum, new ArrayList<>(curPath), result);
         }
-    }
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode() {}
-
-        TreeNode(int val) { this.val = val; }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-
     }
 
 }
