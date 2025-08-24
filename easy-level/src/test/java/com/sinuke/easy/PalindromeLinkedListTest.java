@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static com.sinuke.common.data.ListNode.createList;
+import static com.sinuke.common.data.ListNode.buildList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class PalindromeLinkedListTest {
@@ -22,8 +22,8 @@ class PalindromeLinkedListTest {
 
     private static Stream<Arguments> testData() {
         return Stream.of(
-                Arguments.of(createList(1, 2, 2, 1), true),
-                Arguments.of(createList(1, 2), false)
+                Arguments.of(buildList(1, 2, 2, 1), true),
+                Arguments.of(buildList(1, 2), false)
         );
     }
 

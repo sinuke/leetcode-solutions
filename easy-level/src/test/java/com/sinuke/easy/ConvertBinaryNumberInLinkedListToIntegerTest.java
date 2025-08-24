@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static com.sinuke.common.data.ListNode.createList;
+import static com.sinuke.common.data.ListNode.buildList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ConvertBinaryNumberInLinkedListToIntegerTest {
@@ -21,8 +21,8 @@ class ConvertBinaryNumberInLinkedListToIntegerTest {
 
     private static Stream<Arguments> testData() {
         return Stream.of(
-                Arguments.of(createList(1,0,1), 5),
-                Arguments.of(createList(0), 0)
+                Arguments.of(buildList(1,0,1), 5),
+                Arguments.of(buildList(0), 0)
         );
     }
 

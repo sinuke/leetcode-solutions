@@ -7,8 +7,8 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static com.sinuke.common.data.ListNode.createList;
-import static com.sinuke.common.data.ListNode.extractValues;
+import static com.sinuke.common.data.ListNode.buildList;
+import static com.sinuke.common.data.ListNode.toArray;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 class InsertGreatestCommonDivisorsInLinkedListTest {
@@ -17,13 +17,13 @@ class InsertGreatestCommonDivisorsInLinkedListTest {
     @MethodSource("testData")
     void insertGreatestCommonDivisors(ListNode head, ListNode expected) {
         var solution = new InsertGreatestCommonDivisorsInLinkedList();
-        assertArrayEquals(extractValues(expected), extractValues(solution.insertGreatestCommonDivisors(head)));
+        assertArrayEquals(toArray(expected), toArray(solution.insertGreatestCommonDivisors(head)));
     }
 
     private static Stream<Arguments> testData() {
         return Stream.of(
-                Arguments.of(createList(18,6,10,3), createList(18,6,6,2,10,1,3)),
-                Arguments.of(createList(7), createList(7))
+                Arguments.of(buildList(18,6,10,3), buildList(18,6,6,2,10,1,3)),
+                Arguments.of(buildList(7), buildList(7))
         );
     }
 

@@ -7,8 +7,8 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static com.sinuke.common.data.ListNode.createList;
-import static com.sinuke.common.data.ListNode.extractValues;
+import static com.sinuke.common.data.ListNode.buildList;
+import static com.sinuke.common.data.ListNode.toArray;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 class IntersectionTwoLinkedListsTest {
@@ -25,8 +25,8 @@ class IntersectionTwoLinkedListsTest {
 
         // when
         var result = intersectionTwoLinkedLists.getIntersectionNode(headA, headB);
-        int[] intersectionArray = extractValues(intersection);
-        int[] resultArray = extractValues(result);
+        int[] intersectionArray = toArray(intersection);
+        int[] resultArray = toArray(result);
 
         // then
         assertArrayEquals(intersectionArray, resultArray);
@@ -44,8 +44,8 @@ class IntersectionTwoLinkedListsTest {
 
         // when
         var result = intersectionTwoLinkedLists.getIntersectionNodeTwoPointers(headA, headB);
-        int[] intersectionArray = extractValues(intersection);
-        int[] resultArray = extractValues(result);
+        int[] intersectionArray = toArray(intersection);
+        int[] resultArray = toArray(result);
 
         // then
         assertArrayEquals(intersectionArray, resultArray);
@@ -53,9 +53,9 @@ class IntersectionTwoLinkedListsTest {
     
     private static Stream<Arguments> testData() {
         return Stream.of(
-                Arguments.of(createList(4, 1), createList(5, 6, 1), createList(8, 4, 5)),
-                Arguments.of(createList(1, 9, 1), createList(3), createList(2, 4)),
-                Arguments.of(createList(2, 6, 4), createList(1, 5), createList())
+                Arguments.of(buildList(4, 1), buildList(5, 6, 1), buildList(8, 4, 5)),
+                Arguments.of(buildList(1, 9, 1), buildList(3), buildList(2, 4)),
+                Arguments.of(buildList(2, 6, 4), buildList(1, 5), buildList())
         );
     }
 

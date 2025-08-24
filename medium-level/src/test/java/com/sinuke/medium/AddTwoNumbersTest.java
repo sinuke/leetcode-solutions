@@ -7,8 +7,8 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static com.sinuke.common.data.ListNode.createList;
-import static com.sinuke.common.data.ListNode.extractValues;
+import static com.sinuke.common.data.ListNode.buildList;
+import static com.sinuke.common.data.ListNode.toArray;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 class AddTwoNumbersTest {
@@ -20,18 +20,18 @@ class AddTwoNumbersTest {
 
         var result = addTwoNumbers.addTwoNumbers(l1, l2);
 
-        var expectedArray = extractValues(expected);
-        var actualArray = extractValues(result);
+        var expectedArray = toArray(expected);
+        var actualArray = toArray(result);
 
         assertArrayEquals(expectedArray, actualArray);
     }
 
     private static Stream<Arguments> testData() {
         return Stream.of(
-                Arguments.of(createList(2, 4, 3), createList(5, 6, 4), createList(7, 0, 8)),
-                Arguments.of(createList(0), createList(0), createList(0)),
-                Arguments.of(createList(9, 9, 9, 9, 9, 9, 9), createList(9, 9, 9, 9), createList(8, 9, 9, 9, 0, 0, 0, 1)),
-                Arguments.of(createList(1, 8), createList(0), createList(1, 8))
+                Arguments.of(buildList(2, 4, 3), buildList(5, 6, 4), buildList(7, 0, 8)),
+                Arguments.of(buildList(0), buildList(0), buildList(0)),
+                Arguments.of(buildList(9, 9, 9, 9, 9, 9, 9), buildList(9, 9, 9, 9), buildList(8, 9, 9, 9, 0, 0, 0, 1)),
+                Arguments.of(buildList(1, 8), buildList(0), buildList(1, 8))
         );
     }
 

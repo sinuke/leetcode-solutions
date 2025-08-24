@@ -7,8 +7,8 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static com.sinuke.common.data.ListNode.createList;
-import static com.sinuke.common.data.ListNode.extractValues;
+import static com.sinuke.common.data.ListNode.buildList;
+import static com.sinuke.common.data.ListNode.toArray;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 
@@ -20,16 +20,16 @@ class RemoveDuplicatesFromSortedListTest {
         var removeDuplicates = new RemoveDuplicatesFromSortedList();
 
         var result = removeDuplicates.deleteDuplicates(input);
-        var expectedArray = extractValues(expected);
-        var resultArray = extractValues(result);
+        var expectedArray = toArray(expected);
+        var resultArray = toArray(result);
 
         assertArrayEquals(expectedArray, resultArray);
     }
 
     private static Stream<Arguments> testData() {
         return Stream.of(
-            Arguments.of(createList(1, 1, 2), createList(1, 2)),
-            Arguments.of(createList(1, 1, 2, 3, 3), createList(1, 2, 3))
+            Arguments.of(buildList(1, 1, 2), buildList(1, 2)),
+            Arguments.of(buildList(1, 1, 2, 3, 3), buildList(1, 2, 3))
         );
     }
 

@@ -16,7 +16,7 @@ public class ListNode {
         this.next = next;
     }
 
-    public static ListNode createList(int... values) {
+    public static ListNode buildList(int... values) {
         if (values.length == 0) return null;
 
         var head = new ListNode(values[0]);
@@ -30,7 +30,7 @@ public class ListNode {
         return head;
     }
 
-    public static int[] extractValues(ListNode node) {
+    public static int[] toArray(ListNode node) {
         if (node == null) return null;
 
         int count = 0;

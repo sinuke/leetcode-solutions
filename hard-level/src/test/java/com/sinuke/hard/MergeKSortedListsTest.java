@@ -7,8 +7,8 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static com.sinuke.common.data.ListNode.createList;
-import static com.sinuke.common.data.ListNode.extractValues;
+import static com.sinuke.common.data.ListNode.buildList;
+import static com.sinuke.common.data.ListNode.toArray;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 class MergeKSortedListsTest {
@@ -17,17 +17,17 @@ class MergeKSortedListsTest {
     @MethodSource("testData")
     void mergeKLists(ListNode[] lists, ListNode expected) {
         var solution = new MergeKSortedLists();
-        assertArrayEquals(extractValues(expected), extractValues(solution.mergeKLists(lists.clone())));
-        assertArrayEquals(extractValues(expected), extractValues(solution.mergeKLists2(lists.clone())));
-        assertArrayEquals(extractValues(expected), extractValues(solution.mergeKLists3(lists.clone())));
+        assertArrayEquals(toArray(expected), toArray(solution.mergeKLists(lists.clone())));
+        assertArrayEquals(toArray(expected), toArray(solution.mergeKLists2(lists.clone())));
+        assertArrayEquals(toArray(expected), toArray(solution.mergeKLists3(lists.clone())));
     }
 
     private static Stream<Arguments> testData() {
         return Stream.of(
-                Arguments.of(new ListNode[] {createList(1,4,5), createList(1,3,4), createList(2,6)}, createList(1,1,2,3,4,4,5,6)),
-                Arguments.of(new ListNode[] {}, createList()),
-                Arguments.of(new ListNode[] {createList()}, createList()),
-                Arguments.of(new ListNode[] {createList(-2,-1,-1,-1), createList()}, createList(-2,-1,-1,-1))
+                Arguments.of(new ListNode[] {buildList(1,4,5), buildList(1,3,4), buildList(2,6)}, buildList(1,1,2,3,4,4,5,6)),
+                Arguments.of(new ListNode[] {}, buildList()),
+                Arguments.of(new ListNode[] {buildList()}, buildList()),
+                Arguments.of(new ListNode[] {buildList(-2,-1,-1,-1), buildList()}, buildList(-2,-1,-1,-1))
         );
     }
 
