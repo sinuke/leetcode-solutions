@@ -1,5 +1,6 @@
 package com.sinuke.hard;
 
+import com.sinuke.common.data.TreeNode;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -31,11 +32,11 @@ class RecoverTreeFromPreorderTraversalTest {
         );
     }
 
-    public List<Integer> levelOrderTraversal(RecoverTreeFromPreorderTraversal.TreeNode root) {
+    public List<Integer> levelOrderTraversal(TreeNode root) {
         List<Integer> result = new ArrayList<>();
         if (root == null) return result;
 
-        Queue<RecoverTreeFromPreorderTraversal.TreeNode> queue = new LinkedList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
 
         while (!queue.isEmpty()) {
