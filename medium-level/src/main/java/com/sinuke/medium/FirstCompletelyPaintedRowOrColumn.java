@@ -7,7 +7,7 @@ public class FirstCompletelyPaintedRowOrColumn {
 
     public int firstCompleteIndex(int[] arr, int[][] mat) {
         int m = mat.length, n = mat[0].length;
-        Map<Integer, int[]> map = new HashMap<>();
+        Map<Integer, int[]> map = new HashMap<>(m * n);
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 map.put(mat[i][j], new int[] {i, j});
