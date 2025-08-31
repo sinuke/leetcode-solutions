@@ -4,12 +4,10 @@ public class DesignBrowserHistory {
 
     public static class BrowserHistory {
 
-        private HistoryNode home;
         private HistoryNode current;
 
         public BrowserHistory(String homepage) {
-            home = new HistoryNode(homepage);
-            current = home;
+            current = new HistoryNode(homepage);
         }
 
         public void visit(String url) {
@@ -22,8 +20,7 @@ public class DesignBrowserHistory {
         }
 
         public String back(int steps) {
-            while (steps > 0) {
-                if (current.prev == null) break;
+            while (steps > 0 && current.prev != null) {
                 current = current.prev;
                 steps--;
             }
@@ -31,8 +28,7 @@ public class DesignBrowserHistory {
         }
 
         public String forward(int steps) {
-            while (steps > 0) {
-                if (current.next == null) break;
+            while (steps > 0 && current.next != null) {
                 current = current.next;
                 steps--;
             }
