@@ -1,5 +1,7 @@
 package com.sinuke.easy;
 
+import com.sinuke.common.data.TreeNode;
+
 public class ConvertSortedArrayToBinarySearchTree {
 
     public TreeNode sortedArrayToBST(int[] nums) {
@@ -13,24 +15,6 @@ public class ConvertSortedArrayToBinarySearchTree {
         node.left = createTree(nums, start, middle - 1);
         node.right = createTree(nums, middle + 1, end);
         return node;
-    }
-
-    public static  class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode() {}
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
     }
 
 }
