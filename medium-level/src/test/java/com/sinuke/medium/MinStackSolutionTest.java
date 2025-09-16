@@ -18,35 +18,26 @@ class MinStackSolutionTest {
 
         for (int i = 0; i < operations.length; i++) {
             switch (operations[i]) {
-                case "MinStack": {
+                case "MinStack" -> {
                     solution = new MinStackSolution.MinStack();
                     actual[i] = null;
-                    break;
                 }
 
-                case "push": {
+                case "push" -> {
                     solution.push(values[i]);
                     actual[i] = null;
-                    break;
                 }
 
-                case "pop": {
+                case "pop" -> {
                     solution.pop();
                     actual[i] = null;
-                    break;
                 }
 
-                case "top": {
-                    actual[i] = solution.top();
-                    break;
-                }
+                case "top" -> actual[i] = solution.top();
 
-                case "getMin": {
-                    actual[i] = solution.getMin();
-                    break;
-                }
+                case "getMin" -> actual[i] = solution.getMin();
 
-                default: throw new IllegalArgumentException("Unknown operation: " + operations[i]);
+                default -> throw new IllegalArgumentException("Unknown operation: " + operations[i]);
             }
         }
 

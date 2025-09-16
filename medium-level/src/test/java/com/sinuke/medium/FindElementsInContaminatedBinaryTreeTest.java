@@ -19,18 +19,14 @@ class FindElementsInContaminatedBinaryTreeTest {
 
         for (int i = 0; i < operations.length; i++) {
             switch (operations[i]) {
-                case "FindElements": {
+                case "FindElements" -> {
                     solution = new FindElementsInContaminatedBinaryTree.FindElements(buildTree(values[i]));
                     actual[i] = null;
-                    break;
                 }
 
-                case "find": {
-                    actual[i] = solution.find(values[i][0]);
-                    break;
-                }
+                case "find" -> actual[i] = solution.find(values[i][0]);
 
-                default: throw new IllegalArgumentException("Unknown operation: " + operations[i]);
+                default -> throw new IllegalArgumentException("Unknown operation: " + operations[i]);
             }
         }
 
