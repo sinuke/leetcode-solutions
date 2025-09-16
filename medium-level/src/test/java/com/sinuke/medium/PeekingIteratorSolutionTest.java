@@ -20,28 +20,18 @@ class PeekingIteratorSolutionTest {
 
         for (int i = 0; i < operations.length; i++) {
             switch (operations[i]) {
-                case "PeekingIterator": {
+                case "PeekingIterator" -> {
                     solution = new PeekingIteratorSolution.PeekingIterator(iterator);
                     actual[i] = null;
-                    break;
                 }
 
-                case "hasNext": {
-                    actual[i] = solution.hasNext();
-                    break;
-                }
+                case "hasNext" -> actual[i] = solution.hasNext();
 
-                case "next": {
-                    actual[i] = solution.next();
-                    break;
-                }
+                case "next" -> actual[i] = solution.next();
 
-                case "peek": {
-                    actual[i] = solution.peek();
-                    break;
-                }
+                case "peek" -> actual[i] = solution.peek();
 
-                default: throw new IllegalArgumentException("Unknown operation: " + operations[i]);
+                default -> throw new IllegalArgumentException("Unknown operation: " + operations[i]);
             }
         }
 

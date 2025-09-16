@@ -18,29 +18,21 @@ class DesignBrowserHistoryTest {
 
         for (int i = 0; i < operations.length; i++) {
             switch (operations[i]) {
-                case "BrowserHistory": {
+                case "BrowserHistory" -> {
                     solution = new DesignBrowserHistory.BrowserHistory((String) values[i][0]);
                     actual[i] = null;
-                    break;
                 }
 
-                case "visit": {
+                case "visit" -> {
                     solution.visit((String) values[i][0]);
                     actual[i] = null;
-                    break;
                 }
 
-                case "back": {
-                    actual[i] = solution.back((int) values[i][0]);
-                    break;
-                }
+                case "back" ->actual[i] = solution.back((int) values[i][0]);
 
-                case "forward": {
-                    actual[i] = solution.forward((int) values[i][0]);
-                    break;
-                }
+                case "forward" -> actual[i] = solution.forward((int) values[i][0]);
 
-                default: throw new IllegalArgumentException("Unknown operation: " + operations[i]);
+                default -> throw new IllegalArgumentException("Unknown operation: " + operations[i]);
             }
         }
 

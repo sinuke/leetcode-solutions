@@ -20,23 +20,16 @@ class BinarySearchTreeIteratorTest {
 
         for (int i = 0; i < operations.length; i++) {
             switch (operations[i]) {
-                case "BSTIterator": {
+                case "BSTIterator" -> {
                     solution = new BinarySearchTreeIterator.BSTIterator(root);
                     actual[i] = null;
-                    break;
                 }
 
-                case "hasNext": {
-                    actual[i] = solution.hasNext();
-                    break;
-                }
+                case "hasNext" -> actual[i] = solution.hasNext();
 
-                case "next": {
-                    actual[i] = solution.next();
-                    break;
-                }
+                case "next" -> actual[i] = solution.next();
 
-                default: throw new IllegalArgumentException("Unknown operation: " + operations[i]);
+                default -> throw new IllegalArgumentException("Unknown operation: " + operations[i]);
             }
         }
 
