@@ -8,17 +8,18 @@ public class BaseballGame {
         int index = 0;
         for (String operation : operations) {
             switch (operation) {
-                case "C" -> {
-                    nums[index--] = 0;
-                }
+                case "C" -> nums[index--] = 0;
+
                 case "D" -> {
                     nums[index] = 2 * nums[index - 1];
                     index++;
                 }
+
                 case "+" -> {
                     nums[index] = nums[index - 2] + nums[index - 1];
                     index++;
                 }
+
                 case null, default -> nums[index++] = Integer.parseInt(operation);
             }
         }

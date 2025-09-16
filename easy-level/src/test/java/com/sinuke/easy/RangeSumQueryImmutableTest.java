@@ -18,18 +18,14 @@ class RangeSumQueryImmutableTest {
 
         for (int i = 0; i < operations.length; i++) {
             switch (operations[i]) {
-                case "NumArray": {
+                case "NumArray" -> {
                     numArray = new RangeSumQueryImmutable.NumArray(values[i]);
                     actual[i] = null;
-                    break;
                 }
 
-                case "sumRange": {
-                    actual[i] = numArray.sumRange(values[i][0], values[i][1]);
-                    break;
-                }
+                case "sumRange" -> actual[i] = numArray.sumRange(values[i][0], values[i][1]);
 
-                default: throw new IllegalArgumentException("Unknown operation: " + operations[i]);
+                default -> throw new IllegalArgumentException("Unknown operation: " + operations[i]);
             }
         }
 

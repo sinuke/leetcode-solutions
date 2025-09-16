@@ -19,18 +19,14 @@ class DesignOrderedStreamTest {
 
         for (int i = 0; i < operations.length; i++) {
             switch (operations[i]) {
-                case "OrderedStream": {
+                case "OrderedStream" -> {
                     orderedStream = new DesignOrderedStream.OrderedStream((int) values[i][0]);
                     actual[i] = null;
-                    break;
                 }
 
-                case "insert": {
-                    actual[i] = orderedStream.insert((int) values[i][0], (String) values[i][1]);
-                    break;
-                }
+                case "insert" -> actual[i] = orderedStream.insert((int) values[i][0], (String) values[i][1]);
 
-                default: throw new IllegalArgumentException("Unknown operation: " + operations[i]);
+                default -> throw new IllegalArgumentException("Unknown operation: " + operations[i]);
             }
         }
 

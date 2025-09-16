@@ -21,34 +21,23 @@ class ImplementQueueUsingStacksTest {
             var operation = operations[i];
 
             switch (operation) {
-                case "MyQueue": {
+                case "MyQueue" -> {
                     myQueue = new ImplementQueueUsingStacks.MyQueue();
                     actual[i] = null;
-                    break;
                 }
 
-                case "push": {
+                case "push" -> {
                     myQueue.push(values[i][0]);
                     actual[i] = null;
-                    break;
                 }
 
-                case "pop": {
-                    actual[i] = myQueue.pop();
-                    break;
-                }
+                case "pop" -> actual[i] = myQueue.pop();
 
-                case "peek": {
-                    actual[i] = myQueue.peek();
-                    break;
-                }
+                case "peek" -> actual[i] = myQueue.peek();
 
-                case "empty": {
-                    actual[i] = myQueue.empty();
-                    break;
-                }
+                case "empty" -> actual[i] = myQueue.empty();
 
-                default: throw new IllegalArgumentException("Unknown operation: " + operation);
+                default -> throw new IllegalArgumentException("Unknown operation: " + operation);
             }
         }
 

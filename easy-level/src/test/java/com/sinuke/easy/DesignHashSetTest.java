@@ -21,30 +21,24 @@ class DesignHashSetTest {
 
             switch (operation) {
 
-                case "MyHashSet": {
+                case "MyHashSet" -> {
                     myHashSet = new DesignHashSet.MyHashSet();
                     actual[i] = null;
-                    break;
                 }
 
-                case "add": {
+                case "add" -> {
                     myHashSet.add(values[i][0]);
                     actual[i] = null;
-                    break;
                 }
 
-                case "contains": {
-                    actual[i] = myHashSet.contains(values[i][0]);
-                    break;
-                }
+                case "contains" -> actual[i] = myHashSet.contains(values[i][0]);
 
-                case "remove": {
+                case "remove" -> {
                     myHashSet.remove(values[i][0]);
                     actual[i] = null;
-                    break;
                 }
 
-                default: throw new IllegalArgumentException("Unknown operation: " + operation);
+                default -> throw new IllegalArgumentException("Unknown operation: " + operation);
             }
         }
 

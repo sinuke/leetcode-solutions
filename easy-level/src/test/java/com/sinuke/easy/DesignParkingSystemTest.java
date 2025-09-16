@@ -18,18 +18,14 @@ class DesignParkingSystemTest {
 
         for (int i = 0; i < operations.length; i++) {
             switch (operations[i]) {
-                case "ParkingSystem": {
+                case "ParkingSystem" -> {
                     parkingSystem = new DesignParkingSystem.ParkingSystem(values[i][0], values[i][1], values[i][2]);
                     actual[i] = null;
-                    break;
                 }
 
-                case "addCar": {
-                    actual[i] = parkingSystem.addCar(values[i][0]);
-                    break;
-                }
+                case "addCar" -> actual[i] = parkingSystem.addCar(values[i][0]);
 
-                default: throw new IllegalArgumentException("Unknown operation: " + operations[i]);
+                default -> throw new IllegalArgumentException("Unknown operation: " + operations[i]);
             }
         }
 

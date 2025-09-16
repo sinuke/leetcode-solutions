@@ -18,23 +18,16 @@ class DesignNeighborSumServiceTest {
 
         for (int i = 0; i < operations.length; i++) {
             switch (operations[i]) {
-                case "NeighborSum": {
+                case "NeighborSum" -> {
                     neighborSum = new DesignNeighborSumService.NeighborSum((int[][]) values[i]);
                     actual[i] = null;
-                    break;
                 }
 
-                case "adjacentSum": {
-                    actual[i] = neighborSum.adjacentSum((int) values[i]);
-                    break;
-                }
+                case "adjacentSum" -> actual[i] = neighborSum.adjacentSum((int) values[i]);
 
-                case "diagonalSum": {
-                    actual[i] = neighborSum.diagonalSum((int) values[i]);
-                    break;
-                }
+                case "diagonalSum" -> actual[i] = neighborSum.diagonalSum((int) values[i]);
 
-                default: throw new IllegalArgumentException("Unknown operation: " + operations[i]);
+                default -> throw new IllegalArgumentException("Unknown operation: " + operations[i]);
             }
         }
 

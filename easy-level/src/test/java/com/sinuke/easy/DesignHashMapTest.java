@@ -18,30 +18,24 @@ class DesignHashMapTest {
         Integer[] actual = new Integer[operations.length];
         for (int i = 0; i < operations.length; i++) {
             switch (operations[i]) {
-                case "MyHashMap": {
+                case "MyHashMap" -> {
                     myHashMap = new DesignHashMap.MyHashMap();
                     actual[i] = null;
-                    break;
                 }
 
-                case "put": {
+                case "put" -> {
                     myHashMap.put(values[i][0], values[i][1]);
                     actual[i] = null;
-                    break;
                 }
 
-                case "get": {
-                    actual[i] = myHashMap.get(values[i][0]);
-                    break;
-                }
+                case "get" -> actual[i] = myHashMap.get(values[i][0]);
 
-                case "remove": {
+                case "remove" -> {
                     myHashMap.remove(values[i][0]);
                     actual[i] = null;
-                    break;
                 }
 
-                default: throw new IllegalArgumentException("Unknown operation: " + operations[i]);
+                default -> throw new IllegalArgumentException("Unknown operation: " + operations[i]);
             }
         }
 
