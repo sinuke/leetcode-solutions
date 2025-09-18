@@ -19,9 +19,7 @@ public class FindScoreOfArrayAfterMarkingAllElements {
 
         while (!pq.isEmpty()) {
             var node = pq.poll();
-            if (nums[node.index] == 0) {
-                continue;
-            }
+            if (nums[node.index] == 0) continue;
             
             score += node.val;
             if (node.index > 0 && nums[node.index - 1] != 0) nums[node.index - 1] = 0;
@@ -59,14 +57,6 @@ public class FindScoreOfArrayAfterMarkingAllElements {
         return score;
     }
     
-    private static class Node {
-        int val;
-        int index;
-        
-        public Node(int val, int index) {
-            this.val = val;
-            this.index = index;
-        }
-    }
+    private record Node(int val, int index) {}
     
 }
