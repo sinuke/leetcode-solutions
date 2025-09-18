@@ -32,15 +32,7 @@ public class MinStackSolution {
             return min;
         }
 
-        private static class Node {
-            int val;
-            int min;
-
-            Node(int val, int min) {
-                this.val = val;
-                this.min = min;
-            }
-        }
+        private record Node (int val, int min) {}
 
     }
 
