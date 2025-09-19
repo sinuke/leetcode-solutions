@@ -5,9 +5,8 @@ import com.sinuke.common.data.TreeNode;
 public class DeleteLeavesWithGivenValue {
 
     public TreeNode removeLeafNodes(TreeNode root, int target) {
-        if (root.val == target && root.left == null && root.right == null) return null;
         walk(root, null, target);
-        return root;
+        return (root.val == target && root.left == null && root.right == null) ? null : root;
     }
 
     private void walk(TreeNode node, TreeNode parent, int target) {
@@ -17,8 +16,8 @@ public class DeleteLeavesWithGivenValue {
         walk(node.right, node, target);
 
         if (node.left == null && node.right == null && node.val == target) {
-            if (parent.left == node) parent.left = null;
-            else if (parent.right == node) parent.right = null;
+            if (parent != null && parent.left == node) parent.left = null;
+            else if (parent != null && parent.right == node) parent.right = null;
         }
     }
 
