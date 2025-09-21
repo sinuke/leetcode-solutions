@@ -16,13 +16,12 @@ public class DifferenceBetweenOnesAndZerosInRowAndColumn {
             }
         }
 
-        int[][] diff = new int[n][m];
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
-                diff[i][j] = onesRow[i] + onesCol[j] - (n - onesRow[i]) - (m - onesCol[j]);
+                grid[i][j] = onesRow[i] + onesCol[j] - (n - onesRow[i]) - (m - onesCol[j]);
             }
         }
-        return diff;
+        return grid;
     }
 
 }
