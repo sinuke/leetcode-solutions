@@ -4,6 +4,7 @@ import com.sinuke.common.data.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class AllElementsInTwoBinarySearchTrees {
 
@@ -20,7 +21,7 @@ public class AllElementsInTwoBinarySearchTrees {
             if (i < list1.size() && j < list2.size()) {
                 if (list1.get(i) < list2.get(j)) result.add(list1.get(i++));
                 else if (list2.get(j) < list1.get(i)) result.add(list2.get(j++));
-                else if (list1.get(i) == list2.get(j)) {
+                else if (Objects.equals(list1.get(i), list2.get(j))) {
                     result.add(list1.get(i++));
                     result.add(list2.get(j++));
                 }
