@@ -33,9 +33,9 @@ public class Node {
                 var node = new Node(array[i], new ArrayList<>());
                 if (!queue.isEmpty()) queue.peekFirst().children.add(node);
                 queue.offer(node);
+            }
 
-                if (i + 1 < array.length && array[i + 1] == null) queue.pollFirst();
-            } else if (i + 1 < array.length && array[i + 1] == null) queue.pollFirst();
+            if (i + 1 < array.length && array[i + 1] == null) queue.pollFirst();
         }
 
         return root;
