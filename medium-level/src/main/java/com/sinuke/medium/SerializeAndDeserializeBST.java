@@ -2,8 +2,8 @@ package com.sinuke.medium;
 
 import com.sinuke.common.data.TreeNode;
 
+import java.util.Arrays;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
 public class SerializeAndDeserializeBST {
@@ -12,52 +12,36 @@ public class SerializeAndDeserializeBST {
 
         // Encodes a tree to a single string.
         public String serialize(TreeNode root) {
-            List<String> list = new LinkedList<>();
-            toList(root, list);
-            return String.join(",", list);
+            var sb = new StringBuilder();
+            serialize(root, sb);
+            return sb.toString();
+        }
+
+        private void serialize(TreeNode root, StringBuilder sb) {
+            if (root == null) return;
+            sb.append(root.val).append(",");
+            serialize(root.left, sb);
+            serialize(root.right, sb);
         }
 
         // Decodes your encoded data to tree.
         public TreeNode deserialize(String data) {
-            String[] array = data.split(",");
+            if (data.isEmpty()) return null;
 
-            if (array.length == 0 || isNullOrEmpty(array[0])) return null;
+            Queue<String> queue = new LinkedList<>(Arrays.asList(data.split(",")));
+            return deserialize(queue, Integer.MIN_VALUE, Integer.MAX_VALUE);
+        }
 
-            var root = new TreeNode(Integer.parseInt(array[0]));
-            Queue<TreeNode> queue = new LinkedList<>();
-            queue.offer(root);
+        private TreeNode deserialize(Queue<String> queue, int lower, int upper) {
+            if (queue.isEmpty()) return null;
 
-            int i = 1;
-            while (i < array.length && !queue.isEmpty()) {
-                var current = queue.poll();
-
-                if (!isNullOrEmpty(array[i])) {
-                    current.left = new TreeNode(Integer.parseInt(array[i]));
-                    queue.offer(current.left);
-                }
-                i++;
-
-                if (i < array.length && !isNullOrEmpty(array[i])) {
-                    current.right = new TreeNode(Integer.parseInt(array[i]));
-                    queue.offer(current.right);
-                }
-                i++;
-            }
-
+            int val = Integer.parseInt(queue.peek());
+            if (val < lower || val > upper) return null;
+            queue.poll();
+            TreeNode root = new TreeNode(val);
+            root.left = deserialize(queue, lower, val);
+            root.right = deserialize(queue, val, upper);
             return root;
-        }
-
-        public void toList(TreeNode node, List<String> list) {
-            if (node == null) return;
-
-            list.add(String.valueOf(node.val));
-
-            toList(node.left, list);
-            toList(node.right, list);
-        }
-
-        private boolean isNullOrEmpty(String str) {
-            return str == null || str.isEmpty();
         }
 
     }
