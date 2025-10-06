@@ -21,7 +21,7 @@ public class KthLargestSumInBinaryTree {
     private void walk(TreeNode node, int level, List<Long> sum) {
         if (node == null) return;
 
-        if (level >= sum.size()) sum.add(0L);
+        if (level > sum.size()) sum.add(0L);
         sum.set(level - 1, sum.get(level - 1) + node.val);
 
         walk(node.left, level + 1, sum);
