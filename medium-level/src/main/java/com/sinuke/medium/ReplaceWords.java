@@ -6,6 +6,7 @@ import java.util.Set;
 
 public class ReplaceWords {
 
+    // 732 ms
     public String replaceWords(List<String> dictionary, String sentence) {
         Set<String> dict = new HashSet<>(dictionary);
         String[] words = sentence.split(" ");
@@ -28,6 +29,7 @@ public class ReplaceWords {
         return result.deleteCharAt(result.length() - 1).toString();
     }
 
+    // 732 ms
     public String replaceWords2(List<String> dictionary, String sentence) {
         Set<String> dict = new HashSet<>(dictionary);
         var result = new StringBuilder();
@@ -35,7 +37,7 @@ public class ReplaceWords {
 
         for (int end = 0; end < sentence.length(); end++) {
             if (sentence.charAt(end) == ' ' || end == sentence.length() - 1) {
-                var word = sentence.substring(start, end);
+                var word = sentence.substring(start, end == sentence.length() - 1 ? end + 1 : end);
                 var sb = new StringBuilder();
                 for (int j = 0; j < word.length(); j++) {
                     sb.append(word.charAt(j));
@@ -46,14 +48,14 @@ public class ReplaceWords {
                     }
                 }
                 result.append(word).append(' ');
-                end++;
-                start = end;
+                start = end + 1;
             }
         }
 
         return result.deleteCharAt(result.length() - 1).toString();
     }
 
+    // 729 ms
     public String replaceWords3(List<String> dictionary, String sentence) {
         Set<String> dict = new HashSet<>(dictionary);
         var result = new StringBuilder();
@@ -62,10 +64,12 @@ public class ReplaceWords {
 
         for (int end = 0; end < sentence.length(); end++) {
             if (sentence.charAt(end) == ' ' || end == sentence.length() - 1) {
-                if (!changed) result.append(sb).append(' ');
+                if (!changed) {
+                    if (end == sentence.length() - 1) sb.append(sentence.charAt(end));
+                    result.append(sb).append(' ');
+                }
                 changed = false;
                 sb.delete(0, sb.length());
-                //sb = new StringBuilder();
             } else if (!changed) {
                 var w = sb.append(sentence.charAt(end)).toString();
                 if (dict.contains(w)) {
