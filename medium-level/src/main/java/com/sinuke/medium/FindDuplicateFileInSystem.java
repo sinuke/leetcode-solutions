@@ -23,7 +23,9 @@ public class FindDuplicateFileInSystem {
         }
 
 
-        return new ArrayList<>(map.values());
+        return map.values().stream()
+                .filter(l -> l.size() > 1)
+                .toList();
     }
 
 }

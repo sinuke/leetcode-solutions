@@ -35,7 +35,8 @@ class FindDuplicateFileInSystemTest {
     private static Stream<Arguments> testData() {
         return Stream.of(
                 Arguments.of(new String[] {"root/a 1.txt(abcd) 2.txt(efgh)","root/c 3.txt(abcd)","root/c/d 4.txt(efgh)","root 4.txt(efgh)"}, List.of(List.of("root/a/2.txt","root/c/d/4.txt","root/4.txt"), List.of("root/a/1.txt","root/c/3.txt"))),
-                Arguments.of(new String[] {"root/a 1.txt(abcd) 2.txt(efgh)","root/c 3.txt(abcd)","root/c/d 4.txt(efgh)"}, List.of(List.of("root/a/2.txt","root/c/d/4.txt"), List.of("root/a/1.txt","root/c/3.txt")))
+                Arguments.of(new String[] {"root/a 1.txt(abcd) 2.txt(efgh)","root/c 3.txt(abcd)","root/c/d 4.txt(efgh)"}, List.of(List.of("root/a/2.txt","root/c/d/4.txt"), List.of("root/a/1.txt","root/c/3.txt"))),
+                Arguments.of(new String[] {"root/a 1.txt(abcd) 2.txt(efsfgh)","root/c 3.txt(abdfcd)","root/c/d 4.txt(efggdfh)"}, List.of())
         );
     }
 
