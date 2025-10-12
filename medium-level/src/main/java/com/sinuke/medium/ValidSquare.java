@@ -23,7 +23,7 @@ public class ValidSquare {
         set.add(getD(p4, p2));
         set.add(getD(p4, p3));
 
-        return set.size() == 2;
+        return set.size() == 2 && !set.contains(0);
     }
 
     private int getD(int[] p1, int[] p2) {

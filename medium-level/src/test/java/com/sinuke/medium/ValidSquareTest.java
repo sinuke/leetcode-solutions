@@ -21,7 +21,8 @@ class ValidSquareTest {
         return Stream.of(
                 Arguments.of(new int[] {0,0}, new int[] {1,1}, new int[] {1,0}, new int[] {0,1}, true),
                 Arguments.of(new int[] {0,0}, new int[] {1,1}, new int[] {1,0}, new int[] {0,12}, false),
-                Arguments.of(new int[] {1,0}, new int[] {-1,0}, new int[] {0,1}, new int[] {0,-1}, true)
+                Arguments.of(new int[] {1,0}, new int[] {-1,0}, new int[] {0,1}, new int[] {0,-1}, true),
+                Arguments.of(new int[] {0,0}, new int[] {1,1}, new int[] {0,0}, new int[] {0,0}, false)
         );
     }
 
