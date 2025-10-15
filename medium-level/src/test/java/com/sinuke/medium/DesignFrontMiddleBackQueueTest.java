@@ -42,7 +42,7 @@ class DesignFrontMiddleBackQueueTest {
                 case "popMiddle" -> actual[i] = solution.popMiddle();
                 case "popBack" -> actual[i] = solution.popBack();
 
-                default -> throw new IllegalStateException("Unsupported operation: " + operations[i]);
+                default -> throw new IllegalArgumentException("Unsupported operation: " + operations[i]);
             }
         }
 
