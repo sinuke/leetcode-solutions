@@ -20,21 +20,13 @@ public class ExecutionOfAllSuffixInstructionsStayingInGrid {
     }
 
     private boolean move(int n, int[] pos, char action) {
-        if (action == 'U' && pos[0] > 0) {
-            pos[0]--;
-            return true;
-        } else if (action == 'R' && pos[1] < n - 1) {
-            pos[1]++;
-            return true;
-        } else if (action == 'D' && pos[0] < n - 1) {
-            pos[0]++;
-            return true;
-        } else if (action == 'L' && pos[1] > 0) {
-            pos[1]--;
-            return true;
-        }
+        if (action == 'U' && pos[0] > 0) pos[0]--;
+        else if (action == 'R' && pos[1] < n - 1) pos[1]++;
+        else if (action == 'D' && pos[0] < n - 1) pos[0]++;
+        else if (action == 'L' && pos[1] > 0) pos[1]--;
+        else return false;
 
-        return false;
+        return true;
     }
 
 }
