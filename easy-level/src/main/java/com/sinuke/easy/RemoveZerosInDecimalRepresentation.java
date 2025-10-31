@@ -8,7 +8,7 @@ public class RemoveZerosInDecimalRepresentation {
         for (char c : str.toCharArray()) {
             if (c != '0') sb.append(c);
         }
-        return Integer.parseInt(sb.toString());
+        return Long.parseLong(sb.toString());
     }
 
 }
