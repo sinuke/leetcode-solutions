@@ -20,7 +20,8 @@ class FindTheLeastFrequentDigitTest {
     private static Stream<Arguments> testData() {
         return Stream.of(
                 Arguments.of(1553322, 1),
-                Arguments.of(723344511, 2)
+                Arguments.of(723344511, 2),
+                Arguments.of(10, 0)
         );
     }
 

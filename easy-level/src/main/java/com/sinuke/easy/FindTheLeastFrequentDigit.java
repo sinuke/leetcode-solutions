@@ -9,7 +9,7 @@ public class FindTheLeastFrequentDigit {
             n /= 10;
         }
         int p = -1, freq = Integer.MAX_VALUE;
-        for (int i = 1; i < 10; i++) {
+        for (int i = 0; i < 10; i++) {
             if (d[i] > 0 && d[i] < freq) {
                 freq = d[i];
                 p = i;
