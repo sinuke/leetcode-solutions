@@ -11,8 +11,7 @@ public class MajorityFrequencyCharacters {
     public String majorityFrequencyGroup(String s) {
         Map<Character, Integer> freq = new HashMap<>(s.length());
         Map<Integer, Set<Character>> groups = new HashMap<>();
-        Set<Character> result = new HashSet<>();
-        int f = 0;
+
         for (char c : s.toCharArray()) {
             if (freq.containsKey(c)) {
                 groups.get(freq.get(c)).remove(c);
@@ -21,10 +20,14 @@ public class MajorityFrequencyCharacters {
 
             groups.putIfAbsent(freq.get(c), new HashSet<>());
             groups.get(freq.get(c)).add(c);
+        }
 
-            if (groups.get(freq.get(c)).size() >= result.size() && freq.get(c) > f) {
-                result = groups.get(freq.get(c));
-                f = freq.get(c);
+        int f = 0;
+        Set<Character> result = new HashSet<>();
+        for (var entry : groups.entrySet()) {
+            if ((entry.getValue().size() == result.size() && entry.getKey() > f) || entry.getValue().size() > result.size()) {
+                result = entry.getValue();
+                f = entry.getKey();
             }
         }
 

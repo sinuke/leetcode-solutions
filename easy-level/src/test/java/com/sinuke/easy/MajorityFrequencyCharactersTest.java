@@ -25,7 +25,9 @@ class MajorityFrequencyCharactersTest {
         return Stream.of(
                 Arguments.of("aaabbbccdddde", "ab"),
                 Arguments.of("abcd", "abcd"),
-                Arguments.of("pfpfgi", "fp")
+                Arguments.of("pfpfgi", "fp"),
+                Arguments.of("aalbs", "lbs"),
+                Arguments.of("asrhyrmzhcehcydmrmce", "chmr")
         );
     }
 
