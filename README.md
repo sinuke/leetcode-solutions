@@ -1,7 +1,7 @@
 ## LeetCode Solutions
 
 LeetCode profile: https://leetcode.com/u/sinuke/
-![LeetCode Profile - sinuke](images/00.png)
+![LeetCode Profile - sinuke](images/01.png)
 
 Solutions:
 * [easy level](easy-level/README.md)
