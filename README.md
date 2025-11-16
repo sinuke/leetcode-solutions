@@ -10,8 +10,8 @@ Solutions:
 
 Used:
 * Java 21
-* Gradle 9.1.0
-* Test Containers 1.21.3 for MySQL 9.2.0
+* Gradle 9.2.0
+* Test Containers 2.0.2 for MySQL 9.5.0
 
 TODOs:
 * implement unit-tests for pandas solutions ([todo.txt](easy-level/pandas/todo.txt))

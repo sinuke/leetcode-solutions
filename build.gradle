@@ -1,6 +1,6 @@
 plugins {
     id 'com.adarshr.test-logger' version '4.0.0'
-    id 'io.freefair.lombok' version '8.14.2'
+    id 'io.freefair.lombok' version '8.14.3'
     id 'jacoco'
 }
 
@@ -12,7 +12,7 @@ allprojects {
     apply plugin: 'io.freefair.lombok'
 
     jacoco {
-        toolVersion = "0.8.13"
+        toolVersion = "0.8.14"
     }
 
     java {
@@ -28,22 +28,22 @@ allprojects {
     }
 
     ext {
-        version_testcontainers = '1.21.3'
-        version_junit = '5.13.4'
-        version_jackson = '2.20.0'
+        version_testcontainers = '2.0.2'
+        version_junit = '6.0.1'
+        version_jackson = '3.0.2'
     }
 
     dependencies {
-        implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: version_jackson
-        implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.5.18'
+        implementation group: 'tools.jackson.core', name: 'jackson-databind', version: version_jackson
+        implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.5.21'
 
         testImplementation platform("org.junit:junit-bom:${version_junit}")
         testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter', version: version_junit
-        testImplementation group: 'org.testcontainers', name: 'junit-jupiter', version: version_testcontainers
-        testImplementation group: 'org.testcontainers', name: 'mysql', version: version_testcontainers
-        testImplementation group: 'com.mysql', name: 'mysql-connector-j', version: '9.4.0'
+        testImplementation group: 'org.testcontainers', name: 'testcontainers-junit-jupiter', version: version_testcontainers
+        testImplementation group: 'org.testcontainers', name: 'testcontainers-mysql', version: version_testcontainers
+        testImplementation group: 'com.mysql', name: 'mysql-connector-j', version: '9.5.0'
 
-        testRuntimeOnly group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.13.4'
+        testRuntimeOnly group: 'org.junit.platform', name: 'junit-platform-launcher', version: version_junit
     }
 
     test {

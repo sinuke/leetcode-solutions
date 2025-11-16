@@ -6,8 +6,8 @@ import com.sinuke.common.model.BaseTestData;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.testcontainers.containers.MySQLContainer;
 import org.testcontainers.junit.jupiter.Testcontainers;
+import org.testcontainers.mysql.MySQLContainer;
 
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -26,18 +26,18 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @Testcontainers
 public abstract class SQLSolutionsTest extends AbstractTestCase<SQLSolutionsTest.SqlTestData> {
 
-    private static final String MYSQL_CONTAINER_WITH_VERSION = "mysql:9.2.0";
+    private static final String MYSQL_CONTAINER_WITH_VERSION = "mysql:9.5.0";
     private static final String TEST_DB_NAME = "test_db";
     private static final String TEST_USER = "test_user";
     private static final String TEST_PASSWORD = "test_password";
 
-    private MySQLContainer<?> mysqlContainer;
+    private MySQLContainer mysqlContainer;
     private Connection connection;
     private Map<String, SqlTestData> testDataMap;
 
     @Override
     public void beforeAll() throws Exception {
-        mysqlContainer = new MySQLContainer<>(MYSQL_CONTAINER_WITH_VERSION)
+        mysqlContainer = new MySQLContainer(MYSQL_CONTAINER_WITH_VERSION)
                 .withDatabaseName(TEST_DB_NAME)
                 .withUsername(TEST_USER)
                 .withPassword(TEST_PASSWORD)

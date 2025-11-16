@@ -1,6 +1,5 @@
 package com.sinuke.common;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sinuke.common.model.BaseTestData;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.AfterAll;
@@ -10,6 +9,7 @@ import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import tools.jackson.databind.ObjectMapper;
 
 import java.io.File;
 import java.io.IOException;
