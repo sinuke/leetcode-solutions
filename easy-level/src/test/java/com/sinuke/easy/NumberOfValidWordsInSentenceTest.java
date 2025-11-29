@@ -22,7 +22,8 @@ class NumberOfValidWordsInSentenceTest {
                 Arguments.of("cat and  dog", 3),
                 Arguments.of("!this  1-s b8d!", 0),
                 Arguments.of("alice and  bob are playing stone-game10", 5),
-                Arguments.of(".", 1)
+                Arguments.of(".", 1),
+                Arguments.of("he bought 2 pencils, 3 erasers, and 1  pencil-sharpener.", 6)
         );
     }
 
