@@ -9,7 +9,7 @@ public class DayOfTheWeek {
         int dayInYear = days[month - 1] + day + ((month > 2 && isLeap(year)) ? 1 : 0);
         int years = year - 1971 - 1;
         int leapCount = 0;
-        for (int y = year; y >= 1971; y--) if (isLeap(y)) leapCount++;
+        for (int y = year - 1; y >= 1971; y--) if (isLeap(y)) leapCount++;
         int diff = (years - leapCount) + 2 * leapCount;
         return dayTitles[((5 + diff) % 7 + dayInYear) % 7];
     }

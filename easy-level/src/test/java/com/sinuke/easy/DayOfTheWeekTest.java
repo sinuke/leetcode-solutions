@@ -21,6 +21,7 @@ class DayOfTheWeekTest {
         return Stream.of(
                 Arguments.of(31, 8, 2019, "Saturday"),
                 Arguments.of(18, 7, 1999, "Sunday"),
+                Arguments.of(29, 2, 2016, "Monday"),
                 Arguments.of(15, 8, 1993, "Sunday")
         );
     }
