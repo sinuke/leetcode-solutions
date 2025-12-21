@@ -4,12 +4,11 @@ public class MinimumCostToReachEveryPosition {
 
     public int[] minCosts(int[] cost) {
         int min = cost[0];
-        int[] ans = new int[cost.length];
         for (int i = 0; i < cost.length; i++) {
             min = Math.min(min, cost[i]);
-            ans[i] = min;
+            cost[i] = min;
         }
-        return ans;
+        return cost;
     }
 
 }
