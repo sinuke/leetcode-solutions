@@ -15,6 +15,7 @@ class MinimumNumberOfPushesToTypeWordIITest {
     void minimumPushes(String word, int expected) {
         var solution = new MinimumNumberOfPushesToTypeWordII();
         assertEquals(expected, solution.minimumPushes(word));
+        assertEquals(expected, solution.minimumPushes2(word));
     }
 
     private static Stream<Arguments> testData() {
