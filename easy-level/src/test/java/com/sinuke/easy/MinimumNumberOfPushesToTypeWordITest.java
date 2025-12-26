@@ -20,6 +20,9 @@ class MinimumNumberOfPushesToTypeWordITest {
     private static Stream<Arguments> testData() {
         return Stream.of(
                 Arguments.of("abcde", 5),
+                Arguments.of("acolkxjbizfmhnrdq", 27),
+                Arguments.of("amrvxnhsewkoipjyuclgtdbfq", 52),
+                Arguments.of("aftwhglbypsnmueodzxcrikvqj", 56),
                 Arguments.of("xycdefghij", 12)
         );
     }
