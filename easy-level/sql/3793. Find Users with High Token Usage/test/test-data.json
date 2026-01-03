@@ -1,0 +1,21 @@
+{
+  "title": "Find Users with High Token Usage",
+  "number": 3793,
+  "schema": "schema.sql",
+  "input-data": "data.sql",
+  "results-size": 2,
+  "results-map": {
+    "user_id": [
+      3,
+      1
+    ],
+    "prompt_count": [
+      4,
+      3
+    ],
+    "avg_tokens": [
+      237.5,
+      133.33
+    ]
+  }
+}
