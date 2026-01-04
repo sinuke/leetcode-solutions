@@ -1,0 +1,17 @@
+{
+  "title": "Find Valid Emails",
+  "number": 3436,
+  "schema": "schema.sql",
+  "input-data": "data.sql",
+  "results-size": 2,
+  "results-map": {
+    "user_id": [
+      1,
+      4
+    ],
+    "email": [
+      "alice@example.com",
+      "david@domain.com"
+    ]
+  }
+}
