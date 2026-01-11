@@ -3,7 +3,7 @@ package com.sinuke.easy;
 public class FindTheMaximumDivisibilityScore {
 
     public int maxDivScore(int[] nums, int[] divisors) {
-        int maxScore = 0, minDivisor = 1001;
+        int maxScore = 0, minDivisor = Integer.MAX_VALUE;
 
         for (int divisor : divisors) {
             int score = 0;
