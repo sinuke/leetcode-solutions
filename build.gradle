@@ -1,6 +1,6 @@
 plugins {
     id 'com.adarshr.test-logger' version '4.0.0'
-    id 'io.freefair.lombok' version '9.1.0'
+    id 'io.freefair.lombok' version '9.2.0'
     id 'jacoco'
 }
 
@@ -29,9 +29,9 @@ allprojects {
 
     ext {
         version_testcontainers = '2.0.3'
-        version_junit = '6.0.1'
+        version_junit = '6.0.2'
         version_jackson = '3.0.3'
-        version_logback = '1.5.22'
+        version_logback = '1.5.25'
         version_mysql = '9.5.0'
     }
 
