@@ -8,8 +8,7 @@ public class DetermineIfTwoEventsHaveConflict {
         int e2s = toMinutes(event2[0]);
         int e2e = toMinutes(event2[1]);
 
-        return e1e >= e2s || e2e <= e1s;
-        //return (e1s <= e2s && e1e >= e2s) || (e2s <= e1s && e2e >= e1s);
+        return (e1s <= e2s && e1e >= e2s) || (e2s <= e1s && e2e >= e1s);
     }
 
     private int toMinutes(String t) {
