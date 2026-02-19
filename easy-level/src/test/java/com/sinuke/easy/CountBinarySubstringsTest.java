@@ -15,6 +15,7 @@ class CountBinarySubstringsTest {
     void countBinarySubstrings(String s, int expected) {
         var solution = new CountBinarySubstrings();
         assertEquals(expected, solution.countBinarySubstrings(s));
+        assertEquals(expected, solution.countBinarySubstrings2(s));
     }
 
     private static Stream<Arguments> testData() {
