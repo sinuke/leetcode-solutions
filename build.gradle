@@ -29,10 +29,10 @@ allprojects {
 
     ext {
         version_testcontainers = '2.0.3'
-        version_junit = '6.0.2'
-        version_jackson = '3.0.3'
-        version_logback = '1.5.25'
-        version_mysql = '9.5.0'
+        version_junit = '6.0.3'
+        version_jackson = '3.1.0'
+        version_logback = '1.5.32'
+        version_mysql = '9.6.0'
     }
 
     dependencies {
