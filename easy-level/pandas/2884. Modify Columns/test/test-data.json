@@ -1,0 +1,9 @@
+{
+  "title": "Modify Columns",
+  "number": 2884,
+  "function": "modifySalaryColumn",
+  "inputs": [
+    {"name": "employees", "type": "dataframe", "file": "employees.json"}
+  ],
+  "expected": "expected.json"
+}

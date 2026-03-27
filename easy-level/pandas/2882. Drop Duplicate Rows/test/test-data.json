@@ -1,0 +1,9 @@
+{
+  "title": "Drop Duplicate Rows",
+  "number": 2882,
+  "function": "dropDuplicateEmails",
+  "inputs": [
+    {"name": "customers", "type": "dataframe", "file": "customers.json"}
+  ],
+  "expected": "expected.json"
+}

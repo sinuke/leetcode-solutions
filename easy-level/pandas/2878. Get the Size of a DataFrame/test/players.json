@@ -1,0 +1,7 @@
+[
+  {"player_id": 0, "name": "Aarav", "age": 22, "position": "Goalkeeper"},
+  {"player_id": 1, "name": "Sam", "age": 24, "position": "Forward"},
+  {"player_id": 2, "name": "Zander", "age": 18, "position": "Center"},
+  {"player_id": 3, "name": "Dino", "age": 24, "position": "Defender"},
+  {"player_id": 4, "name": "Sasha", "age": 22, "position": "Midfielder"}
+]

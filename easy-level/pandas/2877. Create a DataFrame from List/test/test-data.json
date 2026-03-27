@@ -1,0 +1,9 @@
+{
+  "title": "Create a DataFrame from List",
+  "number": 2877,
+  "function": "createDataframe",
+  "inputs": [
+    {"name": "student_data", "type": "list_of_lists", "file": "student_data.json"}
+  ],
+  "expected": "expected.json"
+}

@@ -1,0 +1,9 @@
+{
+  "title": "Select Data",
+  "number": 2880,
+  "function": "selectData",
+  "inputs": [
+    {"name": "students", "type": "dataframe", "file": "students.json"}
+  ],
+  "expected": "expected.json"
+}

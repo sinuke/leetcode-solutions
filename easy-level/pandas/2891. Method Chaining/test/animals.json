@@ -1,0 +1,8 @@
+[
+  {"name": "Tatiana", "species": "Snake", "age": 98, "weight": 464},
+  {"name": "Khaled", "species": "Giraffe", "age": 50, "weight": 41},
+  {"name": "Alex", "species": "Leopard", "age": 6, "weight": 328},
+  {"name": "Jonathan", "species": "Monkey", "age": 45, "weight": 463},
+  {"name": "Stefan", "species": "Bear", "age": 83, "weight": 221},
+  {"name": "Tommy", "species": "Panda", "age": 26, "weight": 349}
+]

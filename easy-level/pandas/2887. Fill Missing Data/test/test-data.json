@@ -1,0 +1,9 @@
+{
+  "title": "Fill Missing Data",
+  "number": 2887,
+  "function": "fillMissingValues",
+  "inputs": [
+    {"name": "products", "type": "dataframe", "file": "products.json"}
+  ],
+  "expected": "expected.json"
+}

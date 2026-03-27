@@ -1,0 +1,9 @@
+{
+  "title": "Display the First Three Rows",
+  "number": 2879,
+  "function": "selectFirstRows",
+  "inputs": [
+    {"name": "employees", "type": "dataframe", "file": "employees.json"}
+  ],
+  "expected": "expected.json"
+}

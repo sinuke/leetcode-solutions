@@ -1,0 +1,9 @@
+{
+  "title": "Change Data Type",
+  "number": 2886,
+  "function": "changeDatatype",
+  "inputs": [
+    {"name": "students", "type": "dataframe", "file": "students.json"}
+  ],
+  "expected": "expected.json"
+}

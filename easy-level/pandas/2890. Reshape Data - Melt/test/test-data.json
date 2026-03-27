@@ -1,0 +1,9 @@
+{
+  "title": "Reshape Data: Melt",
+  "number": 2890,
+  "function": "meltTable",
+  "inputs": [
+    {"name": "report", "type": "dataframe", "file": "report.json"}
+  ],
+  "expected": "expected.json"
+}

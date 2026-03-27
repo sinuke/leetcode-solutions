@@ -1,0 +1,9 @@
+{
+  "title": "Reshape Data: Pivot",
+  "number": 2889,
+  "function": "pivotTable",
+  "inputs": [
+    {"name": "weather", "type": "dataframe", "file": "weather.json"}
+  ],
+  "expected": "expected.json"
+}
