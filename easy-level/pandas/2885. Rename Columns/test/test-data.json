@@ -1,0 +1,9 @@
+{
+  "title": "Rename Columns",
+  "number": 2885,
+  "function": "renameColumns",
+  "inputs": [
+    {"name": "students", "type": "dataframe", "file": "students.json"}
+  ],
+  "expected": "expected.json"
+}

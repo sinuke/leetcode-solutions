@@ -1,0 +1,9 @@
+{
+  "title": "Create a New Column",
+  "number": 2881,
+  "function": "createBonusColumn",
+  "inputs": [
+    {"name": "employees", "type": "dataframe", "file": "employees.json"}
+  ],
+  "expected": "expected.json"
+}

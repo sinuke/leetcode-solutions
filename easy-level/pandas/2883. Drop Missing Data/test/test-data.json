@@ -1,0 +1,9 @@
+{
+  "title": "Drop Missing Data",
+  "number": 2883,
+  "function": "dropMissingData",
+  "inputs": [
+    {"name": "students", "type": "dataframe", "file": "students.json"}
+  ],
+  "expected": "expected.json"
+}

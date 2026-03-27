@@ -1,0 +1,9 @@
+{
+  "title": "Get the Size of a DataFrame",
+  "number": 2878,
+  "function": "getDataframeSize",
+  "inputs": [
+    {"name": "players", "type": "dataframe", "file": "players.json"}
+  ],
+  "expected": "expected.json"
+}

@@ -1,0 +1,10 @@
+[
+  {"product": "Umbrella", "quarter": "Q1", "sales": 417},
+  {"product": "SleepingBag", "quarter": "Q1", "sales": 800},
+  {"product": "Umbrella", "quarter": "Q2", "sales": 224},
+  {"product": "SleepingBag", "quarter": "Q2", "sales": 936},
+  {"product": "Umbrella", "quarter": "Q3", "sales": 379},
+  {"product": "SleepingBag", "quarter": "Q3", "sales": 93},
+  {"product": "Umbrella", "quarter": "Q4", "sales": 611},
+  {"product": "SleepingBag", "quarter": "Q4", "sales": 875}
+]

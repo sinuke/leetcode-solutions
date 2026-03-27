@@ -1,0 +1,9 @@
+{
+  "title": "Method Chaining",
+  "number": 2891,
+  "function": "findHeavyAnimals",
+  "inputs": [
+    {"name": "animals", "type": "dataframe", "file": "animals.json"}
+  ],
+  "expected": "expected.json"
+}

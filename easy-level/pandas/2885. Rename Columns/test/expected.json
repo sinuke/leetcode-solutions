@@ -1,0 +1,7 @@
+[
+  {"student_id": 1, "first_name": "Mason", "last_name": "King", "age_in_years": 6},
+  {"student_id": 2, "first_name": "Ava", "last_name": "Wright", "age_in_years": 7},
+  {"student_id": 3, "first_name": "Taylor", "last_name": "Hall", "age_in_years": 16},
+  {"student_id": 4, "first_name": "Georgia", "last_name": "Thompson", "age_in_years": 18},
+  {"student_id": 5, "first_name": "Thomas", "last_name": "Moore", "age_in_years": 10}
+]

@@ -1,0 +1,10 @@
+{
+  "title": "Reshape Data: Concatenate",
+  "number": 2888,
+  "function": "concatenateTables",
+  "inputs": [
+    {"name": "df1", "type": "dataframe", "file": "df1.json"},
+    {"name": "df2", "type": "dataframe", "file": "df2.json"}
+  ],
+  "expected": "expected.json"
+}
