@@ -10,5 +10,5 @@ Solutions:
 
 Used:
 * Java 21
-* Gradle 9.3.0
-* Test Containers 2.0.3 for MySQL 9.5.0
+* Gradle 9.4.1
+* Test Containers 2.0.3 for MySQL 9.6.0
