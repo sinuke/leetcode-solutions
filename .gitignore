@@ -44,4 +44,4 @@ bin/
 
 ## claude
 .codemie
-.claude
+.claude/settings.local.json
