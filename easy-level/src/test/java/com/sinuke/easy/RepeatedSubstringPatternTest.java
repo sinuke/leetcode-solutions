@@ -22,7 +22,10 @@ class RepeatedSubstringPatternTest {
         return Stream.of(
                 Arguments.of("abab", true),
                 Arguments.of("aba", false),
-                Arguments.of("abcabcabcabc", true)
+                Arguments.of("abcabcabcabc", true),
+                Arguments.of("abac", false),
+                Arguments.of("ababab", true),
+                Arguments.of("aabaaba", false)
         );
     }
 
