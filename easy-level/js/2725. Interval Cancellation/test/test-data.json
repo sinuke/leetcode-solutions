@@ -1,7 +1,7 @@
 {
   "title": "Interval Cancellation",
   "number": 2725,
-  "type": "interval_test",
+  "type": "timer_test",
   "function": "cancellable",
   "cases": [
     {

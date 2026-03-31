@@ -73,66 +73,17 @@ async function runCase(c) {
         return results;
     }
 
-    if (type === 'chain') {
-        const fn = eval(meta.function);
-        const args = (c.args || []).map(resolveArg);
-        const obj = fn(...args);
-        const methodArgs = (c.methodArgs || []).map(resolveArg);
+    if (type === 'expr') {
         try {
-            const result = obj[c.method](...methodArgs);
+            const result = eval(c.expr);
             return result === undefined ? null : result;
         } catch (e) {
             return {'$error': String(e)};
         }
     }
 
-    if (type === 'instance_method') {
-        const Cls = eval(meta.class);
-        const initArgs = (c.initArgs || []).map(resolveArg);
-        const obj = new Cls(...initArgs);
-        const args = (c.args || []).map(resolveArg);
-        const result = obj[c.method](...args);
-        return result === undefined ? null : result;
-    }
-
-    if (type === 'new_calls') {
-        const Cls = eval(meta.class);
-        const initArgs = (c.initArgs || []).map(resolveArg);
-        let obj = new Cls(...initArgs);
-        try {
-            for (const call of (c.chain || [])) {
-                const args = (call.args || []).map(resolveArg);
-                obj = obj[call.method](...args);
-            }
-            return obj === undefined ? null : obj;
-        } catch (e) {
-            return {'$error': String(e)};
-        }
-    }
-
-    if (type === 'interval_test') {
+    if (type === 'timer_test') {
         console.log = () => {};
-        const cancellableFn = eval(meta.function);
-        const fnArg = resolveArg(c.fn);
-        const callResults = [];
-        const trackFn = (...args) => {
-            const result = fnArg(...args);
-            callResults.push(result === undefined ? null : result);
-            return result;
-        };
-        const cancel = cancellableFn(trackFn, c.args, c.t);
-        if (c.cancelAfter === 0) {
-            cancel();
-        } else if (c.cancelAfter != null) {
-            await new Promise(r => setTimeout(r, c.cancelAfter));
-            cancel();
-        }
-        await new Promise(r => setTimeout(r, c.waitMs));
-        return callResults;
-    }
-
-    if (type === 'timeout_test') {
-        console.log = () => {}; // suppress solution's console.log calls
         const cancellableFn = eval(meta.function);
         const fnArg = resolveArg(c.fn);
         const callResults = [];

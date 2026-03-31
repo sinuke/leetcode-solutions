@@ -1,12 +1,11 @@
 {
   "title": "Function Composition",
   "number": 2629,
-  "type": "calls",
-  "setup": "compose",
+  "type": "expr",
   "cases": [
-    {"setupArgs": [[{"$fn": "x => x + 1"}, {"$fn": "x => 2 * x"}]], "calls": [{"args": [4]}]},
-    {"setupArgs": [[{"$fn": "x => x + 1"}, {"$fn": "x => x - 1"}]], "calls": [{"args": [42]}]},
-    {"setupArgs": [[]], "calls": [{"args": [8]}]}
+    {"expr": "compose([x => x + 1, x => 2 * x])(4)"},
+    {"expr": "compose([x => x + 1, x => x - 1])(42)"},
+    {"expr": "compose([])(8)"}
   ],
   "expected": "expected.json"
 }

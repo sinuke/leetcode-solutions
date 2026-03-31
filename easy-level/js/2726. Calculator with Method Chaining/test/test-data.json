@@ -1,24 +1,10 @@
 {
   "title": "Calculator with Method Chaining",
   "number": 2726,
-  "type": "new_calls",
-  "class": "Calculator",
+  "type": "expr",
   "cases": [
-    {
-      "initArgs": [10],
-      "chain": [
-        {"method": "add", "args": [5]},
-        {"method": "subtract", "args": [7]},
-        {"method": "getResult", "args": []}
-      ]
-    },
-    {
-      "initArgs": [0],
-      "chain": [
-        {"method": "divide", "args": [0]},
-        {"method": "getResult", "args": []}
-      ]
-    }
+    {"expr": "new Calculator(10).add(5).subtract(7).getResult()"},
+    {"expr": "new Calculator(0).divide(0).getResult()"}
   ],
   "expected": "expected.json"
 }

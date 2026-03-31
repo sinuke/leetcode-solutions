@@ -1,7 +1,7 @@
 {
   "title": "Timeout Cancellation",
   "number": 2715,
-  "type": "timeout_test",
+  "type": "timer_test",
   "function": "cancellable",
   "cases": [
     {

@@ -1,12 +1,11 @@
 {
   "title": "Array Wrapper",
   "number": 2695,
-  "type": "instance_method",
-  "class": "ArrayWrapper",
+  "type": "expr",
   "cases": [
-    {"initArgs": [[1, 2]], "method": "valueOf", "args": []},
-    {"initArgs": [[1, 2]], "method": "toString", "args": []},
-    {"initArgs": [[-1, 2, 3]], "method": "valueOf", "args": []}
+    {"expr": "new ArrayWrapper([1,2]) + new ArrayWrapper([3,4])"},
+    {"expr": "String(new ArrayWrapper([1,2]))"},
+    {"expr": "String(new ArrayWrapper([3,4]))"}
   ],
   "expected": "expected.json"
 }
