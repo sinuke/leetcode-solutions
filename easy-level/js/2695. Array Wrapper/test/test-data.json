@@ -1,0 +1,12 @@
+{
+  "title": "Array Wrapper",
+  "number": 2695,
+  "type": "instance_method",
+  "class": "ArrayWrapper",
+  "cases": [
+    {"initArgs": [[1, 2]], "method": "valueOf", "args": []},
+    {"initArgs": [[1, 2]], "method": "toString", "args": []},
+    {"initArgs": [[-1, 2, 3]], "method": "valueOf", "args": []}
+  ],
+  "expected": "expected.json"
+}

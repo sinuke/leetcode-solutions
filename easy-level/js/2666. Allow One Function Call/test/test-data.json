@@ -1,0 +1,16 @@
+{
+  "title": "Allow One Function Call",
+  "number": 2666,
+  "type": "calls",
+  "setup": "once",
+  "cases": [
+    {
+      "setupArgs": [{"$fn": "(a, b, c) => a + b + c"}],
+      "calls": [
+        {"args": [1, 2, 3]},
+        {"args": [2, 3, 6]}
+      ]
+    }
+  ],
+  "expected": "expected.json"
+}

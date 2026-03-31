@@ -1,0 +1,13 @@
+{
+  "title": "To Be Or Not To Be",
+  "number": 2704,
+  "type": "chain",
+  "function": "expect",
+  "cases": [
+    {"args": [5], "method": "toBe", "methodArgs": [5]},
+    {"args": [5], "method": "toBe", "methodArgs": [6]},
+    {"args": [5], "method": "notToBe", "methodArgs": [5]},
+    {"args": [5], "method": "notToBe", "methodArgs": [6]}
+  ],
+  "expected": "expected.json"
+}

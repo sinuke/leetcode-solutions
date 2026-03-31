@@ -1,0 +1,12 @@
+{
+  "title": "Sort By",
+  "number": 2724,
+  "type": "simple",
+  "function": "sortBy",
+  "cases": [
+    {"args": [[5, 4, 1, 2, 3], {"$fn": "x => x"}]},
+    {"args": [[{"x": 1}, {"x": 0}, {"x": -1}], {"$fn": "d => d.x"}]},
+    {"args": [[[3, 4], [5, 0], [2, 1]], {"$fn": "x => x[1]"}]}
+  ],
+  "expected": "expected.json"
+}

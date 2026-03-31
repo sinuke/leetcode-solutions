@@ -1,0 +1,10 @@
+{
+  "title": "Generate Fibonacci Sequence",
+  "number": 2648,
+  "type": "generator",
+  "function": "fibGenerator",
+  "cases": [
+    {"count": 5}
+  ],
+  "expected": "expected.json"
+}

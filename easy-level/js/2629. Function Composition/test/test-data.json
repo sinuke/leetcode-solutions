@@ -1,0 +1,12 @@
+{
+  "title": "Function Composition",
+  "number": 2629,
+  "type": "calls",
+  "setup": "compose",
+  "cases": [
+    {"setupArgs": [[{"$fn": "x => x + 1"}, {"$fn": "x => 2 * x"}]], "calls": [{"args": [4]}]},
+    {"setupArgs": [[{"$fn": "x => x + 1"}, {"$fn": "x => x - 1"}]], "calls": [{"args": [42]}]},
+    {"setupArgs": [[]], "calls": [{"args": [8]}]}
+  ],
+  "expected": "expected.json"
+}

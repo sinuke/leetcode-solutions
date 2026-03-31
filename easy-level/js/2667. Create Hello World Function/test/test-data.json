@@ -1,0 +1,17 @@
+{
+  "title": "Create Hello World Function",
+  "number": 2667,
+  "type": "calls",
+  "setup": "createHelloWorld",
+  "cases": [
+    {
+      "setupArgs": [],
+      "calls": [
+        {"args": []},
+        {"args": [{}]},
+        {"args": [[], "extra"]}
+      ]
+    }
+  ],
+  "expected": "expected.json"
+}

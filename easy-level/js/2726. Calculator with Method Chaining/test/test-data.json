@@ -1,0 +1,24 @@
+{
+  "title": "Calculator with Method Chaining",
+  "number": 2726,
+  "type": "new_calls",
+  "class": "Calculator",
+  "cases": [
+    {
+      "initArgs": [10],
+      "chain": [
+        {"method": "add", "args": [5]},
+        {"method": "subtract", "args": [7]},
+        {"method": "getResult", "args": []}
+      ]
+    },
+    {
+      "initArgs": [0],
+      "chain": [
+        {"method": "divide", "args": [0]},
+        {"method": "getResult", "args": []}
+      ]
+    }
+  ],
+  "expected": "expected.json"
+}

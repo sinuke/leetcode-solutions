@@ -1,0 +1,12 @@
+{
+  "title": "Array Reduce Transformation",
+  "number": 2626,
+  "type": "simple",
+  "function": "reduce",
+  "cases": [
+    {"args": [[1, 2, 3, 4], {"$fn": "(accum, curr) => accum + curr"}, 0]},
+    {"args": [[], {"$fn": "(accum, curr) => accum + curr"}, 25]},
+    {"args": [[10, 20, 30], {"$fn": "(accum, curr) => accum + curr * curr"}, 100]}
+  ],
+  "expected": "expected.json"
+}

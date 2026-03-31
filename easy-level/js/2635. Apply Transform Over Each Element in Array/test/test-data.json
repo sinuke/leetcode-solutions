@@ -1,0 +1,12 @@
+{
+  "title": "Apply Transform Over Each Element in Array",
+  "number": 2635,
+  "type": "simple",
+  "function": "map",
+  "cases": [
+    {"args": [[1, 2, 3], {"$fn": "function plusOne(n){ return n + 1; }"}]},
+    {"args": [[1, 2, 3], {"$fn": "function plusI(n, i){ return n + i; }"}]},
+    {"args": [[10, 20, 30], {"$fn": "function constant(){ return 42; }"}]}
+  ],
+  "expected": "expected.json"
+}
