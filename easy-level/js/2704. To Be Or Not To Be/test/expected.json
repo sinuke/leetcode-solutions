@@ -1,0 +1,1 @@
+[true, {"$error": "Not Equal"}, {"$error": "Equal"}, true]

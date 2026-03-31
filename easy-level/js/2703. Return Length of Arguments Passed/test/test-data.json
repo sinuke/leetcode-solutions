@@ -1,0 +1,12 @@
+{
+  "title": "Return Length of Arguments Passed",
+  "number": 2703,
+  "type": "simple",
+  "function": "argumentsLength",
+  "cases": [
+    {"args": [5]},
+    {"args": [{}, [], 8]},
+    {"args": [null, {}, {}]}
+  ],
+  "expected": "expected.json"
+}

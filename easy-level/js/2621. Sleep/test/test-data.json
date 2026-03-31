@@ -1,0 +1,10 @@
+{
+  "title": "Sleep",
+  "number": 2621,
+  "type": "async",
+  "function": "sleep",
+  "cases": [
+    {"args": [10]}
+  ],
+  "expected": "expected.json"
+}

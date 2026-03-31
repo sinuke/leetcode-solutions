@@ -1,0 +1,12 @@
+{
+  "title": "To Be Or Not To Be",
+  "number": 2704,
+  "type": "expr",
+  "cases": [
+    {"expr": "expect(5).toBe(5)"},
+    {"expr": "expect(5).toBe(6)"},
+    {"expr": "expect(5).notToBe(5)"},
+    {"expr": "expect(5).notToBe(6)"}
+  ],
+  "expected": "expected.json"
+}

@@ -1,0 +1,12 @@
+{
+  "title": "Array Prototype Last",
+  "number": 2619,
+  "type": "prototype",
+  "method": "last",
+  "cases": [
+    {"instance": [1, 2, 3]},
+    {"instance": []},
+    {"instance": [null]}
+  ],
+  "expected": "expected.json"
+}

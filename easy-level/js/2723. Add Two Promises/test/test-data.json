@@ -1,0 +1,11 @@
+{
+  "title": "Add Two Promises",
+  "number": 2723,
+  "type": "async",
+  "function": "addTwoPromises",
+  "cases": [
+    {"args": [{"$promise": 2}, {"$promise": 2}]},
+    {"args": [{"$promise": 3}, {"$promise": 7}]}
+  ],
+  "expected": "expected.json"
+}

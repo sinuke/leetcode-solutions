@@ -1,0 +1,10 @@
+{
+  "title": "Counter",
+  "number": 2620,
+  "type": "calls",
+  "setup": "createCounter",
+  "cases": [
+    {"setupArgs": [10], "calls": [{"args": []}, {"args": []}, {"args": []}]}
+  ],
+  "expected": "expected.json"
+}

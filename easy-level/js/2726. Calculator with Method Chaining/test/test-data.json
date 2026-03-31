@@ -1,0 +1,10 @@
+{
+  "title": "Calculator with Method Chaining",
+  "number": 2726,
+  "type": "expr",
+  "cases": [
+    {"expr": "new Calculator(10).add(5).subtract(7).getResult()"},
+    {"expr": "new Calculator(0).divide(0).getResult()"}
+  ],
+  "expected": "expected.json"
+}

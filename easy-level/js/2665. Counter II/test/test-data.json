@@ -1,0 +1,19 @@
+{
+  "title": "Counter II",
+  "number": 2665,
+  "type": "calls",
+  "setup": "createCounter",
+  "cases": [
+    {
+      "setupArgs": [5],
+      "calls": [
+        {"method": "increment"},
+        {"method": "increment"},
+        {"method": "decrement"},
+        {"method": "reset"},
+        {"method": "decrement"}
+      ]
+    }
+  ],
+  "expected": "expected.json"
+}

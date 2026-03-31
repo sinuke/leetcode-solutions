@@ -1,0 +1,12 @@
+{
+  "title": "Is Object Empty",
+  "number": 2727,
+  "type": "simple",
+  "function": "isEmpty",
+  "cases": [
+    {"args": [{"x": 5, "y": 42}]},
+    {"args": [{}]},
+    {"args": [[]]}
+  ],
+  "expected": "expected.json"
+}

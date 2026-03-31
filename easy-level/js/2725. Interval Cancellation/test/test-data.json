@@ -1,0 +1,25 @@
+{
+  "title": "Interval Cancellation",
+  "number": 2725,
+  "type": "timer_test",
+  "function": "cancellable",
+  "cases": [
+    {
+      "comment": "cancel immediately — only the initial synchronous call must happen",
+      "fn": {"$fn": "x => x * 2"},
+      "args": [4],
+      "t": 100,
+      "cancelAfter": 0,
+      "waitMs": 250
+    },
+    {
+      "comment": "cancel at 200ms with t=80ms — calls at 0, 80, 160ms; next at 240ms is not reached",
+      "fn": {"$fn": "x => x * 2"},
+      "args": [4],
+      "t": 80,
+      "cancelAfter": 200,
+      "waitMs": 400
+    }
+  ],
+  "expected": "expected.json"
+}
