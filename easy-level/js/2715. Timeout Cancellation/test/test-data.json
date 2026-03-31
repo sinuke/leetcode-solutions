@@ -1,5 +1,25 @@
 {
   "title": "Timeout Cancellation",
   "number": 2715,
-  "enabled": false
+  "type": "timeout_test",
+  "function": "cancellable",
+  "cases": [
+    {
+      "comment": "cancel before timeout fires — fn must not be called",
+      "fn": {"$fn": "x => x * 5"},
+      "args": [2],
+      "t": 100,
+      "cancelAfter": 0,
+      "waitMs": 200
+    },
+    {
+      "comment": "no cancel — fn must be called once and return x*5",
+      "fn": {"$fn": "x => x * 5"},
+      "args": [2],
+      "t": 50,
+      "cancelAfter": null,
+      "waitMs": 150
+    }
+  ],
+  "expected": "expected.json"
 }

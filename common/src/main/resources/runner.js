@@ -110,6 +110,27 @@ async function runCase(c) {
         }
     }
 
+    if (type === 'timeout_test') {
+        console.log = () => {}; // suppress solution's console.log calls
+        const cancellableFn = eval(meta.function);
+        const fnArg = resolveArg(c.fn);
+        const callResults = [];
+        const trackFn = (...args) => {
+            const result = fnArg(...args);
+            callResults.push(result === undefined ? null : result);
+            return result;
+        };
+        const cancel = cancellableFn(trackFn, c.args, c.t);
+        if (c.cancelAfter === 0) {
+            cancel();
+        } else if (c.cancelAfter != null) {
+            await new Promise(r => setTimeout(r, c.cancelAfter));
+            cancel();
+        }
+        await new Promise(r => setTimeout(r, c.waitMs));
+        return callResults;
+    }
+
     throw new Error('Unknown type: ' + type);
 }
 
