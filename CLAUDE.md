@@ -19,10 +19,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 # Run a single test class
 ./gradlew :easy-level:test --tests "com.sinuke.easy.AddBinaryTest"
 
-# Run SQL/Shell/Pandas tests for easy level
+# Run SQL/Shell/Pandas/JS tests for easy level
 ./gradlew :easy-level:test --tests "com.sinuke.easy.sql.EasyLevelSQLTests"
 ./gradlew :easy-level:test --tests "com.sinuke.easy.shell.EasyLevelShellTests"
 ./gradlew :easy-level:test --tests "com.sinuke.easy.pandas.EasyLevelPandasTests"
+./gradlew :easy-level:test --tests "com.sinuke.easy.js.EasyLevelJsTests"
+
+# Run SQL tests for medium/hard level
+./gradlew :medium-level:test --tests "com.sinuke.medium.sql.MediumLevelSQLTests"
+./gradlew :hard-level:test --tests "com.sinuke.hard.sql.HardLevelSQLTests"
 ```
 
 ## Architecture
@@ -50,9 +55,9 @@ Shared data structures in `common/src/main/java/com/sinuke/common/data/`: `ListN
 
 ### SQL / Shell / Pandas Solutions
 
-All three use a three-layer test hierarchy:
+All four use a three-layer test hierarchy:
 ```
-BaseTestData → AbstractTestCase<T> → SQLSolutionsTest/ShellSolutionsTest/PandasSolutionsTest → EasyLevelSQLTests (one-liner)
+BaseTestData → AbstractTestCase<T> → SQLSolutionsTest/ShellSolutionsTest/PandasSolutionsTest/JsSolutionsTest → EasyLevelSQLTests (one-liner)
 ```
 
 Each problem lives in its own directory under `easy-level/{type}/{number}. {Name}/`, with the solution file at the root and test data under `test/`.
@@ -76,11 +81,19 @@ Each problem lives in its own directory under `easy-level/{type}/{number}. {Name
 - Input `type`: `"dataframe"` (default) or `"list_of_lists"`
 - Runs in one `python:3.12-slim` container per class via `common/src/main/resources/runner.py`
 
+**JS** (`easy-level/js/{number}. {Name}/`):
+- `{Name}.js` — solution module
+- `test/test-data.json`, `test/expected.json`
+- `test-data.json`: `title`, `number`, `type`, plus type-specific fields; `expected` points to the expected JSON file
+- Runner types (field `type` in test-data.json): `simple` (call `function(...args)`), `async`, `prototype` (call `instance[method]`), `generator` (call `.next()` N times), `calls` (setup + sequence of method calls), `expr` (evaluate expression directly), `timer_test` (cancellable timers)
+- Runs in one `node:lts-alpine` container per class via `common/src/main/resources/runner.js`
+
 ### Key Infrastructure Files
 
 - `common/src/main/java/com/sinuke/common/AbstractTestCase.java` — base parameterized test; `findTestData(rootDir, filter, Class<T>)` walks the directory tree
 - `common/src/main/java/com/sinuke/common/model/BaseTestData.java` — base model with `enabled`, `title`, `number`
 - `common/src/main/resources/runner.py` — Python runner for Pandas tests
+- `common/src/main/resources/runner.js` — Node.js runner for JS tests
 
 ### Adding a New Problem
 
