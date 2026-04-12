@@ -14,6 +14,7 @@ public class PositionsOfLargeGroups {
                 start = i;
             }
         }
+        if (start != s.length() - 1 && s.length() - start >= 3) result.add(List.of(start, s.length() - 1));
         return result;
     }
 
