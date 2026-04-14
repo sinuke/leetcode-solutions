@@ -28,24 +28,24 @@ allprojects {
     }
 
     ext {
-        version_testcontainers = '2.0.3'
+        version_testcontainers = '2.0.4'
         version_junit = '6.0.3'
-        version_jackson = '3.1.0'
+        version_jackson = '3.1.2'
         version_logback = '1.5.32'
         version_mysql = '9.6.0'
     }
 
     dependencies {
-        implementation group: 'tools.jackson.core', name: 'jackson-databind', version: version_jackson
-        implementation group: 'ch.qos.logback', name: 'logback-classic', version: version_logback
+        implementation "tools.jackson.core:jackson-databind:$version_jackson"
+        implementation "ch.qos.logback:logback-classic:$version_logback"
 
-        testImplementation platform("org.junit:junit-bom:${version_junit}")
-        testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter', version: version_junit
-        testImplementation group: 'org.testcontainers', name: 'testcontainers-junit-jupiter', version: version_testcontainers
-        testImplementation group: 'org.testcontainers', name: 'testcontainers-mysql', version: version_testcontainers
-        testImplementation group: 'com.mysql', name: 'mysql-connector-j', version: version_mysql
+        testImplementation platform("org.junit:junit-bom:$version_junit")
+        testImplementation "org.junit.jupiter:junit-jupiter:$version_junit"
+        testImplementation "org.testcontainers:testcontainers-junit-jupiter:$version_testcontainers"
+        testImplementation "org.testcontainers:testcontainers-mysql:$version_testcontainers"
+        testImplementation "com.mysql:mysql-connector-j:$version_mysql"
 
-        testRuntimeOnly group: 'org.junit.platform', name: 'junit-platform-launcher', version: version_junit
+        testRuntimeOnly "org.junit.platform:junit-platform-launcher:$version_junit"
     }
 
     test {
