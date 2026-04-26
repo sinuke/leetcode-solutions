@@ -11,3 +11,5 @@ For the given difficulty level: $ARGUMENTS[0], problem number: $ARGUMENTS[1], pr
 4. Populate the test class with test data and expected results as shown on LeetCode.
 5. Add links to the created files in the README.md file.
 6. Do not suggest implementing, solving, or improving the solution.
+
+If you can't fetch data from leetcode.com, use Playwright MCP to it. Don't use web search
