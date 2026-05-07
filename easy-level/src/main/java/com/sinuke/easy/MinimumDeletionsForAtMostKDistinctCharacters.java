@@ -46,9 +46,9 @@ public class MinimumDeletionsForAtMostKDistinctCharacters {
         Arrays.sort(counts);
 
         int result = 0;
-        for (int i = 0; i < counts.length; i++) {
-            if (counts[i] != 0) {
-                result += counts[i];
+        for (int count : counts) {
+            if (count != 0) {
+                result += count;
                 unique--;
                 if (k == unique) return result;
             }
