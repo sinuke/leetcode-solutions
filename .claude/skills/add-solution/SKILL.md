@@ -9,7 +9,7 @@ For the given difficulty level: $ARGUMENTS[0], problem number: $ARGUMENTS[1], pr
 2. Create the corresponding solution Java class. The names of arguments should be the same as in LeetCode method template. The class name is derived from the problem title by removing spaces, hyphens, and the standalone articles "a", "an", "the". Each word in the class name must be capitalized (PascalCase). The class body must match the LeetCode stub (without a solution). Follow the pattern used by other existing classes.
 3. Create a test class for the problem. Use parameterized tests. Look at how other test classes are structured for reference. Always use @MethodSource("testData").
 4. Populate the test class with test data and expected results as shown on LeetCode.
-5. Add links to the created files in the README.md file.
+5. Add links to the created files in the README.md file. Print full paths for created files in response
 6. Do not suggest implementing, solving, or improving the solution.
 
 If you can't fetch data from leetcode.com, use Playwright MCP to it. Don't use web search
