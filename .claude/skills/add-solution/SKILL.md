@@ -13,3 +13,4 @@ For the given difficulty level: $ARGUMENTS[0], problem number: $ARGUMENTS[1], pr
 6. Do not suggest implementing, solving, or improving the solution.
 
 If you can't fetch data from leetcode.com, use Playwright MCP to it. Don't use web search
+If a user missed to provide the difficulty level, number, or title, you can extract these values from provided link
