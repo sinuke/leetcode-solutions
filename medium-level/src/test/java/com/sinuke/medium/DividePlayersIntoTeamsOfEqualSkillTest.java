@@ -13,7 +13,9 @@ class DividePlayersIntoTeamsOfEqualSkillTest {
     @ParameterizedTest
     @MethodSource("testData")
     void dividePlayers(int[] skill, long expected) {
-        assertEquals(expected, new DividePlayersIntoTeamsOfEqualSkill().dividePlayers(skill));
+        var solution = new DividePlayersIntoTeamsOfEqualSkill();
+        assertEquals(expected, solution.dividePlayers(skill));
+        assertEquals(expected, solution.dividePlayers2(skill));
     }
 
     private static Stream<Arguments> testData() {
