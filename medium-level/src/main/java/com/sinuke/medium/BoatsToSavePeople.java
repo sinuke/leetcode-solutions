@@ -4,18 +4,12 @@ import java.util.Arrays;
 
 public class BoatsToSavePeople {
 
+    // 20 ms
     public int numRescueBoats(int[] people, int limit) {
         Arrays.sort(people);
         int i = 0, j = people.length - 1, cnt = 0;
-        while (people[j] >= limit) {
-            cnt++;
-            j--;
-        }
-
         while (i < j) {
-            if (people[i] + people[j] <= limit) {
-                i++;
-            }
+            if (people[i] + people[j] <= limit) i++;
             j--;
             cnt++;
         }
