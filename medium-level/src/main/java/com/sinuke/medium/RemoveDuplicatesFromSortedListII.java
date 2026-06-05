@@ -5,7 +5,7 @@ import com.sinuke.common.data.ListNode;
 public class RemoveDuplicatesFromSortedListII {
 
     public ListNode deleteDuplicates(ListNode head) {
-        ListNode node = head, prev = null, next = null;
+        ListNode node = head, prev = null, next;
         int cnt = 0;
         while (node != null) {
             next = node.next;
@@ -25,7 +25,7 @@ public class RemoveDuplicatesFromSortedListII {
         if (cnt > 0) {
             if (prev == null) head = null;
             else prev.next = null;
-        };
+        }
 
         return head;
     }
