@@ -101,11 +101,13 @@ The version must exactly match the new `version_mysql` value.
 
 ## Done
 
-List all files modified. Then ask the user:
+List all files modified. Then use the `AskUserQuestion` tool to present a single-select question:
 
-> **Run tests?**
-> - Yes
-> - No
+- question: "Run tests?"
+- header: "Run tests"
+- options:
+  - label: "Yes", description: "Run ./gradlew clean test and report results"
+  - label: "No", description: "Stop here, leave testing to you"
 
 If the user chooses **No**, stop here.
 
