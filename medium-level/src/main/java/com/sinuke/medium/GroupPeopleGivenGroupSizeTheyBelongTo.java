@@ -16,8 +16,7 @@ class GroupPeopleGivenGroupSizeTheyBelongTo {
             map.get(g).add(i);
 
             if (map.get(g).size() == g) {
-                var l = map.get(g);
-                result.add(l);
+                result.add(map.get(g));
                 map.remove(g);
             }
         }
