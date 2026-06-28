@@ -75,7 +75,7 @@ Before making any changes, print a table like this (skip the "ok" rows if you wa
 | Gradle wrapper          | 9.4.1    | 9.5.1    | UPDATE  |
 ```
 
-If nothing needs updating, say so and stop.
+If nothing needs updating, note that all versions are current, then skip to the **Done** section.
 
 ## Step 4: Apply updates
 
@@ -118,3 +118,24 @@ If the user chooses **Yes**, run:
 ```
 
 Stream the output and report whether the build passed or failed.
+
+If tests **failed**, stop here and report the failure.
+
+If tests **passed** and there were updates applied, use the `AskUserQuestion` tool to present a single-select question:
+
+- question: "Commit changes?"
+- header: "Commit changes"
+- options:
+  - label: "Yes", description: "Commit all updated files with a dependency upgrade message"
+  - label: "No", description: "Stop here, leave committing to you"
+
+If the user chooses **No**, stop here.
+
+If the user chooses **Yes**, stage all modified files and commit:
+
+```bash
+git add build.gradle gradle/wrapper/gradle-wrapper.properties
+git commit -m "Dependencies upgrade: {versions}"
+```
+
+Where `{versions}` is a comma-separated list of the updated components and their new versions, e.g. `junit 6.1.1, jacoco 0.8.15`. If `SQLSolutionsTest.java` was also updated, include it in the `git add` command. Only include components that were actually updated (Action = UPDATE).
