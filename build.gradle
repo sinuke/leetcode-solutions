@@ -29,9 +29,9 @@ allprojects {
 
     ext {
         version_testcontainers = '2.0.5'
-        version_junit = '6.1.0'
-        version_jackson = '3.1.4'
-        version_logback = '1.5.34'
+        version_junit = '6.1.1'
+        version_jackson = '3.2.0'
+        version_logback = '1.5.37'
         version_mysql = '9.7.0'
     }
 

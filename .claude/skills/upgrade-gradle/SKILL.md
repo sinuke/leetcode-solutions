@@ -101,4 +101,18 @@ The version must exactly match the new `version_mysql` value.
 
 ## Done
 
-List all files modified. Do not run any build commands — leave testing to the user.
+List all files modified. Then ask the user:
+
+> **Run tests?**
+> - Yes
+> - No
+
+If the user chooses **No**, stop here.
+
+If the user chooses **Yes**, run:
+
+```bash
+./gradlew clean test
+```
+
+Stream the output and report whether the build passed or failed.
