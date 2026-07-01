@@ -1,0 +1,24 @@
+{
+  "title": "DNA Pattern Recognition",
+  "number": 3475,
+  "schema": "schema.sql",
+  "input-data": "data.sql",
+  "results-size": 7,
+  "results-map": {
+    "sample_id": [1, 2, 3, 4, 5, 6, 7],
+    "dna_sequence": [
+      "ATGCTAGCTAGCTAA",
+      "GGGTCAATCATC",
+      "ATATATCGTAGCTA",
+      "ATGGGGTCATCATAA",
+      "TCAGTCAGTCAG",
+      "ATATCGCGCTAG",
+      "CGTATGCGTCGTA"
+    ],
+    "species": ["Human", "Human", "Human", "Mouse", "Mouse", "Zebrafish", "Zebrafish"],
+    "has_start": [1, 0, 0, 1, 0, 0, 0],
+    "has_stop": [1, 0, 0, 1, 0, 1, 0],
+    "has_atat": [0, 0, 1, 0, 0, 1, 0],
+    "has_ggg": [0, 1, 0, 1, 0, 0, 0]
+  }
+}
