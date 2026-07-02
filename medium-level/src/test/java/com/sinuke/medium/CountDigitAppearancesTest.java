@@ -15,6 +15,7 @@ class CountDigitAppearancesTest {
     void countDigitOccurrences(int[] nums, int digit, int expected) {
         var solution = new CountDigitAppearances();
         assertEquals(expected, solution.countDigitOccurrences(nums, digit));
+        assertEquals(expected, solution.countDigitOccurrences2(nums, digit));
     }
 
     private static Stream<Arguments> testData() {
