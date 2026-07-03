@@ -1,0 +1,19 @@
+{
+  "title": "Trips and Users",
+  "number": 262,
+  "schema": "schema.sql",
+  "input-data": "data.sql",
+  "results-size": 3,
+  "results-map": {
+    "Day": [
+      "2013-10-01",
+      "2013-10-02",
+      "2013-10-03"
+    ],
+    "Cancellation Rate": [
+      "0.33",
+      "0.00",
+      "0.50"
+    ]
+  }
+}
