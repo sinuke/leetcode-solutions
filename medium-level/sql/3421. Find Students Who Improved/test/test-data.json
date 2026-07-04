@@ -1,0 +1,13 @@
+{
+  "title": "Find Students Who Improved",
+  "number": 3421,
+  "schema": "schema.sql",
+  "input-data": "data.sql",
+  "results-size": 3,
+  "results-map": {
+    "student_id": [101, 102, 104],
+    "subject": ["Math", "Math", "Physics"],
+    "first_score": [70, 80, 75],
+    "latest_score": [85, 85, 85]
+  }
+}
