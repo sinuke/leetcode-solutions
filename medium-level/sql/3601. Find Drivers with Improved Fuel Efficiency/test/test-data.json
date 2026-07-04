@@ -1,0 +1,14 @@
+{
+  "title": "Find Drivers with Improved Fuel Efficiency",
+  "number": 3601,
+  "schema": "schema.sql",
+  "input-data": "data.sql",
+  "results-size": 2,
+  "results-map": {
+    "driver_id": [2, 1],
+    "driver_name": ["Bob Smith", "Alice Johnson"],
+    "first_half_avg": [11.24, 11.97],
+    "second_half_avg": [13.33, 14.02],
+    "efficiency_improvement": [2.10, 2.05]
+  }
+}
