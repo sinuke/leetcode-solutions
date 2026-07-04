@@ -1,0 +1,12 @@
+{
+  "title": "Human Traffic of Stadium",
+  "number": 601,
+  "schema": "schema.sql",
+  "input-data": "data.sql",
+  "results-size": 4,
+  "results-map": {
+    "id": [5, 6, 7, 8],
+    "visit_date": ["2017-01-05", "2017-01-06", "2017-01-07", "2017-01-09"],
+    "people": [145, 1455, 199, 188]
+  }
+}
