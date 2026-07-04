@@ -1,0 +1,13 @@
+{
+  "title": "Find Overbooked Employees",
+  "number": 3611,
+  "schema": "schema.sql",
+  "input-data": "data.sql",
+  "results-size": 2,
+  "results-map": {
+    "employee_id": [1, 4],
+    "employee_name": ["Alice Johnson", "David Wilson"],
+    "department": ["Engineering", "Engineering"],
+    "meeting_heavy_weeks": [2, 2]
+  }
+}
