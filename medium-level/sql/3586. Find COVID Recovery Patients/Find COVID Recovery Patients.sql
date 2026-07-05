@@ -25,7 +25,7 @@ nd AS (
 joined AS (
   SELECT
     pd.patient_id,
-    nd.neg_date - pd.pos_date AS recovery_time
+    DATEDIFF(nd.neg_date, pd.pos_date) AS recovery_time
   FROM pd
   JOIN nd
   ON pd.patient_id = nd.patient_id
