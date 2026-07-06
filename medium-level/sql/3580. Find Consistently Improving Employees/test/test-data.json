@@ -1,0 +1,12 @@
+{
+  "title": "Find Consistently Improving Employees",
+  "number": 3580,
+  "schema": "schema.sql",
+  "input-data": "data.sql",
+  "results-size": 3,
+  "results-map": {
+    "employee_id": [2, 1, 3],
+    "name": ["Bob Smith", "Alice Johnson", "Carol Davis"],
+    "improvement_score": [3, 2, 2]
+  }
+}
