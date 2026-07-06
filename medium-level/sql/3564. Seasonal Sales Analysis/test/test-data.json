@@ -1,0 +1,13 @@
+{
+  "title": "Seasonal Sales Analysis",
+  "number": 3564,
+  "schema": "schema.sql",
+  "input-data": "data.sql",
+  "results-size": 4,
+  "results-map": {
+    "season": ["Fall", "Spring", "Summer", "Winter"],
+    "category": ["Apparel", "Kitchen", "Tech", "Apparel"],
+    "total_quantity": [10, 3, 5, 9],
+    "total_revenue": [120.00, 54.00, 100.00, 110.00]
+  }
+}
