@@ -1,0 +1,12 @@
+{
+  "title": "Find Category Recommendation Pairs",
+  "number": 3554,
+  "schema": "schema.sql",
+  "input-data": "data.sql",
+  "results-size": 4,
+  "results-map": {
+    "category1": ["Books", "Books", "Clothing", "Electronics"],
+    "category2": ["Clothing", "Electronics", "Electronics", "Sports"],
+    "customer_count": [3, 3, 3, 3]
+  }
+}
