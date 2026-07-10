@@ -1,3 +1,6 @@
+DROP TABLE IF EXISTS drivers;
+DROP TABLE IF EXISTS trips;
+
 CREATE TABLE drivers
 (
     driver_id   INT PRIMARY KEY,

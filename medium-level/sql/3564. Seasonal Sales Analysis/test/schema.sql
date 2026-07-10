@@ -1,3 +1,6 @@
+DROP TABLE IF EXISTS sales;
+DROP TABLE IF EXISTS products;
+
 CREATE TABLE sales
 (
     sale_id    INT PRIMARY KEY,

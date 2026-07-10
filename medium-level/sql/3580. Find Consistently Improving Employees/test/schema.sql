@@ -1,3 +1,6 @@
+DROP TABLE IF EXISTS employees;
+DROP TABLE IF EXISTS performance_reviews;
+
 CREATE TABLE employees (
     employee_id INT PRIMARY KEY,
     name VARCHAR(255)

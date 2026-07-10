@@ -14,3 +14,5 @@ For the given difficulty level: $ARGUMENTS[0], problem number: $ARGUMENTS[1], pr
 
 If you can't fetch data from leetcode.com, use Playwright MCP to it. Don't use web search
 If a user missed to provide the difficulty level, number, or title, you can extract these values from provided link
+
+For SQL problems: in `test/schema.sql`, prefix every `CREATE TABLE` statement with a `DROP TABLE IF EXISTS {table_name};` on its own line. Apply this to every table in the file.

@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS UserActivity;
+
 CREATE TABLE UserActivity
 (
     user_id           INT,

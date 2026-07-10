@@ -1,3 +1,6 @@
+DROP TABLE IF EXISTS patients;
+DROP TABLE IF EXISTS covid_tests;
+
 CREATE TABLE patients
 (
     patient_id   INT PRIMARY KEY,

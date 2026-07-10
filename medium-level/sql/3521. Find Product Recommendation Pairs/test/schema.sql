@@ -1,3 +1,6 @@
+DROP TABLE IF EXISTS ProductPurchases;
+DROP TABLE IF EXISTS ProductInfo;
+
 CREATE TABLE ProductPurchases
 (
     user_id    INT,

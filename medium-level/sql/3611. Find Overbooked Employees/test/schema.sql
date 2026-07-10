@@ -1,3 +1,6 @@
+DROP TABLE IF EXISTS employees;
+DROP TABLE IF EXISTS meetings;
+
 CREATE TABLE employees
 (
     employee_id   INT PRIMARY KEY,
