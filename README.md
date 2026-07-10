@@ -9,7 +9,7 @@ Solutions:
 * [hard level](hard-level/README.md)
 
 Used:
-* Java 21
-* Gradle 9.4.1
-* Test Containers 2.0.3 for MySQL 9.6.0
+* Java 25
+* Gradle 9.6.1
+* Test Containers 2.0.3 for MySQL 9.7.0
 * Claude Code skill (`/add-solution`) is used only for add solution templates to the repo. Claude Code isn't used to generate solutions

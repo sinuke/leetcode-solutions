@@ -16,8 +16,8 @@ allprojects {
     }
 
     java {
-        sourceCompatibility = JavaVersion.VERSION_21
-        targetCompatibility = JavaVersion.VERSION_21
+        sourceCompatibility = JavaVersion.VERSION_25
+        targetCompatibility = JavaVersion.VERSION_25
     }
 
     group = 'com.sinuke.leetcode'
@@ -31,7 +31,7 @@ allprojects {
         version_testcontainers = '2.0.5'
         version_junit = '6.1.1'
         version_jackson = '3.2.0'
-        version_logback = '1.5.37'
+        version_logback = '1.5.38'
         version_mysql = '9.7.0'
     }
 
