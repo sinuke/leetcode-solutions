@@ -42,7 +42,9 @@ bin/
 ### Mac OS ###
 .DS_Store
 
-## claude
+## ai
 .codemie
 .claude/settings.local.json
 .playwright-mcp
+.omo
+.opencode
