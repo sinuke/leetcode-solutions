@@ -32,7 +32,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Architecture
 
-Multi-module Gradle project (Java 21): `common`, `easy-level`, `medium-level`, `hard-level`. The `common` module provides all shared infrastructure; level modules only declare `implementation project(":common")`.
+Multi-module Gradle project (Java 25): `common`, `easy-level`, `medium-level`, `hard-level`. The `common` module provides all shared infrastructure; level modules only declare `implementation project(":common")`.
 
 ### Java Solutions
 
