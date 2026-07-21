@@ -11,6 +11,7 @@ For the given difficulty level: $ARGUMENTS[0], problem number: $ARGUMENTS[1], pr
 4. Populate the test class with test data and expected results as shown on LeetCode.
 5. Add links to the created files in the README.md file. Print full paths as clickable links for created files in response
 6. Do not suggest implementing, solving, or improving the solution.
+7. Do not run tests after adding template files
 
 If you can't fetch data from leetcode.com, use Playwright MCP to it. Don't use web search
 If a user missed to provide the difficulty level, number, or title, you can extract these values from provided link
