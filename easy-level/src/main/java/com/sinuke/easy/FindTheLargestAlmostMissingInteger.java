@@ -16,7 +16,7 @@ public class FindTheLargestAlmostMissingInteger {
         if (k == 1) {
             for (int i = max; i >= 0; i--) {
                 if (f[i] == 1) {
-                    ans = f[i];
+                    ans = i;
                     break;
                 }
             }
