@@ -33,4 +33,4 @@ Creates a Java solution class, test class, and README entry for a LeetCode probl
 ## Important
 - Do NOT implement the solution logic
 - Do NOT run tests after creating templates
-- Fetch LeetCode data with Playwright if needed, not web search
+- Fetch LeetCode data with Playwright MCP, not web search

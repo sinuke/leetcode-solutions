@@ -40,4 +40,6 @@ Creates a Pandas (Python) solution and test files for a LeetCode Pandas problem.
 7. **Print paths**: Print all created file paths.
 
 ## Important
-- Do NOT run tests after creation
+- Do NOT implement the solution logic
+- Do NOT run tests after creating templates
+- Fetch LeetCode data with Playwright MCP, not web 

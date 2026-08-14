@@ -34,4 +34,6 @@ Creates a JavaScript solution and test files for a LeetCode JS problem.
 6. **Print paths**: Print all created file paths.
 
 ## Important
-- Do NOT run tests after creation
+- Do NOT implement the solution logic
+- Do NOT run tests after creating templates
+- Fetch LeetCode data with Playwright MCP, not web 
