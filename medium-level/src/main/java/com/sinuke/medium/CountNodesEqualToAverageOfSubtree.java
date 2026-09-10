@@ -4,6 +4,8 @@ import com.sinuke.common.data.TreeNode;
 
 public class CountNodesEqualToAverageOfSubtree {
 
+    // 15.09.2025 - 1 ms
+
     public int averageOfSubtree(TreeNode root) {
         var result = new Value();
         walk(root, result);
@@ -42,5 +44,30 @@ public class CountNodesEqualToAverageOfSubtree {
     private static class Value {
         int val;
     }
+
+    // 10.09.2026 - 1 ms
+    public int averageOfSubtree2(TreeNode root) {
+        var result = new SingleValue();
+        walk(root, result);
+        return result.val;
+    }
+
+    private Tuple2 walk(TreeNode node, SingleValue result) {
+        if (node == null) return new Tuple2(0, 0);
+
+        var left = walk(node.left, result);
+        var right = walk(node.right, result);
+
+        var res = new Tuple2(node.val + left.a + right.a, left.b + right.b + 1);
+        if (node.val == res.a / res.b) result.val++;
+
+        return res;
+    }
+
+    private static class SingleValue {
+        int val;
+    }
+
+    private record Tuple2(int a, int b) {}
 
 }

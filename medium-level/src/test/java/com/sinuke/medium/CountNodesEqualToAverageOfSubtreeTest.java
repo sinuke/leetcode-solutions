@@ -17,6 +17,7 @@ class CountNodesEqualToAverageOfSubtreeTest {
     void averageOfSubtree(TreeNode root, int expected) {
         var solution = new CountNodesEqualToAverageOfSubtree();
         assertEquals(expected, solution.averageOfSubtree(root));
+        assertEquals(expected, solution.averageOfSubtree2(root));
     }
 
     private static Stream<Arguments> testData() {
