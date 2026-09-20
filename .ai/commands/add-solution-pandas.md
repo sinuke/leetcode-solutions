@@ -42,4 +42,4 @@ Creates a Pandas (Python) solution and test files for a LeetCode Pandas problem.
 ## Important
 - Do NOT implement the solution logic
 - Do NOT run tests after creating templates
-- Fetch LeetCode data with Playwright MCP, not web 
+- Fetch LeetCode data with Playwright CLI, not web 

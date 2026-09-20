@@ -42,4 +42,4 @@ Creates a SQL solution query and test data files for a LeetCode SQL problem.
 ## Important
 - Do NOT implement the solution logic
 - Do NOT run tests after creating templates
-- Fetch LeetCode data with Playwright MCP, not web 
+- Fetch LeetCode data with Playwright CLI, not web 
