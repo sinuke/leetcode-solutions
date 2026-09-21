@@ -9,3 +9,5 @@ Select the solution type:
 - [Shell](add-solution-shell.md) — for LeetCode Shell problems
 
 Each command creates the solution template, test template, and README entry.
+
+If the user omits level, number, or title, extract them from the provided link.

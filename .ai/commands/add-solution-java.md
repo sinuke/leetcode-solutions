@@ -19,18 +19,40 @@ Creates a Java solution class, test class, and README entry for a LeetCode probl
 2. **Solution class**: Create `{level}/src/main/java/com/sinuke/{level}/{ClassName}.java`:
    - Package: `com.sinuke.{level}`
    - Class name: PascalCase, remove articles (a/an/the), spaces, hyphens
-   - Method signature: exact copy from LeetCode stub (do NOT implement the solution)
+   - Method signature: exact copy from the LeetCode stub — same method name, parameter names, parameter order, and return type. Do NOT implement the solution.
+   - Never invent your own method signature. If the exact LeetCode signature cannot be retrieved, STOP and report to the user which step failed and why — do not guess or fabricate one.
 
 3. **Test class**: Create `{level}/src/test/java/com/sinuke/{level}/{ClassName}Test.java`:
    - Package-private class (no `public` modifier)
-   - `@ParameterizedTest` + `@MethodSource("testData")`
+   - Follow this exact structure and method order — the test method always comes first, `testData()` always comes last, never swap them:
+     ```java
+     class {ClassName}Test {
+
+         @ParameterizedTest
+         @MethodSource("testData")
+         void {methodName}(/* parameters */) {
+             var solution = new {ClassName}();
+             assertEquals(expected, solution.{methodName}(/* args */));
+         }
+
+         private static Stream<Arguments> testData() {
+             return Stream.of(
+                     Arguments.of(/* input, expected */)
+             );
+         }
+
+     }
+     ```
    - Use `Stream<Arguments>` return type for testData()
    - Use `var solution = new {ClassName}();`
    - Populate test data from LeetCode examples
+   - This is the standard structure for most Java solution tests and should be used whenever applicable. Problems needing custom setup or comparison (e.g. `TreeNode`, `ListNode`, or other non-trivial input/output construction) may deviate — follow the pattern used by similar existing tests in the repo instead.
 
 4. **Print paths**: Print full paths of all created files.
 
 ## Important
 - Do NOT implement the solution logic
 - Do NOT run tests after creating templates
-- Fetch LeetCode data with Playwright CLI, not web search
+- Fetch LeetCode data with the Playwright CLI, not an MCP browser tool or web search
+- Never invent a method signature — if it can't be retrieved from LeetCode, stop and explain why instead of guessing
+- Never reorder the test class methods — test method first, `testData()` last

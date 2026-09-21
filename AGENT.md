@@ -24,6 +24,8 @@ LeetCode profile: https://leetcode.com/u/sinuke/
 | `/add-solution-shell` | Create a Shell script solution and test files |
 | `/upgrade-gradle` | Upgrade Gradle dependencies, plugins, and wrapper |
 
+Command steps live in `.ai/commands/*.md` (agent-agnostic, canonical). `.claude/skills/` wraps each one for Claude Code's skill discovery.
+
 ## Java Solutions
 
 ### File Locations
@@ -53,7 +55,7 @@ public class {ClassName} {
 }
 ```
 
-Do NOT implement the solution — only create the stub matching the LeetCode method signature. Argument names must match the LeetCode template.
+Do NOT implement the solution — only create the stub matching the LeetCode method signature exactly (method name, parameter names, parameter order, and return type). Never invent your own method signature. If the exact signature cannot be retrieved from LeetCode, stop and report why instead of guessing.
 
 ### Test Class Template
 ```java
@@ -91,6 +93,8 @@ class {ClassName}Test {
 - Use `Stream<Arguments>` for test data
 - Use `var` for instance creation: `var solution = new {ClassName}();`
 - Import assertions statically: `import static org.junit.jupiter.api.Assertions.*;`
+- Method order is fixed and must not change: the `@ParameterizedTest` method always comes first, `testData()` always comes last
+- This is the standard structure most Java solution tests should follow. Problems needing custom setup or comparison (e.g. `TreeNode`, `ListNode`, or other non-trivial input/output construction) may deviate — follow the pattern used by similar existing tests instead
 
 ### Example
 **AddBinary** (`easy-level/src/main/java/com/sinuke/easy/AddBinary.java`):
@@ -345,5 +349,6 @@ Add each new problem to the correct numeric position in the level's `README.md` 
 The following are gitignored and should not be committed:
 - `.omo/` — Boulder state files
 - `.opencode/` — OpenCode configuration
+- `.codemie` — CodeMie agent configuration
 - `.claude/settings.local.json` — Local Claude settings
 - `.playwright-mcp/` — Playwright MCP data

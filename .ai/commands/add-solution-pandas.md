@@ -10,7 +10,7 @@ Creates a Pandas (Python) solution and test files for a LeetCode Pandas problem.
 
 ## Steps
 
-1. **README entry**: Insert at correct numeric position in `{level}/README.md`
+1. **README entry**: Insert at correct numeric position in `{level}/README.md`. If the problem title contains special characters (e.g. `?`), use URL encoding in the link path.
 
 2. **Directory**: Create `{level}/pandas/{number}. {Title}/`
 
@@ -42,4 +42,4 @@ Creates a Pandas (Python) solution and test files for a LeetCode Pandas problem.
 ## Important
 - Do NOT implement the solution logic
 - Do NOT run tests after creating templates
-- Fetch LeetCode data with Playwright CLI, not web 
+- Fetch LeetCode data with the Playwright CLI, not an MCP browser tool or web search
