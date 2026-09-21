@@ -3,10 +3,15 @@
 Creates a Java solution class, test class, and README entry for a LeetCode problem.
 
 ## Arguments
-- Level: easy, medium, or hard
-- Number: LeetCode problem number
-- Title: Problem title
 - Link: LeetCode problem URL
+
+## Fetch problem data
+Fetch the problem page at Link using the Playwright CLI (not an MCP browser tool or web search) and extract:
+- Title: exact problem title
+- Number: LeetCode problem number
+- Level: difficulty shown on the page — Easy → `easy`, Medium → `medium`, Hard → `hard`
+
+If the page or its data cannot be retrieved, STOP and report to the user which step failed and why — do not guess Title, Number, or Level.
 
 ## Steps
 
@@ -53,6 +58,5 @@ Creates a Java solution class, test class, and README entry for a LeetCode probl
 ## Important
 - Do NOT implement the solution logic
 - Do NOT run tests after creating templates
-- Fetch LeetCode data with the Playwright CLI, not an MCP browser tool or web search
 - Never invent a method signature — if it can't be retrieved from LeetCode, stop and explain why instead of guessing
 - Never reorder the test class methods — test method first, `testData()` last

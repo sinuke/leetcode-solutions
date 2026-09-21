@@ -8,6 +8,4 @@ Select the solution type:
 - [Pandas](add-solution-pandas.md) — for LeetCode Pandas problems
 - [Shell](add-solution-shell.md) — for LeetCode Shell problems
 
-Each command creates the solution template, test template, and README entry.
-
-If the user omits level, number, or title, extract them from the provided link.
+Each command takes only the LeetCode problem link — level, number, and title are fetched from the LeetCode page via the Playwright CLI, not asked for or guessed.

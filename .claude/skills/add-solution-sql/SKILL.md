@@ -1,11 +1,7 @@
 ---
 name: add-solution-sql
-description: Creates a SQL solution query and test data files. Expects difficulty level, problem number, title, and LeetCode link as arguments.
-argument-hint: "[level], [number], [title], [link]"
+description: Creates a SQL solution query and test data files. Expects only a LeetCode problem link — level, number, and title are fetched from the page.
+argument-hint: "[link]"
 ---
 
-Read `.ai/commands/add-solution-sql.md` and follow its steps exactly, using:
-- Level: $ARGUMENTS[0]
-- Number: $ARGUMENTS[1]
-- Title: $ARGUMENTS[2]
-- Link: $ARGUMENTS[3]
+Read `.ai/commands/add-solution-sql.md` and follow its steps exactly, using Link: $ARGUMENTS[0].

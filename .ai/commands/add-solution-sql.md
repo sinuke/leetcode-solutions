@@ -3,10 +3,15 @@
 Creates a SQL solution query and test data files for a LeetCode SQL problem.
 
 ## Arguments
-- Level: easy, medium, or hard
-- Number: LeetCode problem number
-- Title: Problem title (used as directory name)
 - Link: LeetCode problem URL
+
+## Fetch problem data
+Fetch the problem page at Link using the Playwright CLI (not an MCP browser tool or web search) and extract:
+- Title: exact problem title (used as directory name)
+- Number: LeetCode problem number
+- Level: difficulty shown on the page — Easy → `easy`, Medium → `medium`, Hard → `hard`
+
+If the page or its data cannot be retrieved, STOP and report to the user which step failed and why — do not guess Title, Number, or Level.
 
 ## Steps
 
@@ -42,4 +47,3 @@ Creates a SQL solution query and test data files for a LeetCode SQL problem.
 ## Important
 - Do NOT implement the solution logic
 - Do NOT run tests after creating templates
-- Fetch LeetCode data with the Playwright CLI, not an MCP browser tool or web search
