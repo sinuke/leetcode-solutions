@@ -48,10 +48,12 @@ Examples:
 package com.sinuke.{level};
 
 public class {ClassName} {
+    
     // LeetCode method stub — copy exact signature from LeetCode
     public ... methodName(...) {
         // TODO: implement solution
     }
+    
 }
 ```
 
@@ -100,21 +102,25 @@ class {ClassName}Test {
 **AddBinary** (`easy-level/src/main/java/com/sinuke/easy/AddBinary.java`):
 ```java
 public class AddBinary {
+    
     public String addBinary(String a, String b) {
         // stub
     }
+    
 }
 ```
 
 **Test** (`easy-level/src/test/java/com/sinuke/easy/AddBinaryTest.java`):
 ```java
 class AddBinaryTest {
+    
     @ParameterizedTest
     @MethodSource("testData")
     void addBinary(String a, String b, String expected) {
         var addBinary = new AddBinary();
         assertEquals(expected, addBinary.addBinary(a, b));
     }
+    
     private static Stream<Arguments> testData() {
         return Stream.of(
                 Arguments.of("11", "1", "100"),
@@ -122,6 +128,7 @@ class AddBinaryTest {
                 Arguments.of("0", "0", "0")
         );
     }
+    
 }
 ```
 
