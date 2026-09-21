@@ -46,5 +46,6 @@ bin/
 .codemie
 .claude/settings.local.json
 .playwright-mcp
+.playwright-cli
 .omo
 .opencode
