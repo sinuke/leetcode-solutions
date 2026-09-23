@@ -7,9 +7,9 @@ This file provides project-wide instructions for any AI coding agent working on 
 Multi-module Gradle project (Java 25) containing LeetCode solutions:
 
 - **`common`** — Shared infrastructure (base test classes, runners, data structures)
-- **`easy-level`** — Easy difficulty solutions (Java, SQL, JS, Pandas, Shell)
-- **`medium-level`** — Medium difficulty solutions (Java, SQL)
-- **`hard-level`** — Hard difficulty solutions (Java, SQL)
+- **`easy-level`** — Easy difficulty solutions
+- **`medium-level`** — Medium difficulty solutions
+- **`hard-level`** — Hard difficulty solutions
 
 LeetCode profile: https://leetcode.com/u/sinuke/
 
@@ -146,7 +146,7 @@ class AddBinaryTest {
 
 ### Rules
 - Every `CREATE TABLE` must be preceded by `DROP TABLE IF EXISTS {table_name};`
-- Runs against MySQL 9.7.0 via TestContainers
+- Runs against MySQL via TestContainers
 - Test infrastructure in `common/src/main/java/com/sinuke/common/SQLSolutionsTest.java`
 
 ### test-data.json Format
@@ -358,4 +358,4 @@ The following are gitignored and should not be committed:
 - `.opencode/` — OpenCode configuration
 - `.codemie` — CodeMie agent configuration
 - `.claude/settings.local.json` — Local Claude settings
-- `.playwright-mcp/` — Playwright MCP data
+- `.playwright-*/` — Playwright MCP/CLI data
