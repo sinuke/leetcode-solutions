@@ -3,8 +3,8 @@ package com.sinuke.easy;
 public class FindLosersOfCircularGame {
 
     public int[] circularGameLosers(int n, int k) {
-        int round = 1, i = 1, cnt = 0;
-        byte[] p = new byte[n + 1];
+        int round = 1, i = 0, cnt = 0;
+        byte[] p = new byte[n];
         while (p[i] != 1) {
             p[i] = 1;
             cnt++;
@@ -14,8 +14,8 @@ public class FindLosersOfCircularGame {
 
         int[] losers = new int[n - cnt];
         i = 0;
-        for (int j = 1; j <= n; j++) {
-            if (p[j] == 0) losers[i++] = j;
+        for (int j = 0; j < n; j++) {
+            if (p[j] == 0) losers[i++] = j + 1;
         }
         return losers;
     }
