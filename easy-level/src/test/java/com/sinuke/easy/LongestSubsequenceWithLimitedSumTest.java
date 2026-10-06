@@ -15,6 +15,7 @@ class LongestSubsequenceWithLimitedSumTest {
     void answerQueries(int[] nums, int[] queries, int[] expected) {
         var solution = new LongestSubsequenceWithLimitedSum();
         assertArrayEquals(expected, solution.answerQueries(nums, queries));
+        assertArrayEquals(expected, solution.answerQueries2(nums, queries));
     }
 
     private static Stream<Arguments> testData() {
