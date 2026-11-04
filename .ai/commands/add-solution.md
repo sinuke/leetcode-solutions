@@ -8,4 +8,4 @@ Select the solution type:
 - [Pandas](add-solution-pandas.md) — for LeetCode Pandas problems
 - [Shell](add-solution-shell.md) — for LeetCode Shell problems
 
-Each command takes only the LeetCode problem link — level, number, and title are fetched from the LeetCode page via the Playwright CLI, not asked for or guessed.
+Each command takes only the LeetCode problem link — level, number, and title are fetched from LeetCode's GraphQL endpoint (`https://leetcode.com/graphql`) with `curl`, not asked for or guessed. Title is always taken from the fetched data, never derived from the URL.
