@@ -10,6 +10,6 @@ Solutions:
 
 Used:
 * Java 25
-* Gradle 9.8.2
+* Gradle 9.9.0
 * Test Containers 2.0.5 for MySQL 26.10.0
 * AI skills (`/add-solution-java`, `/add-solution-sql`, `/add-solution-js`, `/add-solution-pandas`, `/add-solution-shell`) are used only for add solution templates to the repo. They aren't used to generate solutions
