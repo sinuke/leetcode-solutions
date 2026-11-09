@@ -19,6 +19,8 @@ public class DesignTwitter {
         }
 
         public List<Integer> getNewsFeed(int userId) {
+            if (!users.containsKey(userId)) return List.of();
+
             PriorityQueue<Tweet> tweets = new PriorityQueue<>(users.get(userId).tweets);
             for (int id : users.get(userId).follows) tweets.addAll(users.get(id).tweets);
 
@@ -30,10 +32,16 @@ public class DesignTwitter {
         }
 
         public void follow(int followerId, int followeeId) {
+            users.putIfAbsent(followerId, new User(followerId));
+            users.putIfAbsent(followeeId, new User(followeeId));
+
             users.get(followerId).follows.add(followeeId);
         }
 
         public void unfollow(int followerId, int followeeId) {
+            users.putIfAbsent(followerId, new User(followerId));
+            users.putIfAbsent(followeeId, new User(followeeId));
+
             users.get(followerId).follows.remove(followeeId);
         }
 
