@@ -74,6 +74,22 @@ If curl fails, the response contains `errors`, `data.question` is `null`, or `co
 
 4. **Print paths**: Print full paths of all created files.
 
+## Design problems
+Apply this section when the title starts with "Design" or the LeetCode Java stub is a class (constructor plus methods) instead of a single method. Examples in the repo: `DesignTwitter`, `DesignCircularQueue`, `DesignBrowserHistory`, `DesignLRUCache`.
+
+- **Naming**: outer class `Design{PascalCaseTitle}` (e.g. "Design Twitter" → `DesignTwitter`, "LRU Cache" → `DesignLRUCache`; do not repeat "Design" if the title already has it). Nested `public static class` uses the exact class name from the LeetCode Java stub (`Twitter`, `MyCircularQueue`, `LRUCache`).
+- **Solution file**: `Design{PascalCaseTitle}.java` with the nested class. Constructor and `void` methods get `// TODO: implement solution` and an empty body. Non-void methods get the TODO plus `throw new UnsupportedOperationException();`, so the file compiles.
+- **Test file**: `Design{PascalCaseTitle}Test.java` does not use the standard `var solution = new ...` shape. Follow `DesignCircularQueueTest` / `DesignTwitterTest`:
+  - Signature `void {camelCaseTitle}Test(String[] operations, Object[] values, Object[] expected)`. Use `Integer[]` instead of `Object[]` for `values` only when every value is a single int.
+  - Declare `DesignX.NestedClass solution = null;` and loop over `operations`, switching on the operation name.
+  - The constructor operation (named after the nested class) creates the instance, with `actual[i] = null`.
+  - Void operations set `actual[i] = null`. Multi-argument operations take an `int[]` in `values[i]`. Single-argument operations take the value directly and cast it.
+  - `default` throws `IllegalArgumentException("Unknown operation " + operations[i])`.
+  - Expected data: `null` for void operations, otherwise the returned value. Assert with `assertArrayEquals(expected, actual)`.
+  - Test data: the first case is the LeetCode example. Add one or two extra cases for edge behavior, such as eviction, updates, or empty state.
+  - Method order rules still apply: the `@ParameterizedTest` method first, `testData()` last.
+- **README**: link both files as usual, with the `Design{PascalCaseTitle}` names.
+
 ## Important
 - Do NOT implement the solution logic
 - Do NOT run tests after creating templates
