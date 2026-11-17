@@ -32,10 +32,12 @@ public class DesignRideSharingSystem {
         }
 
         public int[] matchDriverWithRider() {
+            if (drivers.size() == 0 || riders.size() == 0) return new int[] {-1, -1};
+
             var d = drivers.poll();
             var r = riders.poll();
 
-            return (d == null || r == null) ? new int[] {-1, -1} : new int[] {d.id, r.id};
+            return new int[] {d.id, r.id};
         }
 
         public void cancelRider(int riderId) {
@@ -59,6 +61,7 @@ public class DesignRideSharingSystem {
 
             private Item head;
             private Item tail;
+            private int cnt;
 
             public void add(Item item) {
                 if (head == null) {
@@ -69,6 +72,7 @@ public class DesignRideSharingSystem {
                     item.prev = tail;
                     tail = item;
                 }
+                cnt++;
             }
 
             public Item poll() {
@@ -81,6 +85,7 @@ public class DesignRideSharingSystem {
                 else tail = null;
 
                 result.next = null;
+                cnt--;
                 return result;
             }
 
@@ -95,6 +100,11 @@ public class DesignRideSharingSystem {
 
                 item.prev = null;
                 item.next = null;
+                cnt--;
+            }
+
+            public int size() {
+                return cnt;
             }
 
         }
